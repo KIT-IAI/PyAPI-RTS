@@ -1,0 +1,64 @@
+
+# This file was generated with ClassExtractor
+
+from typing import Any
+from math import sqrt, sin, cos, tan
+from pyapi_rts.api.component import Component
+from pyapi_rts.api.parameters.parameter import Parameter
+from pyapi_rts.api.parameters.connection_point import ConnectionPoint
+from pyapi_rts.shared import ParameterCondition, ParameterConditionOperator, OperatorChainOperator, ParameterBoundProperty, BoundingBox
+from pyapi_rts.shared.stretchable import Stretchable
+from pyapi_rts.shared.node_type import NodeType, NodeIO
+
+from pyapi_rts.api.parameters.parameter_collection import ParameterCollection
+
+FOREACH_TYPE:from {{TypePath}} import {{TypeParam}}
+
+class {{TypeName}}(Component):
+    DOCSTR:
+
+    _COMPONENT_TYPE_NAME = "{{name}}"
+
+    def __init__(self) -> None:
+        super().__init__(type_name=self._COMPONENT_TYPE_NAME)
+        FOREACH_PARAM:self.{{name}} : {{TypeParam}} = {{TypeParam}}("{{key}}", {{default}}, True)
+        FOREACH_COLL:self.{{name}} : {{TypeParam}} = {{TypeParam}}()
+        self._name_parameter_key: str = {{name_param_key}}
+        TAGS[is_connecting]:self._is_connecting = {{value}}
+        TAGS[is_hierarchy_connecting]:self._is_hierarchy_connecting = {{value}}
+        TAGS[is_label]:self._is_label = {{value}}
+        RECT_INIT:
+
+        self._parameters = {
+            FOREACH_PARAM:"{{key}}": self.{{name}},
+        }
+
+        self._computations = {
+            FOREACH_COMP:"{{name_esc}}": self.{{name_parameter}},
+        }
+
+        self._collections = [
+            FOREACH_COLL:self.{{name}},
+        ]
+
+    def get_special_value(self, key: str) -> str:
+        try:
+            key_result = self.get_by_key(key)
+            if key_result is not None and key_result != "":
+                return key_result
+        except:
+            pass
+        return super().get_special_value(key)
+    
+    def as_dict(self) -> dict[str, Parameter]:
+        return {
+            FOREACH_COMP:"{{name_esc}}": self.{{name_parameter}}(),
+        } | {
+            FOREACH_PARAM:"{{key}}":self.{{name}},
+        } | \
+            FOREACH_COLL:self.{{name}}.as_dict()|\
+        {}
+
+    FOREACH_COMP:{{method}}
+    
+    RECT_FUNC:

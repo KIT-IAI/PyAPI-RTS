@@ -1,0 +1,351 @@
+DRAFT 1.2
+GRAPHICS: 
+    CANVAS_WIDTH: 3316
+    CANVAS_HEIGHT: 1110
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Jul 13, 2022 (ah4430)
+    LAST-MODIFIED: Jul 13, 2022 (ah4430)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 1
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=WIRE
+	144 208 1 0 6
+	PARAMETERS-START:
+	x1	:-32
+	y1	:0
+	x2	:0
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=capacitor
+	144 144 1 0 1
+	PARAMETERS-START:
+	C	:$SP1Cpv
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	272 112 0 0 6
+	PARAMETERS-START:
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	560 144 0 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_PVv2.def
+	432 176 0 1 53
+	PARAMETERS-START:
+	Name	:PV1Array#
+	Model_Type	:Single Diode Five Parameter Model
+	calcPara	:Analytical Method
+	EMPP	:Yes
+	MPPT	:Lambert function approximation
+	EnbShd	:No
+	Mon	:Yes
+	Nc	:36
+	Ncp	:4
+	Vocref	:21.7
+	Iscref	:3.35
+	Vmpref	:17.4
+	Impref	:3.05
+	Eg	:Monocrystalline Silicon
+	Jtmp	:0.065
+	Kv	:-0.56
+	Tref	:25
+	INSref	:1000
+	Rso	:0.5
+	Rsho	:1000.0
+	Ns	:29
+	Np	:164
+	bypDs	:No
+	blkDd	:No
+	ShdMds	:50
+	ShdMdstrgs	:50
+	ShdStrtOpt	:RUNTIME
+	ShdStrt	:0.85
+	ShdStrtCC	:INS#
+	EIpv	:Yes
+	EIph	:No
+	Ea	:No
+	EIo	:No
+	EVoc	:Yes
+	ERs	:No
+	ERsh	:No
+	EVshd	:No
+	EVunshd	:No
+	Ipv_name	:PV1IpvIn#
+	Iph_name	:Iph1#
+	a_name	:a1#
+	Io_name	:Io1#
+	Voc_name	:PV1VocPV#
+	Rs_name	:Rs1#
+	Rsh_name	:Rsh1#
+	Vshd_name	:Vshd1#
+	Vunshd_name	:Vunshd1#
+	AorM	:Automatic
+	CARD	:6
+	Rprc	:A
+	Aprc	:Either
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_1phbkr
+	208 112 0 0 17
+	PARAMETERS-START:
+	Name	:PV1Brk3#
+	mon	:No
+	shwr	:No
+	roff	:1.E6
+	ron	:1.0e-3
+	holdi	:0.0
+	swdnm	:DBlk2#
+	bitw	:1
+	crtnm	:IB1A#
+	Maxi	:2.0
+	Mini	:-2.0
+	niti	:kA
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	272 240 0 0 3
+	PARAMETERS-START:
+	Name	:PV1VpvMPP#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	144 112 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_node
+	272 112 2 0 4
+	PARAMETERS-START:
+	NName	:PV1VpvP#
+	NNumb	:19
+	VBase	:187.79
+	linkNode	:No
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	560 208 0 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	304 144 1 0 6
+	PARAMETERS-START:
+	x1	:-32
+	y1	:0
+	x2	:0
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	272 240 0 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	144 112 0 0 6
+	PARAMETERS-START:
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	208 208 0 0 6
+	PARAMETERS-START:
+	x1	:-96
+	y1	:0
+	x2	:96
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_ctl_SLIDER
+	784 144 0 0 5
+	PARAMETERS-START:
+	Name	:InsolPV#
+	Init	:1000.0
+	Max	:2000.0
+	Min	:500.0
+	Units	:W/m^2
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	848 144 0 0 3
+	PARAMETERS-START:
+	Name	:InsolPV#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	816 144 0 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	592 144 0 0 3
+	PARAMETERS-START:
+	Name	:InsolPV#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	592 208 0 0 3
+	PARAMETERS-START:
+	Name	:TempPV#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+SUBSYSTEM-END:

@@ -1,0 +1,396 @@
+DRAFT 1.2
+GRAPHICS: 
+    CANVAS_WIDTH: 2022
+    CANVAS_HEIGHT: 951
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: May 20, 2022 (ah4430)
+    LAST-MODIFIED: May 20, 2022 (ah4430)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 1
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+QA_rtds_sharc_sld_BUSLABEL:2,QA_HIERARCHY:2,348da172-0a57-49cd-a2fc-cbeaf275f93f1:2,
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	144 368 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:Yes
+	sameNames	:Yes
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SRC
+	144 464 3 0 107
+	PARAMETERS-START:
+	Name	:SRC#
+	Type	:R-R//L
+	Tc	:0.05
+	ZSeq	:No
+	Imp	:RRL Values
+	DynmImp	:Static
+	srcBrk	:No
+	WvType	:AC
+	Sctrl	:RunTime
+	Spec	:Behind Impedance
+	phview	:SLD view
+	R1s	:1.0
+	R1p	:1.0
+	L1p	:0.1
+	R0p	:1.0
+	L0p	:0.1
+	ImpCtlSrc	:RunTime
+	R2signalCC	:R1s#
+	R1signalCC	:R1p#
+	L1signalCC	:L1p#
+	R0signalCC	:R0#
+	L0signalCC	:L0#
+	Tcc	:0.1
+	AorM	:Automatic
+	Aprc	:Either
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	ZType	:R//L
+	SMod	:Internal
+	Es	:230.0
+	F0	:60.0
+	Ph	:0.0
+	AFmod	:Frequency
+	Esm	:0.1
+	F0m	:1.0
+	Phm	:0.0
+	IMod	:Fmod#
+	AMmod	:Amod#
+	NHarm	:1
+	HN1	:2
+	Mag1	:0.05
+	Ph1	:0.0
+	HN2	:2
+	Mag2	:0.05
+	Ph2	:0.0
+	HN3	:2
+	Mag3	:0.05
+	Ph3	:0.0
+	HN4	:2
+	Mag4	:0.05
+	Ph4	:0.0
+	vBase	:230.0
+	mvaBase	:100.0
+	Et	:1.0
+	Pht	:0.0
+	NOTE1	:
+	NOTE2	:
+	P	:100.0
+	Q	:50.0
+	Pt	:100.0
+	Qt	:50.0
+	Esd	:100.0
+	F	:60.0
+	Z1	:1.0
+	Phi1	:80.0
+	RN	:2.0
+	Z0	:1.0
+	Phi0	:80.0
+	ieee2	:ieee
+	Pmon	:No
+	Qmon	:No
+	MLoc	:Terminal
+	Tcp	:0.0
+	Imon	:No
+	Vmon	:No
+	IMPmon	:No
+	Pnam	:P#
+	Qnam	:Q#
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	VAnam	:VA#
+	VBnam	:VB#
+	VCnam	:VC#
+	L0nam	:L0mon#
+	R0nam	:R0mon#
+	R1Snam	:R1Smon#
+	R1Pnam	:R1Pmon#
+	L1Pnam	:L1Pmon#
+	CNVGnam	:Converged#
+	Tf	:0.10
+	Rf	:0.50
+	A1PosY	:-32
+	C1PosY	:32
+	LFIdent	:0
+	P_L1	:0.0
+	Q_L1	:0.0
+	TrigSigCC	:ImpTrig#
+	brkOpnRes	:1.0e6
+	brkClsRes	:1.0e-4
+	stat	:Closed
+	swdnm	:SBKWORD#
+	Abit	:1
+	Bbit	:1
+	Cbit	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=ground
+	144 496 1 0 0
+COMPONENT_TYPE=BUS
+	144 400 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:RED
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	656 176 0 0 38
+	PARAMETERS-START:
+	Name	:box#
+	FCOL	:BLACK
+	BCOL	:WHITE
+	LW	:1.0
+	DESC1	:Description
+	DESC2	:continued
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:0
+	x1	:-96
+	y1	:-96
+	x2	:96
+	y2	:96
+	canvasX	:10
+	canvasY	:10
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:500
+	canvasHeight	:300
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	240 80 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:Yes
+	sameNames	:Yes
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	240 112 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:RED
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	240 176 0 0 80
+	PARAMETERS-START:
+	Name	:RLDload#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:230
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.1
+	Tm	:0.1
+	Pinit	:100
+	Pmin	:0.1
+	Pmax	:1000
+	Qinit	:100
+	Qmin	:0.1
+	Qmax	:1000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:No
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.01
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+SUBSYSTEM-END:

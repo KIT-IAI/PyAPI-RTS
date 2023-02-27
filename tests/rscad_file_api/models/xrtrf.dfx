@@ -1,0 +1,194 @@
+DRAFT 1.2
+GRAPHICS: 
+    CANVAS_WIDTH: 1420
+    CANVAS_HEIGHT: 584
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Jun 3, 2022 (JoEn)
+    LAST-MODIFIED: Jun 3, 2022 (JoEn)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 0
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+ea283ecd-3957-4367-a828-997b56e57a55-1:10,
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=lf_rtds_XRTRF3
+	144 240 0 0 32
+	PARAMETERS-START:
+	Tnam1	:TERMSE#
+	Name	:T3P2WXR#
+	SERE	:SE
+	YD1	:Y
+	YD2	:Y
+	Lead	:Lags
+	phview	:SLD view
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	Tmva	:100.
+	freq	:60.
+	XL	:0.05
+	Rpu	:0.001
+	V1	:10.
+	V2	:10.
+	Vratep	:10.
+	Vrates	:10.
+	pI1a	:NO
+	pI1b	:NO
+	pI1c	:NO
+	nI1a	:IASE#
+	nI1b	:IBSE#
+	nI1c	:ICSE#
+	A1PosY	:-32
+	C1PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+SUBSYSTEM-END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=lf_rtds_XRTRF3
+	240 208 0 0 32
+	PARAMETERS-START:
+	Tnam1	:TERMSE#
+	Name	:T3P2WXR#
+	SERE	:SE
+	YD1	:Y
+	YD2	:Y
+	Lead	:Lags
+	phview	:SLD view
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	Tmva	:100.
+	freq	:60.
+	XL	:0.05
+	Rpu	:0.001
+	V1	:10.
+	V2	:10.
+	Vratep	:10.
+	Vrates	:10.
+	pI1a	:NO
+	pI1b	:NO
+	pI1c	:NO
+	nI1a	:IASE#
+	nI1b	:IBSE#
+	nI1c	:ICSE#
+	A1PosY	:-32
+	C1PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=rtds_XRTRF1
+	240 464 0 0 26
+	PARAMETERS-START:
+	Tnam1	:TERMSE#
+	Name	:TRFXR#
+	SERE	:SE
+	tapch	:No
+	enscl	:No
+	suerr	:No
+	Tmva	:33.3333
+	freq	:60.
+	XL	:0.05
+	Rpu	:0.001
+	V1	:10.
+	V2	:10.
+	namtp	:TAP#
+	tcntp	:0.1
+	tpupr	:1.4
+	tplwr	:0.7
+	tpini	:1.0
+	namsc	:SCL#
+	tcnsc	:0.1
+	scupr	:1.0
+	sclwr	:1.0
+	scini	:1.0
+	pI1	:NO
+	spI1	:NO
+	nI1	:ISE#
+	snI1	:ISCALED#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+SUBSYSTEM-END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=rtds_XRTRF1
+	208 208 0 0 26
+	PARAMETERS-START:
+	Tnam1	:TERMSE#
+	Name	:TRFXR#
+	SERE	:SE
+	tapch	:No
+	enscl	:No
+	suerr	:No
+	Tmva	:33.3333
+	freq	:60.
+	XL	:0.05
+	Rpu	:0.001
+	V1	:10.
+	V2	:10.
+	namtp	:TAP#
+	tcntp	:0.1
+	tpupr	:1.4
+	tplwr	:0.7
+	tpini	:1.0
+	namsc	:SCL#
+	tcnsc	:0.1
+	scupr	:1.0
+	sclwr	:1.0
+	scini	:1.0
+	pI1	:NO
+	spI1	:NO
+	nI1	:ISE#
+	snI1	:ISCALED#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+SUBSYSTEM-END:

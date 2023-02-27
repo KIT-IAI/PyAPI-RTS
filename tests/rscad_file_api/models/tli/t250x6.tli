@@ -1,0 +1,72 @@
+Line Summary:
+  {
+  Line Name = t250x6
+  Line Length = 250.0
+  Steady State Frequency = 60.0
+  Number of Conductors = 6
+  }
+Line Constants Ground Data:
+  {
+  Ground Resistivity Type = 0
+  GroundResistivity = 100.0
+  GroundPermeability = 1.0
+  EarthImpedanceFormula = 0
+  }
+Bergeron Line Model Options:
+  {
+  Interpolate Travel Times = 1
+  Infinite Line Length = 0
+  High Frequency Approximation = 0
+  }
+Line Constants Tower:
+  {
+!RTDS_ROW_OFFSET = 0.0
+!RTDS_LIBRARY_NAME = Manual
+  Name = notused
+  Circuit = 1
+    {
+!RTDS_PRESET = [<User>]
+!RTDS_NAME = [Chukar      ]
+    Transposed = 1
+    Conductors = 6
+    Conductor Phase Information = 1 2 3 4 5 6 
+    Radius = 0.0203454
+    DCResistance = 0.03206
+    Conductor Relative Permeability = 1.0
+    ShuntConductance = 1.0E-11
+    P1 = -30.0 30.0
+    P2 = -20.0 30.0
+    P3 = -10.0 30.0
+    P4 = 10.0 30.0
+    P5 = 20.0 30.0
+    P6 = 30.0 30.0
+!RTDS_ROW_P_1 = -30.0 30.0
+!RTDS_ROW_P_2 = -20.0 30.0
+!RTDS_ROW_P_3 = -10.0 30.0
+!RTDS_ROW_P_4 = 10.0 30.0
+!RTDS_ROW_P_5 = 20.0 30.0
+!RTDS_ROW_P_6 = 30.0 30.0
+    Sag = 10.0
+    Sub-ConductorsPerBundle = 2
+     {
+     BundleSpacing = 0.4572
+     }
+    }
+  GroundWires = 4
+    {
+!RTDS_PRESET = [<User>]
+!RTDS_NAME = [7/16 Steel  ]
+    Eliminate Ground Wires = 1
+    Radius = 0.0055245
+    DCResistance = 2.8645
+    P1 = -25.0 35.0
+    P2 = -15.0 35.0
+    P3 = 15.0 35.0
+    P4 = 25.0 35.0
+!RTDS_ROW_P_1 = -25.0 35.0
+!RTDS_ROW_P_2 = -15.0 35.0
+!RTDS_ROW_P_3 = 15.0 35.0
+!RTDS_ROW_P_4 = 25.0 35.0
+    Sag = 10.0
+    }
+  }

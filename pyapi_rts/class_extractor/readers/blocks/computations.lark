@@ -1,0 +1,152 @@
+// imports WORD from library
+%import common.WORD
+%import common.NUMBER   
+%import common.LF
+%import common.ESCAPED_STRING
+
+// Disregard spaces in text
+%ignore " "           
+%ignore /\t/
+
+// A bunch of words
+_LF: LF
+start: line			
+
+// Allow optional punctuation after each word
+
+number: /-?\d+(\.\d*)?/ | /-?\d+(\.\d*)?[eE]-?\+?\d+/ | /0x[0-9,a-f,A-F]+/
+string: ("\"" /[A-z0-9_\/\\\|^-]+/ "\"") | /\"\s*\"/
+TYPE: "INTEGER" | "REAL" | "STRING"
+
+line: ("STATIC "? TYPE? /[\w']+/ "=" statement) | condition_line
+
+condition_line: /#IF.*/ | /#ELSE.*/ | /#ENDIF.*/ | /#END.*/
+
+variable: /\$/? /[\w'\.@_]+/
+
+statement: 
+| number 
+| string 
+| variable 
+| shift
+| condition
+| _arithmetic 
+| boolean_exp
+| _special
+
+_arithmetic: 
+| multiplication 
+| division
+| addition 
+| subtraction  
+| sqrt 
+| pow
+| sin
+| cos
+| tan
+
+_special : 
+| concat 
+| internal_function 
+//| function_args
+| hex_to_int 
+| strlen 
+| calc_nm_cond 
+| pick_wye_delta 
+| lead_lag 
+| p_q_calc
+| p_q_calc_i
+| filt_data
+| calc_l
+| pick_model
+| fixedimpedance
+| types_lf
+| requiv
+| xequiv
+| pickmodel
+| acos
+| rnet_calc_pi_yz
+| rcal
+| loadf
+| lcal
+| bcal
+| llcomp
+| pickvwgd
+| picknode
+| pickval
+| pcalci
+| pickv
+| pickval2
+| qcalci
+| groupname
+| plotname_units
+| getnpoint
+
+//function_args: /[\w_]+/ "(" (statement ",")* statement ")"
+
+concat: (statement "::")+ statement
+internal_function: WORD "()"
+
+hex_to_int: "convertHexToInt("i statement ")"
+strlen: "strlen("i statement ")"
+calc_nm_cond: "calculateNmCond("i statement ")"
+pick_wye_delta: "pick_Wye_Delta("i statement "," statement "," statement ")"
+lead_lag: "LeadLag("i (statement ",")~3 statement ")"
+p_q_calc: ("P"i | "Q"i ) "Calc("i statement "," statement ")"
+p_q_calc_i: ("P"i | "Q"i ) "CalcI("i statement "," statement "," statement ")"
+filt_data: "filtdata("i statement ")"
+calc_l: "calcL("i (statement ",")~6 statement ")"
+
+fixedimpedance: "FixedImpedance("i statement ")"
+types_lf: "typeS_LF("i (statement ",")~2 statement ")"
+requiv: "Requiv("i (statement ",")~6 statement ")"
+xequiv: "Xequiv("i (statement ",")~6 statement ")"
+pickmodel: "pickModel("i (statement ",")~2 statement ")"
+acos: "acos("i statement ")"
+rnet_calc_pi_yz: "rnet_calc_pi_yz("i statement "," statement "," statement ")"
+rcal: "RCal"i "(" statement "," statement ")"
+loadf: "LoadF"i "(" statement "," statement ")"
+lcal: "LCal"i "(" statement "," statement ")"
+bcal: "BCal"i "(" statement "," statement ")"
+llcomp: "LLComp("i (statement ",")~3 statement ")"
+pickvwgd: "pickVwgd("i (statement ",")~3 statement ")"
+picknode: "pickNode("i (statement ",")~4 statement ")" 
+pickval: "pickVal("i (statement ",")~3..4 statement ")"
+pcalci: "PCalcI("i (statement ",")~2 statement ")"
+pickv: "pickV("i (statement ",")~5 statement ")"
+pickval2: "pickVal2("i (statement ",")~4 statement ")"
+qcalci: "QCalcI("i (statement ",")~2 statement ")"
+groupname: "groupName("i statement ")"
+plotname_units: "plotname_units("i (statement ",")~7 statement ")"
+getnpoint: "getNpoint("i statement ")"
+pick_model: "pickModel("i statement "," statement "," statement ")"
+
+statement_br: /\(/ statement /\)/ | statement
+
+addition: (statement_br "+")+ statement_br // simple addition eg. a + b + c
+subtraction: (statement_br "-")+ statement_br // simple subtraction eg. a - b - c
+multiplication: statement_br "*" statement_br
+division: statement_br "/" statement_br
+sqrt: "sqrt("i statement ")"
+pow: statement_br "^" statement_br
+sin: "sin("i statement ")"
+cos: "cos("i statement ")"
+tan: "tan("i statement ")"
+SHIFT: ">>" | "<<"
+shift: statement_br SHIFT number
+
+condition: boolean_exp "?" statement_br ":" statement_br //if-else statement
+
+OPERATOR: "&&" | "||" | "&" | "|" 
+BOOL_OP: "==" | "!="| "=" | ">" | "<" | ">=" | "<="
+
+boolean_var: /!/? variable
+_boolean_inner:
+| statement_br OPERATOR statement_br
+| boolean_exp OPERATOR boolean_exp
+| statement_br BOOL_OP statement_br 
+| boolean_exp BOOL_OP boolean_exp
+boolean_exp: 
+| "(" _boolean_inner ")"
+| _boolean_inner
+| boolean_var

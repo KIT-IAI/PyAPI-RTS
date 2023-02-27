@@ -1,0 +1,332 @@
+DRAFT 1.2
+GRAPHICS: 
+    CANVAS_WIDTH: 1273
+    CANVAS_HEIGHT: 849
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Aug 1, 2022 (ah4430)
+    LAST-MODIFIED: Aug 1, 2022 (ah4430)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 1
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+QA_rtds_sharc_sld_BUSLABEL:2,
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	208 112 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 112 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	464 112 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		3
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	208 240 0 0 29
+	PARAMETERS-START:
+	BName	:BUSD#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		false
+		4
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 240 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		5
+		Integer
+		X#Y
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	464 240 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		X#Y
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	208 368 0 0 29
+	PARAMETERS-START:
+	BName	:BUSZ
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 368 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+SUBSYSTEM-END:

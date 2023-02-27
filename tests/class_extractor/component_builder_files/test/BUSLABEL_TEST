@@ -1,0 +1,248 @@
+Component Builder 0.1.0
+COMPILE-MODES:
+	RTDS
+	
+PARAMETERS:
+  SECTION: "Parameters"
+  	BName "BUS Name"                                     " "  12 NAME   BUS#
+	NA    "A Phase Node Name"                            " "   8 NAME   N#A 0      0           sameNames==0
+	NB    "B Phase Node Name"                            " "   8 NAME   N#B 0      0           sameNames==0
+	NC    "C Phase Node Name"                            " "   8 NAME   N#C 0      0           sameNames==0
+	VRate "Rated Line-Line Bus Voltage"                 "kV"  10 REAL   230.0
+
+    COL   "Bus Color"  "RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   RED	0	1	phview==0 && linkNodes==0
+    LW    "Bus Line Width"                    " "   5 REAL 1.0 0.0 10.0
+	COLA  "A Phase Node Color"  "RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   ORANGE	0	1	phview==1 && linkNodes==0
+    COLB  "B Phase Node Color"  "RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   RED	0	1	phview==1 && linkNodes==0
+	COLC  "C Phase Node Color"  "RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   RED	0	1	phview==1 && linkNodes==0
+	phview  "Single Line Diagram or three phase view"              "SLD view;Three phase view" 0 TOGGLE 0  0 1
+ 	linkNodes  "Link to nodes defined by another bus"              "No;Yes" 0 TOGGLE 0  0 0
+	sameNames  "Automatically Name Nodes based on Bus Name"              "No;Yes" 0 TOGGLE 0  0 0
+ SECTION: "Substep/Superstep Monitoring" getBoxParentType() >= 1
+    monVoltageA "Monitor A phase voltage" "NO;YES"            5 TOGGLE YES
+	monVoltageB "Monitor B phase voltage" "NO;YES"            5 TOGGLE YES
+	monVoltageC "Monitor C phase voltage m" "NO;YES"            5 TOGGLE YES
+  SECTION: "LOAD FLOW DATA"
+	Vi    "Variable name or Number for Initial Bus Voltage" "pu"  10 REAL     1.0
+	Ai    "Variable name or Number for Initial Bus Angle"   "deg"  10 REAL     0.0
+	Type  "Bus Type"              ";PQ BUS;PV BUS;SLACK"   6 TOGGLE   1
+	Vd    "Voltage Result (from loadflow)"          "pu"  10 REAL 1.0
+	Ad    "Angle Result (from loadflow)"           "deg"  10 REAL 1.0
+	Dis1  "Display bus type in icon?"           "No;Yes"   3 TOGGLE No
+  SECTION: "Linked Nodes" linkNodes==1
+	LCOL   "Bus Color"  			"RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   GREEN	0	1	phview==0
+	LCOLA  "A Phase Node Color"  	"RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   CYAN	0	1	phview==1
+    LCOLB  "B Phase Node Color"  	"RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   GREEN	0	1	phview==1
+	LCOLC  "C Phase Node Color"  	"RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   GREEN	0	1	phview==1
+  SECTION: "HIDDEN PARAMETERS" false
+	A1PosX  "A_1 PosX"                               " "   5 INTEGER  -32
+	C1PosX  "C_1 PosX"                               " "   5 INTEGER  32
+	Num   "BUS Number"                               " "   5 INTEGER  0
+GRAPHICS_TINY: 
+	SetColor(BLACK)			 
+	LINEWIDTH(3)
+	LINE(-25,-10,25,-10) LINE(0,0,0,-10)
+	SETCOLOR("BLACK")
+
+GRAPHICS:
+	If (phview==0)
+		If(linkNodes==0)
+			FontSize(8)
+			If (sameNames==0) 
+					TEXT(0,-17,($NA::" "::" "::" "::" "::$NB::" "::" "::" "::" "::$NC))
+			Else
+					TEXT(0,-17,($BName::"A "::" "::" "::" "::$BName::"B "::" "::" "::" "::$BName::"C"))
+			EndIf
+			FontSize(10)
+			SETCOLOR(COL)
+			LINEWIDTH(3)
+			LINE(-25,-10,25,-10)
+			LINE(0,0,0,-10)
+		Else
+			SETCOLOR(LCOL)
+			LINEWIDTH(3)
+			LINE(-25,-10,25,-10)
+			LINE(0,0,0,-10)
+			Line(-27,-10,-22,-15)
+			Line(-27,-10,-22,-5)
+			Line(27,-10,22,-15)
+			Line(27,-10,22,-5)
+			linewidth(5)
+			line(-2,-10,0,-8)
+			line(0,-12,2,-10)
+			linewidth(1)
+			SetColor("BLACK")
+			Line(0,-15,-5,-10)
+			Line(-5,-10,0,-5)
+			Line(0,-5,5,-10)
+			Line(5,-10,0,-15)
+			FontSize(8)
+			If (sameNames==0) 
+					TEXT(0,-17,($NA::" "::" "::" "::" "::$NB::" "::" "::" "::" "::$NC))
+			Else
+					TEXT(0,-17,($BName::"A "::" "::" "::" "::$BName::"B "::" "::" "::" "::$BName::"C"))
+			EndIf
+			FontSize(10)
+		EndIf
+		SETCOLOR("BLACK")
+		TEXT(0,-36,BName)
+		NOMIRROR
+		TEXT(-25,-26,Vd,0,4) FTEXT(0,-26,"/_") TEXT(25,-26,Ad,0,4)
+		If(Dis1,1)
+			TEXT(-25,4,Type)
+		EndIf
+	ElseIf (phview==1)
+		FontSize(10)
+		If(linkNodes==0)
+			SetColor(COLC)
+			FilledCircle($C1PosX,0,4)
+			SetColor(COLB)
+			FilledCircle(0,0,4)
+			If (sameNames==0) 
+					TEXT(0,-17,($NA::" "::" "::" "::" "::$NB::" "::" "::" "::" "::$NC))
+			Else
+					TEXT(0,-17,($BName::"A "::" "::" "::" "::$BName::"B "::" "::" "::" "::$BName::"C"))
+			EndIf
+			SetColor(COLA)
+			FilledCircle($A1PosX,0,4)
+		Else
+			SetColor(LCOLC)
+			linewidth(5)
+			line($C1PosX-2,0,$C1PosX,2)
+			line($C1PosX,-2,$C1PosX+2,0)
+			linewidth(1)
+			SetColor(LCOLB)
+			linewidth(5)
+			line(-2,0,0,2)
+			line(0,-2,2,0)
+			linewidth(1)
+			If (sameNames==0) 
+					TEXT(0,-17,($NA::" "::" "::" "::" "::$NB::" "::" "::" "::" "::$NC))
+			Else
+					TEXT(0,-17,($BName::"A "::" "::" "::" "::$BName::"B "::" "::" "::" "::$BName::"C"))
+			EndIf			
+			SetColor(LCOLA)
+			linewidth(5)
+			line($A1PosX-2,0,$A1PosX,2)
+			line($A1PosX,-2,$A1PosX+2,0)
+			linewidth(1)
+		EndIf
+		SetColor(Black)
+		TEXT(0,-36,BName)
+		NOMIRROR
+		TEXT(-25,-26,Vd,0,4) FTEXT(0,-26,"/_") TEXT(25,-26,Ad,0,4)
+	EndIf
+	
+GRAPHICS_LIBRARY:
+	FONTSIZE(12)
+	LineWidth(3)
+	LINE(-28,-20,28,-20) 
+	LINE(0,0,0,-20)
+	LineWidth(1)
+	FText(0,12,"Bus")
+	FText(0,25,"Label")
+	SETCOLOR(LIGHT_GRAY)
+	BOX(-36,-36,36,36)
+
+
+	
+COMPUTATIONS:
+  STRING  NA_   = sameNames > 0 ? ($BName::"A") : ($NA)
+  STRING  NB_   = sameNames > 0 ? ($BName::"B") : ($NB)
+  STRING  NC_   = sameNames > 0 ? ($BName::"C") : ($NC)
+  
+  INTEGER temp3     = dataType + temp1 + temp2
+
+NRT:
+    INTEGER NRT_ENABLED = 1
+	
+NODES:
+	#IF (phview==0)
+		#IF (getBoxParentType() >= 1)
+			#IF (linkNodes==1)
+				A_1  0 0     EXTERNAL PHASE=A_PHASE NAME_CONNECTED:LINKED $NA_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageA 
+				B_1  0 0     EXTERNAL PHASE=B_PHASE NAME_CONNECTED:LINKED $NB_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageB 
+				C_1  0 0     EXTERNAL PHASE=C_PHASE NAME_CONNECTED:LINKED $NC_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageC 
+			#ELSE
+				A_1  0 0   EXTERNAL PHASE=A_PHASE NAME_CONNECTED $NA_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageA 
+				B_1  0 0   EXTERNAL PHASE=B_PHASE NAME_CONNECTED $NB_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageB 
+				C_1  0 0   EXTERNAL PHASE=C_PHASE NAME_CONNECTED $NC_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageC
+		#END	
+		#ELSE
+			#IF (linkNodes==1)
+				A_1  0 0     EXTERNAL PHASE=A_PHASE NAME_CONNECTED:LINKED $NA_ $VRate 1.0 
+				B_1  0 0     EXTERNAL PHASE=B_PHASE NAME_CONNECTED:LINKED $NB_ $VRate 1.0 
+				C_1  0 0     EXTERNAL PHASE=C_PHASE NAME_CONNECTED:LINKED $NC_ $VRate 1.0 
+			#ELSE
+				A_1  0 0   EXTERNAL PHASE=A_PHASE NAME_CONNECTED $NA_ $VRate 1.0 
+				B_1  0 0   EXTERNAL PHASE=B_PHASE NAME_CONNECTED $NB_ $VRate 1.0 
+				C_1  0 0   EXTERNAL PHASE=C_PHASE NAME_CONNECTED $NC_ $VRate 1.0
+			#END	
+		#END		
+	#ELSEIF (phview==1)
+		#IF (getBoxParentType() >= 1)
+			#IF (linkNodes==1)
+				A_1  $A1PosX 0   EXTERNAL NAME_CONNECTED:LINKED $NA_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageA
+				B_1  0       0   EXTERNAL NAME_CONNECTED:LINKED $NB_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageB
+				C_1  $C1PosX 0   EXTERNAL NAME_CONNECTED:LINKED $NC_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageC			
+			#ELSE
+				A_1  $A1PosX 0   EXTERNAL NAME_CONNECTED $NA_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageA
+				B_1  0       0   EXTERNAL NAME_CONNECTED $NB_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageB
+				C_1  $C1PosX 0   EXTERNAL NAME_CONNECTED $NC_ $VRate 1.0 MONITOR_VOLTAGE=$monVoltageC
+			#END		
+		#ELSE
+			#IF (linkNodes==1)
+				A_1  $A1PosX 0   EXTERNAL NAME_CONNECTED:LINKED $NA_ $VRate 1.0
+				B_1  0       0   EXTERNAL NAME_CONNECTED:LINKED $NB_ $VRate 1.0
+				C_1  $C1PosX 0   EXTERNAL NAME_CONNECTED:LINKED $NC_ $VRate 1.0
+			#ELSE
+				A_1  $A1PosX 0   EXTERNAL NAME_CONNECTED $NA_ $VRate 1.0
+				B_1  0       0   EXTERNAL NAME_CONNECTED $NB_ $VRate 1.0
+				C_1  $C1PosX 0   EXTERNAL NAME_CONNECTED $NC_ $VRate 1.0
+			#END		
+		#END
+	#END
+	
+	
+FILTER:
+
+	$A_1  0  1.0 0.0 0.0 / -SHR_NOD 0 $NA_ 0 1 1.0 0
+	$B_1  0  1.0 0.0 0.0 / -SHR_NOD 0 $NB_ 0 1 1.0 0
+	$C_1  0  1.0 0.0 0.0 / -SHR_NOD 0 $NC_ 0 1 1.0 0
+
+LOADFLOW:
+	BUS: TYPE = $Type NAME=$BName
+	RAW: $Num, \'$BName\', $VRate, $Type, 0, 0, 1, 1, $Vi, $Ai / FDNE BusNodeName $NA_ $NB_ $NC_
+        RST:BUS: $Num, Vd, Ad
+		
+DESCRIPTION:
+	3 phase bus label
+	Required for loadflow
+	
+KEYWORDS:
+	bus label BUSLABEL DISTRIBUTION_SUPPORT
+
+DIRECTIVES:
+	NAME = BName
+	PSYS_NODE_LINKING_UNIQUE_PARMS = BName,NA_,NB_,NC_	
+	
+HELP:
+  Psys_manual.pdf:buslabel
+
+LIBRARY-DESCRIPTION:
+	Bus Label
+
+COMPONENT-DESCRIPTORS:
+	CLASSIFICATION:BUS
+	PHASES:3
+	MAINSTEP:YES
+	SUBSTEP:YES
+	SUPERSTEP:YES
+	SMALLDT:NO
+	GPES:NO
+	TWRT:NO
+	DIST:YES
+	DEPRECATED:NO
+
+
+

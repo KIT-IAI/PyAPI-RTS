@@ -1,0 +1,13 @@
+
+
+FOREACH_TYPE:from {{TypePath}} import {{TypeParam}}
+
+class {{name}}(ParameterCollection):
+    DOCSTR:
+    def __init__(self) -> None:
+        super().__init__()
+        FOREACH:self.{{name}} : {{TypeParam}} = {{TypeParam}}("{{key}}", {{default}}, True)
+
+        self._dict: dict[str, Parameter] = {
+            FOREACH:"{{key}}" : self.{{name}},
+        }

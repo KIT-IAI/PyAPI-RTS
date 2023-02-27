@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pyapi_rts"
+version = "0.1.0"
+description = ""
+authors = ["Moritz Weber <moritz.weber@kit.edu>"]
+exclude = ["pyapi_rts/class_extractor"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+networkx = "^2.8"
+progress = "^1.6"
+lark = "^1.1.2"
+ipykernel = "^6.15.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-xdist = "^2.5.0"
+pytest-cov = "^3.0.0"
+coverage = "^6.3.3"
+Sphinx = "^4.5.0"
+sphinx-rtd-theme = "^1.0.0"
+pytest-profiling = "^1.7.0"
+black = {version = "^22.3.0", allow-prereleases = true}
+matplotlib = "^3.5.2"
+numpy = "^1.23.1"
+vprof = "^0.38"
+scipy = "^1.9.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

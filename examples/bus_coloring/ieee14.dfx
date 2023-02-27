@@ -1,0 +1,8676 @@
+DRAFT 1.2rc3
+GRAPHICS: 
+    CANVAS_WIDTH: 1128
+    CANVAS_HEIGHT: 578
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 1586,1184
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Nov 23, 2021 (irfan)
+    LAST-MODIFIED: Nov 23, 2021 (irfan)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 1
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+    CIRCUIT_COMMENTS: Created by PSS2RSCAD Conversion Program Version 2.530000
+
+
+
+END_CIRCUIT_COMMENTS:
+COMPONENT_ENUMERATION_START:
+
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: Subsystem #1
+SUBSYSTEM-CANVAS-SIZE:9350,6400
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=BUS
+	1744 592 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-256
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1744 336 0 0 29
+	PARAMETERS-START:
+	BName	:BUS9#
+	NA	:A9#
+	NB	:B9#
+	NC	:C9#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0341
+	Ai	:-14.84
+	Type	:PQ BUS
+	Vd	:1.03426
+	Ad	:-14.85310
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:13
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_3P3W_TRF.def
+	1936 432 0 0 224
+	PARAMETERS-START:
+	Name	:T16#
+	type	:No
+	n3w	:Yes
+	tapCh	:No
+	edge	:Rising Edge
+	inps	:RunTime
+	Tmva	:100.0
+	f	:60.0
+	Xl12	:0.319130
+	Xl13	:0.286160
+	Xl23	:0.385270
+	r12	:0.0
+	r13	:0.0
+	r23	:0.0
+	nll	:0
+	phview	:SLD view
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	Aprc	:Either
+	AM	:NO
+	CORE	:1
+	YD1_W	:Y-g
+	YD1_3W	:Y
+	rot1	:Lags
+	V1	:18.0
+	Im1	:0
+	trfbrkP	:No
+	LDtype1	:R
+	Rg1	:10.0
+	Rs1	:10.0
+	Rp1	:10.0
+	LLp1	:1.0
+	CLp1	:1.0
+	YD2_W	:Y-g
+	YD2_3W	:Y
+	rot2	:Lags
+	V2	:17.604
+	Im2	:0
+	trfbrkS	:No
+	LDtype2	:R
+	Rg2	:10.0
+	Rs2	:10.0
+	Rp2	:10.0
+	LLp2	:1.0
+	CLp2	:1.0
+	YD3_W	:Delta
+	YD3_3W	:Delta
+	rot3	:Lags
+	V3	:18.0
+	Im3	:0
+	LDtype3W	:R
+	Rg3W	:10.0
+	Rs3W	:100
+	Rp3W	:100
+	LLp3W	:1.
+	CLp3W	:1.
+	LDtype3	:R
+	Rg3	:10.0
+	Rs3	:10.0
+	Rp3	:10.0
+	LLp3	:1.0
+	CLp3	:1.0
+	Sat	:#1
+	Xair	:0.2
+	Tdc	:100.0
+	Xknee	:1.25
+	hLoss	:LOOPWITDH
+	Lw	:30
+	hyl	:0.05
+	Edl	:0.05
+	useFX0	:NO
+	FXabc	:NO
+	nFX0	:FX0
+	nFX0B	:FX0B
+	nFX0C	:FX0C
+	Up	:UP
+	Down	:DOWN
+	Pos	:POS
+	NoTaps	:10
+	TR1	:5
+	step	:0.01
+	TR2	:1.0
+	limH	:1.2
+	limL	:0.8
+	P1	:0.80
+	P2	:0.85
+	P3	:0.90
+	P4	:0.95
+	P5	:1.00
+	P6	:1.05
+	P7	:1.10
+	P8	:1.15
+	P9	:1.20
+	P10	:1.25
+	P11	:1.26
+	P12	:1.27
+	P13	:1.28
+	P14	:1.29
+	P15	:1.30
+	P16	:1.31
+	P17	:1.32
+	P18	:1.33
+	P19	:1.34
+	P20	:1.35
+	P21	:1.36
+	P22	:1.37
+	P23	:1.38
+	P24	:1.39
+	P25	:1.40
+	P26	:1.41
+	P27	:1.42
+	P28	:1.43
+	P29	:1.44
+	P30	:1.45
+	P31	:1.46
+	P32	:1.47
+	P33	:1.48
+	P34	:1.49
+	P35	:1.50
+	P36	:1.51
+	P37	:1.52
+	P38	:1.53
+	P39	:1.54
+	P40	:1.55
+	P41	:1.56
+	P42	:1.57
+	P43	:1.58
+	P44	:1.59
+	P45	:1.60
+	P46	:1.61
+	P47	:1.62
+	P48	:1.63
+	P49	:1.64
+	P50	:1.65
+	Ropn1	:1.0e8
+	Rcls1	:0.01
+	Ropn2	:1.0e8
+	Rcls2	:0.01
+	statP	:Closed
+	statS	:Closed
+	swdnmP	:PBKWD
+	PBIT1	:1
+	PBIT2	:2
+	PBIT3	:3
+	swdnmS	:SBKWD
+	SBIT1	:1
+	SBIT2	:2
+	SBIT3	:3
+	pI1A	:NO
+	pI1B	:NO
+	pI1C	:NO
+	pI1N_	:NO
+	pV1N_	:NO
+	pI2A	:NO
+	pI2B	:NO
+	pI2C	:NO
+	pI2N_	:NO
+	pV2N_	:NO
+	pI3A	:NO
+	pI3B	:NO
+	pI3C	:NO
+	pV3A	:NO
+	pV3B	:NO
+	pV3C	:NO
+	pI3N_	:NO
+	pV3N_	:NO
+	dir1	:IN
+	dir2	:IN
+	dir3	:IN
+	nI1A	:I1A
+	nI1B	:I1B
+	nI1C	:I1C
+	nI1N	:I1N
+	nV1N	:V1N
+	nI2A	:I2A
+	nI2B	:I2B
+	nI2C	:I2C
+	nI2N	:I2N
+	nV2N	:V2N
+	nI3A	:I3A
+	nI3B	:I3B
+	nI3C	:I3C
+	nV3A	:V3A
+	nV3B	:V3B
+	nV3C	:V3C
+	nI3N	:I3N
+	nV3N	:V3N
+	mfa	:No
+	mfb	:No
+	mfc	:No
+	mma	:No
+	mmb	:No
+	mmc	:No
+	FXA	:FluxA
+	FXB	:FluxB
+	FXC	:FluxC
+	IMA	:IMA
+	IMB	:IMB
+	IMC	:IMC
+	BName	:BUS1
+	VSet	:1.0
+	VRate	:187.79
+	BusType	:1
+	Vd	:1.0
+	Ad	:1.0
+	Num	:14
+	ZBlk	:Yes
+	A1PosY	:-32
+	C1PosY	:32
+	A3PosX	:-32
+	C3PosX	:32
+	A2PosY	:-32
+	C2PosY	:32
+	sharp	:0.
+	ND	:0.0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	P_L2	:0.0
+	Q_L2	:0.0
+	HidePQ	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=ground
+	1872 496 1 0 0
+COMPONENT_TYPE=ground
+	2000 496 1 0 0
+COMPONENT_TYPE=BUS
+	2128 592 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-256
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1776 432 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2096 432 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1936 240 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	1808 208 0 0 38
+	PARAMETERS-START:
+	Name	:ss1box1#
+	FCOL	:BLACK
+	BCOL	:GREEN
+	LW	:1.0
+	DESC1	:SYNC8
+	DESC2	:BUS8x1
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:13
+	x1	:-64
+	y1	:-64
+	x2	:64
+	y2	:64
+	canvasX	:12
+	canvasY	:21
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:441
+	canvasHeight	:455
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=BUS
+	336 240 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:96
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_MACV31
+	80 240 0 0 210
+	PARAMETERS-START:
+	Name	:BUS8x1#
+	cnfg	:Generator
+	cfgr	:Two
+	trfa	:No
+	mmva	:25.000000
+	Vbsll	:18.000000
+	HTZ	:60.000000
+	satur	:Factors
+	MM	:No
+	spdin	:Rated
+	tecc	:No
+	vtcc	:Yes
+	trfmr	:No
+	ldmh1	:No
+	ldmh2	:No
+	Sbrk	:No
+	phview	:SLD view
+	Sbrkof	:1.0e3
+	Sbrkon	:1.0e-4
+	Sstat1	:Closed
+	Sswdnm	:SBKWORD
+	SAbit	:1
+	SBbit	:1
+	SCbit	:1
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	H	:3.410000
+	D	:0.0
+	MSW	:RunTime
+	spdmd	:Lock
+	inh	:No
+	ind	:No
+	upexw	:1.15
+	loexw	:0.85
+	Vmagn	:1.090000
+	Vangl	:-43.268746
+	P0	:0.000000
+	Q0	:24.227590
+	rmpc	:Yes
+	rmptc	:0.05
+	iszro	:No
+	izro	:No
+	Pt	:0.000000
+	Qt	:24.000000
+	ConFlag	:0
+	XS1	:1.0
+	XMD0	:1.0
+	X230	:1.0
+	X2D	:1.0
+	X3D	:1.0
+	XMQ	:1.0
+	X2Q	:1.0
+	X3Q	:1.0
+	RS1	:1.0
+	R2D	:1.0
+	R3D	:1.0
+	R2Q	:1.0
+	R3Q	:1.0
+	Xa	:0.145000
+	Xd	:1.724100
+	Xd'	:0.258600
+	Xd''	:0.202900
+	Gfld	:100.0
+	Bfld	:100.0
+	Xq	:1.658700
+	Xq'	:0.452400
+	Xq''	:0.202900
+	Ra	:0.000125
+	Tdo'	:3.826000
+	Tdo''	:0.022500
+	Tqo'	:0.508400
+	Tqo''	:0.022500
+	Mrzro	:0.000125
+	Mxzro	:0.145000
+	Rneut	:1.0e5
+	Xneut	:0.0
+	C1	:0.0
+	V1	:0.0
+	C2	:0.5
+	V2	:0.5
+	C3	:0.8
+	V3	:0.79
+	C4	:1.0
+	V4	:0.947
+	C5	:1.2
+	V5	:1.076
+	C6	:1.5
+	V6	:1.2
+	C7	:1.8
+	V7	:1.3
+	C8	:2.2
+	V8	:1.39
+	C9	:3.2
+	V9	:1.58
+	C10	:4.2
+	V10	:1.74
+	faccnfg	:Quadratic
+	SE10	:0.140000
+	SE12	:0.480000
+	vtpri	:1.0
+	vtsec	:1.0
+	dlagp	:Lags
+	TMVA	:1.0
+	trpos	:0.0
+	txpos	:0.1
+	itzro	:Yes
+	trzro	:0.0
+	txzro	:0.1
+	tloss	:0.000
+	ldr1	:1.0e6
+	ldl1	:1.0e6
+	ldc1	:1.0
+	ldr2	:1.0e6
+	ldl2	:1.0e6
+	ldc2	:1.0
+	tconp	:0.00
+	tconc	:0.00
+	tconv	:0.00
+	ledim	:Yes
+	ledvm	:Yes
+	lednt	:Yes
+	ledit	:Yes
+	mon1	:Yes
+	mon2	:Yes
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon17	:No
+	mon18	:No
+	mon29	:No
+	mon30	:No
+	mon19	:No
+	mon20	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon26	:No
+	mon27	:No
+	mon28	:No
+	nam1	:P8
+	nam2	:Q8
+	nam3	:LA5
+	nam4	:I5A
+	nam5	:I5B
+	nam6	:I5C
+	nam7	:IM5C
+	nam8	:Ed5
+	nam9	:Eq5
+	nam11	:Id5
+	nam12	:Iq5
+	nam13	:RA5
+	nam14	:In5
+	nam15	:Vn5
+	nam16	:V5A
+	nam17	:V5B
+	nam18	:V5C
+	nam29	:PsiD1
+	nam30	:PsiQ1
+	nam19	:PTRF5C
+	nam20	:QTRF5C
+	nam21	:ITRFA5C
+	nam22	:ITRFB5C
+	nam23	:ITRFC5C
+	nam26	:MACBVA1
+	nam27	:MACBVB1
+	nam28	:MACBVC1
+	pmc1_0	:0
+	pmc2_0	:0
+	pmc3_0	:0
+	pmc4_0	:0
+	pmc1_2	:0
+	pmc2_2	:0
+	pmc3_2	:0
+	pmc4_2	:0
+	nam_exT0_1	:PM10MACH1
+	nam_exT0_2	:PM20MACH1
+	nam_exT0_3	:PM30MACH1
+	nam_exT0_4	:PM40MACH1
+	nam_exT2_1	:PM12MACH1
+	nam_exT2_2	:PM22MACH1
+	nam_exT2_3	:PM32MACH1
+	nam_exT2_4	:PM42MACH1
+	A1PosX	:-32
+	C1PosX	:32
+	LFIdent	:2
+	Num	:0
+	Num2	:0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	Vi	:1.089370
+	Ai	:-13.262800
+	Type	:PV BUS
+	Vd	:1.0
+	Ad	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 304 0 0 3
+	PARAMETERS-START:
+	Name	:W8#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 176 2 0 3
+	PARAMETERS-START:
+	Name	:EF8#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	80 304 0 0 3
+	PARAMETERS-START:
+	Name	:TM8#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	112 176 2 0 3
+	PARAMETERS-START:
+	Name	:VGB8#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	304 240 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_ctl_SLIDER
+	48 336 0 0 5
+	PARAMETERS-START:
+	Name	:Tm8#
+	Init	:0.000000
+	Max	:1.2
+	Min	:0.0
+	Units	:pu
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	80 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_IEEET1.def
+	80 80 0 1 31
+	PARAMETERS-START:
+	Gen	:BUS8x1#
+	HTZ	:60.000000
+	PSS	:No
+	LDComp	:No
+	LFInit	:Yes
+	Vi	:-1.000000
+	incVuel	:No
+	incVoel	:No
+	spdMult	:No
+	Mon	:No
+	ivName	:excmon#
+	ctrlGrp	:1
+	Pri	:4
+	Tr	:0.000000
+	Ka	:6.200000
+	Ta	:0.050000
+	Vmx	:5.200000
+	Vmn	:-4.160000
+	Ke	:1.000000
+	Te	:0.830000
+	Kf	:0.057000
+	Tf	:0.500000
+	E1	:2.800000
+	Se1	:0.041000
+	E2	:3.800000
+	Se2	:0.368000
+	Cal	:abs(A)
+	Kvuel	:0
+	Kvoel	:0
+	VuelName	:VUEL#
+	VoelName	:VOEL#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	112 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 144 0 0 29
+	PARAMETERS-START:
+	BName	:BUS8#
+	NA	:A8#
+	NB	:B8#
+	NC	:C8#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.090
+	Ai	:-13.26
+	Type	:PV BUS
+	Vd	:1.09000
+	Ad	:-43.26875
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:12
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=BUS
+	1904 208 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1936 112 0 0 29
+	PARAMETERS-START:
+	BName	:BUS8#
+	NA	:A8#
+	NB	:B8#
+	NC	:C8#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.090
+	Ai	:-13.26
+	Type	:PV BUS
+	Vd	:1.09000
+	Ad	:-43.26875
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:12
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	2128 336 0 0 29
+	PARAMETERS-START:
+	BName	:BUS4#
+	NA	:A4#
+	NB	:B4#
+	NC	:C4#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0151
+	Ai	:-10.27
+	Type	:PQ BUS
+	Vd	:1.01523
+	Ad	:-10.26706
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:9
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2160 432 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	2224 432 3 0 80
+	PARAMETERS-START:
+	Name	:DL4#
+	type	:RC
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:47.800000
+	Pmin	:23.900000
+	Pmax	:95.600000
+	Qinit	:3.900000
+	Qmin	:1.950000
+	Qmax	:7.800000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:32
+	C1PosX	:-32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	2224 496 0 0 3
+	PARAMETERS-START:
+	AL1	:47.80 MW
+	AL2	:3.90 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1712 432 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	1648 432 1 0 80
+	PARAMETERS-START:
+	Name	:DL9#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:29.500000
+	Pmin	:14.750000
+	Pmax	:59.000000
+	Qinit	:16.600000
+	Qmin	:8.300000
+	Qmax	:33.200000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1648 496 0 0 3
+	PARAMETERS-START:
+	AL1	:29.50 MW
+	AL2	:16.60 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SHUNTCAP
+	1680 592 2 0 22
+	PARAMETERS-START:
+	CuF	:1.555527
+	type	:Y
+	NR	:No
+	Imon	:No
+	DA	:No
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	IABnam	:IAB#
+	IBCnam	:IBC#
+	ICAnam	:ICA#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:32
+	C1PosY	:-32
+	P_L0	:0.0
+	Q_L0	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1648 624 0 0 3
+	PARAMETERS-START:
+	AL1	:0.19 MVAr
+	AL2	:@ 18 kV
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1712 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TRF3P2W
+	1936 592 0 0 129
+	PARAMETERS-START:
+	Trf	:T15#
+	YD1	:Y
+	YD2	:Y
+	Lead	:Leads
+	type	:Linear
+	tapCh	:No
+	edge	:Rising Edge
+	inps	:RunTime
+	Tmva	:100.0
+	f	:60.000000
+	xl	:0.556180
+	NLL	:0.001000
+	NLLtp	:Winding
+	phview	:SLD view
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	Aprc	:Either
+	AM	:NO
+	CORE	:1
+	VL1	:18.00
+	Im1	:1E-4
+	VL2	:17.44
+	Im2	:1E-4
+	Sat	:#1
+	Xair	:0.2
+	Tdc	:1.0
+	Xknee	:1.25
+	Lw	:30
+	useFX0	:NO
+	FXabc	:NO
+	nFX0	:FX0
+	nFX0B	:FX0B
+	nFX0C	:FX0C
+	NoTaps	:10
+	TR1	:5
+	step	:0.01
+	TR2	:1.0
+	limH	:1.2
+	limL	:0.8
+	P1	:0.80
+	P2	:0.85
+	P3	:0.90
+	P4	:0.95
+	P5	:1.00
+	P6	:1.05
+	P7	:1.10
+	P8	:1.15
+	P9	:1.20
+	P10	:1.25
+	P11	:1.26
+	P12	:1.27
+	P13	:1.28
+	P14	:1.29
+	P15	:1.30
+	P16	:1.31
+	P17	:1.32
+	P18	:1.33
+	P19	:1.34
+	P20	:1.35
+	P21	:1.36
+	P22	:1.37
+	P23	:1.38
+	P24	:1.39
+	P25	:1.40
+	P26	:1.41
+	P27	:1.42
+	P28	:1.43
+	P29	:1.44
+	P30	:1.45
+	P31	:1.46
+	P32	:1.47
+	P33	:1.48
+	P34	:1.49
+	P35	:1.50
+	P36	:1.51
+	P37	:1.52
+	P38	:1.53
+	P39	:1.54
+	P40	:1.55
+	P41	:1.56
+	P42	:1.57
+	P43	:1.58
+	P44	:1.59
+	P45	:1.60
+	P46	:1.61
+	P47	:1.62
+	P48	:1.63
+	P49	:1.64
+	P50	:1.65
+	ydm1	:Lines
+	mia1	:No
+	mib1	:No
+	mic1	:No
+	ydm2	:Lines
+	mia2	:No
+	mib2	:No
+	mic2	:No
+	monT	:No
+	fdms	:Lines
+	mfa	:No
+	mfb	:No
+	mfc	:No
+	idms	:Lines
+	mma	:No
+	mmb	:No
+	mmc	:No
+	ILA1	:IL1A
+	ILB1	:IL1B
+	ILC1	:IL1C
+	ILA2	:IL2A
+	ILB2	:IL2B
+	ILC2	:IL2C
+	TapP	:POS
+	FXA	:FluxA
+	FXB	:FluxB
+	FXC	:FluxC
+	IMA	:IMA
+	IMB	:IMB
+	IMC	:IMC
+	ZBlk	:Yes
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=ground
+	1904 656 1 0 0
+COMPONENT_TYPE=ground
+	1968 656 1 0 0
+COMPONENT_TYPE=BUS
+	1808 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2064 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1616 688 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1712 784 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1360 944 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1424 880 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1424 1008 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1456 1072 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1328 880 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1360 784 0 0 29
+	PARAMETERS-START:
+	BName	:BUS10#
+	NA	:A10#
+	NB	:B10#
+	NC	:C10#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0329
+	Ai	:-15.05
+	Type	:PQ BUS
+	Vd	:1.03302
+	Ad	:-15.05768
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:2
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	1264 880 1 0 80
+	PARAMETERS-START:
+	Name	:DL10#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:9.000000
+	Pmin	:4.500000
+	Pmax	:18.000000
+	Qinit	:5.800000
+	Qmin	:2.900000
+	Qmax	:11.600000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1264 944 0 0 3
+	PARAMETERS-START:
+	AL1	:9.00 MW
+	AL2	:5.80 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1648 848 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1616 880 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1456 1264 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1328 1296 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1200 1360 1 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-160
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1200 1200 0 0 29
+	PARAMETERS-START:
+	BName	:BUS11#
+	NA	:A11#
+	NB	:B11#
+	NC	:C11#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0477
+	Ai	:-14.85
+	Type	:PQ BUS
+	Vd	:1.04772
+	Ad	:-14.85442
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:32
+	C1PosX	:-32
+	Num	:3
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1328 1424 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1168 1296 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	1104 1296 1 0 80
+	PARAMETERS-START:
+	Name	:DL11#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:3.500000
+	Pmin	:1.750000
+	Pmax	:7.000000
+	Qinit	:1.800000
+	Qmin	:0.900000
+	Qmax	:3.600000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:32
+	C1PosX	:-32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1104 1360 0 0 3
+	PARAMETERS-START:
+	AL1	:3.50 MW
+	AL2	:1.80 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1456 1488 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1520 1552 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2032 1456 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2064 1616 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-256
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1808 1616 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-256
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1776 1456 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1808 1360 0 0 29
+	PARAMETERS-START:
+	BName	:BUS6#
+	NA	:A6#
+	NB	:B6#
+	NC	:C6#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0700
+	Ai	:-14.42
+	Type	:PV BUS
+	Vd	:1.07000
+	Ad	:-14.41409
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:11
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	1712 1456 1 0 80
+	PARAMETERS-START:
+	Name	:DL6#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:11.200000
+	Pmin	:5.600000
+	Pmax	:22.400000
+	Qinit	:7.500000
+	Qmin	:3.750000
+	Qmax	:15.000000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1712 1360 0 0 3
+	PARAMETERS-START:
+	AL1	:11.20 MW
+	AL2	:7.50 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1840 1456 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1744 1808 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1488 1680 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-352
+	y1	:0
+	x2	:320
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1680 1904 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:96
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	2064 1360 0 0 29
+	PARAMETERS-START:
+	BName	:BUS5#
+	NA	:A5#
+	NB	:B5#
+	NC	:C5#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0180
+	Ai	:-8.77
+	Type	:PQ BUS
+	Vd	:1.01807
+	Ad	:-8.77101
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2160 1456 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2288 1584 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2160 1712 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2352 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2416 688 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-288
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2224 880 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:96
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2160 784 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2224 1392 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2224 1008 3 1 112
+	PARAMETERS-START:
+	Name	:T7SE#
+	Tnam1	:T7#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:14.69172,5.876688,5.876688
+	TM	:0.086217,0.061584,0.061584
+	R	:0.64881,0.043254,0.043254
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T7#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2224 1264 3 0 112
+	PARAMETERS-START:
+	Name	:T7RE#
+	Tnam1	:T7#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:14.69172,5.876688,5.876688
+	TM	:0.086217,0.061584,0.061584
+	R	:0.64881,0.043254,0.043254
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T7#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2096 1136 3 0 34
+	PARAMETERS-START:
+	Name	:T7#
+	Dnm1	:T7#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	976 1008 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	976 848 0 0 29
+	PARAMETERS-START:
+	BName	:BUS14#
+	NA	:A14#
+	NB	:B14#
+	NC	:C14#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0216
+	Ai	:-16.07
+	Type	:PQ BUS
+	Vd	:1.02134
+	Ad	:-16.09639
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:6
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1072 944 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1136 816 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1296 688 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-160
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	880 944 1 0 80
+	PARAMETERS-START:
+	Name	:DL14#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:14.900000
+	Pmin	:7.450000
+	Pmax	:29.800000
+	Qinit	:5.000000
+	Qmin	:2.500000
+	Qmax	:10.000000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	784 1072 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	880 1008 0 0 3
+	PARAMETERS-START:
+	AL1	:14.90 MW
+	AL2	:5.00 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	944 944 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	688 1680 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-416
+	y1	:0
+	x2	:384
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	976 2032 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	272 1680 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	240 1680 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	176 1680 1 0 80
+	PARAMETERS-START:
+	Name	:DL13#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:13.500000
+	Pmin	:6.750000
+	Pmax	:27.000000
+	Qinit	:5.800000
+	Qmin	:2.900000
+	Qmax	:11.600000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	176 1744 0 0 3
+	PARAMETERS-START:
+	AL1	:13.50 MW
+	AL2	:5.80 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	272 1456 0 0 29
+	PARAMETERS-START:
+	BName	:BUS13#
+	NA	:A13#
+	NB	:B13#
+	NC	:C13#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0472
+	Ai	:-15.31
+	Type	:PQ BUS
+	Vd	:1.04646
+	Ad	:-15.35345
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:5
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	368 1552 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	560 1552 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	592 1328 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:256
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	368 1808 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	976 1872 0 0 29
+	PARAMETERS-START:
+	BName	:BUS12#
+	NA	:A12#
+	NB	:B12#
+	NC	:C12#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0535
+	Ai	:-15.27
+	Type	:PQ BUS
+	Vd	:1.05521
+	Ad	:-15.15889
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:4
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	560 1808 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	624 1904 1 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	784 1968 0 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-160
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	944 2096 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	880 2096 1 0 80
+	PARAMETERS-START:
+	Name	:DL12#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:6.100000
+	Pmin	:3.050000
+	Pmax	:12.200000
+	Qinit	:1.600000
+	Qmin	:0.800000
+	Qmax	:3.200000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:-32
+	C1PosX	:32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	880 2160 0 0 3
+	PARAMETERS-START:
+	AL1	:6.10 MW
+	AL2	:1.60 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1168 1968 0 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1552 1968 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-160
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2224 1904 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1808 2928 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2800 2384 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2032 2864 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2224 2160 3 1 112
+	PARAMETERS-START:
+	Name	:T2RE#
+	Tnam1	:T2#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.246217,6.898487,6.898487
+	TM	:0.389019,0.277871,0.277871
+	R	:2.625858,0.175057,0.175057
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T2#
+	A1PosY	:32
+	C1PosY	:-32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2224 2416 3 0 112
+	PARAMETERS-START:
+	Name	:T2SE#
+	Tnam1	:T2#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.246217,6.898487,6.898487
+	TM	:0.389019,0.277871,0.277871
+	R	:2.625858,0.175057,0.175057
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T2#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2224 2672 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-192
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1776 2864 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	1680 2864 0 0 38
+	PARAMETERS-START:
+	Name	:ss1box2#
+	FCOL	:BLACK
+	BCOL	:GREEN
+	LW	:1.0
+	DESC1	:GEN1
+	DESC2	:BUS1x1
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:14
+	x1	:-64
+	y1	:-64
+	x2	:64
+	y2	:64
+	canvasX	:38
+	canvasY	:36
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:409
+	canvasHeight	:455
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=BUS
+	336 240 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 176 0 0 29
+	PARAMETERS-START:
+	BName	:BUS1#
+	NA	:A1#
+	NB	:B1#
+	NC	:C1#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0600
+	Ai	:0.00
+	Type	:SLACK
+	Vd	:1.06000
+	Ad	:0.00000
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_MACV31
+	80 240 0 0 210
+	PARAMETERS-START:
+	Name	:BUS1x1#
+	cnfg	:Generator
+	cfgr	:Two
+	trfa	:No
+	mmva	:615.000000
+	Vbsll	:18.000000
+	HTZ	:60.000000
+	satur	:Factors
+	MM	:No
+	spdin	:Rated
+	tecc	:No
+	vtcc	:Yes
+	trfmr	:No
+	ldmh1	:No
+	ldmh2	:No
+	Sbrk	:No
+	phview	:SLD view
+	Sbrkof	:1.0e3
+	Sbrkon	:1.0e-4
+	Sstat1	:Closed
+	Sswdnm	:SBKWORD
+	SAbit	:1
+	SBbit	:1
+	SCbit	:1
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	H	:3.410000
+	D	:0.0
+	MSW	:RunTime
+	spdmd	:Lock
+	inh	:No
+	ind	:No
+	upexw	:1.15
+	loexw	:0.85
+	Vmagn	:1.060000
+	Vangl	:0.000000
+	P0	:232.735894
+	Q0	:-15.842078
+	rmpc	:Yes
+	rmptc	:0.05
+	iszro	:No
+	izro	:No
+	Pt	:232.534000
+	Qt	:-15.854000
+	ConFlag	:0
+	XS1	:1.0
+	XMD0	:1.0
+	X230	:1.0
+	X2D	:1.0
+	X3D	:1.0
+	XMQ	:1.0
+	X2Q	:1.0
+	X3Q	:1.0
+	RS1	:1.0
+	R2D	:1.0
+	R3D	:1.0
+	R2Q	:1.0
+	R3Q	:1.0
+	Xa	:0.145000
+	Xd	:1.724100
+	Xd'	:0.258600
+	Xd''	:0.202900
+	Gfld	:100.0
+	Bfld	:100.0
+	Xq	:1.658700
+	Xq'	:0.452400
+	Xq''	:0.202900
+	Ra	:0.000125
+	Tdo'	:3.826000
+	Tdo''	:0.022500
+	Tqo'	:0.508400
+	Tqo''	:0.022500
+	Mrzro	:0.000125
+	Mxzro	:0.145000
+	Rneut	:1.0e5
+	Xneut	:0.0
+	C1	:0.0
+	V1	:0.0
+	C2	:0.5
+	V2	:0.5
+	C3	:0.8
+	V3	:0.79
+	C4	:1.0
+	V4	:0.947
+	C5	:1.2
+	V5	:1.076
+	C6	:1.5
+	V6	:1.2
+	C7	:1.8
+	V7	:1.3
+	C8	:2.2
+	V8	:1.39
+	C9	:3.2
+	V9	:1.58
+	C10	:4.2
+	V10	:1.74
+	faccnfg	:Quadratic
+	SE10	:0.140000
+	SE12	:0.480000
+	vtpri	:1.0
+	vtsec	:1.0
+	dlagp	:Lags
+	TMVA	:1.0
+	trpos	:0.0
+	txpos	:0.1
+	itzro	:Yes
+	trzro	:0.0
+	txzro	:0.1
+	tloss	:0.000
+	ldr1	:1.0e6
+	ldl1	:1.0e6
+	ldc1	:1.0
+	ldr2	:1.0e6
+	ldl2	:1.0e6
+	ldc2	:1.0
+	tconp	:0.00
+	tconc	:0.00
+	tconv	:0.00
+	ledim	:Yes
+	ledvm	:Yes
+	lednt	:Yes
+	ledit	:Yes
+	mon1	:Yes
+	mon2	:Yes
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon17	:No
+	mon18	:No
+	mon29	:No
+	mon30	:No
+	mon19	:No
+	mon20	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon26	:No
+	mon27	:No
+	mon28	:No
+	nam1	:P1
+	nam2	:Q1
+	nam3	:LA1
+	nam4	:I1A
+	nam5	:I1B
+	nam6	:I1C
+	nam7	:IM1C
+	nam8	:Ed1
+	nam9	:Eq1
+	nam11	:Id1
+	nam12	:Iq1
+	nam13	:RA1
+	nam14	:In1
+	nam15	:Vn1
+	nam16	:V1A
+	nam17	:V1B
+	nam18	:V1C
+	nam29	:PsiD1
+	nam30	:PsiQ1
+	nam19	:PTRF1C
+	nam20	:QTRF1C
+	nam21	:ITRFA1C
+	nam22	:ITRFB1C
+	nam23	:ITRFC1C
+	nam26	:MACBVA1
+	nam27	:MACBVB1
+	nam28	:MACBVC1
+	pmc1_0	:0
+	pmc2_0	:0
+	pmc3_0	:0
+	pmc4_0	:0
+	pmc1_2	:0
+	pmc2_2	:0
+	pmc3_2	:0
+	pmc4_2	:0
+	nam_exT0_1	:PM10MACH1
+	nam_exT0_2	:PM20MACH1
+	nam_exT0_3	:PM30MACH1
+	nam_exT0_4	:PM40MACH1
+	nam_exT2_1	:PM12MACH1
+	nam_exT2_2	:PM22MACH1
+	nam_exT2_3	:PM32MACH1
+	nam_exT2_4	:PM42MACH1
+	A1PosX	:-32
+	C1PosX	:32
+	LFIdent	:1
+	Num	:0
+	Num2	:0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	Vi	:1.060000
+	Ai	:0.000000
+	Type	:SLACK
+	Vd	:1.0
+	Ad	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 304 0 0 3
+	PARAMETERS-START:
+	Name	:W1#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 176 2 0 3
+	PARAMETERS-START:
+	Name	:EF1#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	80 304 0 0 3
+	PARAMETERS-START:
+	Name	:TM1#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	112 176 2 0 3
+	PARAMETERS-START:
+	Name	:VGB1#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	304 240 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_IEEET1.def
+	80 80 0 1 31
+	PARAMETERS-START:
+	Gen	:BUS1x1#
+	HTZ	:60.000000
+	PSS	:No
+	LDComp	:No
+	LFInit	:Yes
+	Vi	:-1.000000
+	incVuel	:No
+	incVoel	:No
+	spdMult	:No
+	Mon	:No
+	ivName	:excmon#
+	ctrlGrp	:1
+	Pri	:3
+	Tr	:0.000000
+	Ka	:6.200000
+	Ta	:0.050000
+	Vmx	:5.200000
+	Vmn	:-4.160000
+	Ke	:1.000000
+	Te	:0.830000
+	Kf	:0.057000
+	Tf	:0.500000
+	E1	:2.800000
+	Se1	:0.041000
+	E2	:3.800000
+	Se2	:0.368000
+	Cal	:abs(A)
+	Kvuel	:0
+	Kvoel	:0
+	VuelName	:VUEL#
+	VoelName	:VOEL#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_TGOV1.def
+	80 400 0 0 15
+	PARAMETERS-START:
+	Gen	:BUS1x1#
+	HTZ	:60.000000
+	Trate	:-1.0
+	Lrf	:RunTime
+	Mon	:No
+	ivName	:govMon#
+	ctrlGrp	:1
+	Pri	:2
+	R	:0.050000
+	T1	:0.490000
+	Vmax	:15.000000
+	Vmin	:0.000000
+	T2	:2.100000
+	T3	:7.000000
+	Dt	:0.000000
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	112 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	80 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	1808 2768 0 0 29
+	PARAMETERS-START:
+	BName	:BUS1#
+	NA	:A1#
+	NB	:B1#
+	NC	:C1#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0600
+	Ai	:0.00
+	Type	:SLACK
+	Vd	:1.06000
+	Ad	:0.00000
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2608 592 0 0 112
+	PARAMETERS-START:
+	Name	:T6RE#
+	Tnam1	:T6#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:18.008731,7.203493,7.203493
+	TM	:0.285674,0.204053,0.204053
+	R	:3.256686,0.217112,0.217112
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T6#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2096 2288 3 0 34
+	PARAMETERS-START:
+	Name	:T2#
+	Dnm1	:T2#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2672 2384 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2352 1968 3 0 34
+	PARAMETERS-START:
+	Name	:T5#
+	Dnm1	:T5#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2512 1840 3 1 112
+	PARAMETERS-START:
+	Name	:T5RE#
+	Tnam1	:T5#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:18.317676,7.32707,7.32707
+	TM	:0.285536,0.203954,0.203954
+	R	:2.76777,0.184518,0.184518
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T5#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2512 2096 3 0 112
+	PARAMETERS-START:
+	Name	:T5SE#
+	Tnam1	:T5#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:18.317676,7.32707,7.32707
+	TM	:0.285536,0.203954,0.203954
+	R	:2.76777,0.184518,0.184518
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T5#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2512 1680 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:96
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2512 2288 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2736 2256 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2672 1808 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-480
+	y1	:0
+	x2	:448
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2672 816 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2672 1264 3 0 112
+	PARAMETERS-START:
+	Name	:T4SE#
+	Tnam1	:T4#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.587334,7.034934,7.034934
+	TM	:0.301567,0.215405,0.215405
+	R	:2.824146,0.188276,0.188276
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T4#
+	A1PosY	:32
+	C1PosY	:-32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2544 1136 3 0 34
+	PARAMETERS-START:
+	Name	:T4#
+	Dnm1	:T4#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2672 1008 3 1 112
+	PARAMETERS-START:
+	Name	:T4RE#
+	Tnam1	:T4#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.587334,7.034934,7.034934
+	TM	:0.301567,0.215405,0.215405
+	R	:2.824146,0.188276,0.188276
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T4#
+	A1PosY	:32
+	C1PosY	:-32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2576 2992 0 1 112
+	PARAMETERS-START:
+	Name	:T1RE#
+	Tnam1	:T1#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:8.574698,3.429879,3.429879
+	TM	:0.20757,0.148264,0.148264
+	R	:0.941868,0.062791,0.062791
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T1#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2320 2992 0 0 112
+	PARAMETERS-START:
+	Name	:T1SE#
+	Tnam1	:T1#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:8.574698,3.429879,3.429879
+	TM	:0.20757,0.148264,0.148264
+	R	:0.941868,0.062791,0.062791
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T1#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2032 2992 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2672 2992 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2704 2736 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-256
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2736 2512 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2448 2864 0 0 34
+	PARAMETERS-START:
+	Name	:T1#
+	Dnm1	:T1#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2832 2512 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2832 2384 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2960 2256 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-160
+	y1	:0
+	x2	:160
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	2896 2512 3 0 80
+	PARAMETERS-START:
+	Name	:DL2#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:21.700000
+	Pmin	:10.850000
+	Pmax	:43.400000
+	Qinit	:12.700000
+	Qmin	:6.350000
+	Qmax	:25.400000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:32
+	C1PosX	:-32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	2896 2576 0 0 3
+	PARAMETERS-START:
+	AL1	:21.70 MW
+	AL2	:12.70 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	2928 2384 0 0 38
+	PARAMETERS-START:
+	Name	:ss1box3#
+	FCOL	:BLACK
+	BCOL	:GREEN
+	LW	:1.0
+	DESC1	:GEN2
+	DESC2	:BUS2x1
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:14
+	x1	:-64
+	y1	:-64
+	x2	:64
+	y2	:64
+	canvasX	:16
+	canvasY	:26
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:608
+	canvasHeight	:580
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=BUS
+	304 240 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	336 240 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-64
+	y1	:0
+	x2	:96
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 144 0 0 29
+	PARAMETERS-START:
+	BName	:BUS2#
+	NA	:A2#
+	NB	:B2#
+	NC	:C2#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0450
+	Ai	:-4.99
+	Type	:PV BUS
+	Vd	:1.04500
+	Ad	:-4.98565
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:7
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_IEEET1.def
+	80 80 0 1 31
+	PARAMETERS-START:
+	Gen	:BUS2x1#
+	HTZ	:60.000000
+	PSS	:No
+	LDComp	:No
+	LFInit	:Yes
+	Vi	:-1.000000
+	incVuel	:No
+	incVoel	:No
+	spdMult	:No
+	Mon	:No
+	ivName	:excmon#
+	ctrlGrp	:1
+	Pri	:7
+	Tr	:0.000000
+	Ka	:6.200000
+	Ta	:0.050000
+	Vmx	:5.200000
+	Vmn	:-4.160000
+	Ke	:1.000000
+	Te	:0.830000
+	Kf	:0.057000
+	Tf	:0.500000
+	E1	:2.800000
+	Se1	:0.041000
+	E2	:3.800000
+	Se2	:0.368000
+	Cal	:abs(A)
+	Kvuel	:0
+	Kvoel	:0
+	VuelName	:VUEL#
+	VoelName	:VOEL#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_MACV31
+	80 240 0 0 210
+	PARAMETERS-START:
+	Name	:BUS2x1#
+	cnfg	:Generator
+	cfgr	:Two
+	trfa	:No
+	mmva	:60.000000
+	Vbsll	:18.000000
+	HTZ	:60.000000
+	satur	:Factors
+	MM	:No
+	spdin	:Rated
+	tecc	:No
+	vtcc	:Yes
+	trfmr	:No
+	ldmh1	:No
+	ldmh2	:No
+	Sbrk	:No
+	phview	:SLD view
+	Sbrkof	:1.0e3
+	Sbrkon	:1.0e-4
+	Sstat1	:Closed
+	Sswdnm	:SBKWORD
+	SAbit	:1
+	SBbit	:1
+	SCbit	:1
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	H	:3.410000
+	D	:0.0
+	MSW	:RunTime
+	spdmd	:Lock
+	inh	:No
+	ind	:No
+	upexw	:1.15
+	loexw	:0.85
+	Vmagn	:1.045000
+	Vangl	:-4.985652
+	P0	:40.000000
+	Q0	:45.765849
+	rmpc	:Yes
+	rmptc	:0.05
+	iszro	:No
+	izro	:No
+	Pt	:40.000000
+	Qt	:45.791000
+	ConFlag	:0
+	XS1	:1.0
+	XMD0	:1.0
+	X230	:1.0
+	X2D	:1.0
+	X3D	:1.0
+	XMQ	:1.0
+	X2Q	:1.0
+	X3Q	:1.0
+	RS1	:1.0
+	R2D	:1.0
+	R3D	:1.0
+	R2Q	:1.0
+	R3Q	:1.0
+	Xa	:0.145000
+	Xd	:1.724100
+	Xd'	:0.258600
+	Xd''	:0.202900
+	Gfld	:100.0
+	Bfld	:100.0
+	Xq	:1.658700
+	Xq'	:0.452400
+	Xq''	:0.202900
+	Ra	:0.000125
+	Tdo'	:3.826000
+	Tdo''	:0.022500
+	Tqo'	:0.508400
+	Tqo''	:0.022500
+	Mrzro	:0.000125
+	Mxzro	:0.145000
+	Rneut	:1.0e5
+	Xneut	:0.0
+	C1	:0.0
+	V1	:0.0
+	C2	:0.5
+	V2	:0.5
+	C3	:0.8
+	V3	:0.79
+	C4	:1.0
+	V4	:0.947
+	C5	:1.2
+	V5	:1.076
+	C6	:1.5
+	V6	:1.2
+	C7	:1.8
+	V7	:1.3
+	C8	:2.2
+	V8	:1.39
+	C9	:3.2
+	V9	:1.58
+	C10	:4.2
+	V10	:1.74
+	faccnfg	:Quadratic
+	SE10	:0.140000
+	SE12	:0.480000
+	vtpri	:1.0
+	vtsec	:1.0
+	dlagp	:Lags
+	TMVA	:1.0
+	trpos	:0.0
+	txpos	:0.1
+	itzro	:Yes
+	trzro	:0.0
+	txzro	:0.1
+	tloss	:0.000
+	ldr1	:1.0e6
+	ldl1	:1.0e6
+	ldc1	:1.0
+	ldr2	:1.0e6
+	ldl2	:1.0e6
+	ldc2	:1.0
+	tconp	:0.00
+	tconc	:0.00
+	tconv	:0.00
+	ledim	:Yes
+	ledvm	:Yes
+	lednt	:Yes
+	ledit	:Yes
+	mon1	:Yes
+	mon2	:Yes
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon17	:No
+	mon18	:No
+	mon29	:No
+	mon30	:No
+	mon19	:No
+	mon20	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon26	:No
+	mon27	:No
+	mon28	:No
+	nam1	:P2
+	nam2	:Q2
+	nam3	:LA2
+	nam4	:I2A
+	nam5	:I2B
+	nam6	:I2C
+	nam7	:IM2C
+	nam8	:Ed2
+	nam9	:Eq2
+	nam11	:Id2
+	nam12	:Iq2
+	nam13	:RA2
+	nam14	:In2
+	nam15	:Vn2
+	nam16	:V2A
+	nam17	:V2B
+	nam18	:V2C
+	nam29	:PsiD1
+	nam30	:PsiQ1
+	nam19	:PTRF2C
+	nam20	:QTRF2C
+	nam21	:ITRFA2C
+	nam22	:ITRFB2C
+	nam23	:ITRFC2C
+	nam26	:MACBVA1
+	nam27	:MACBVB1
+	nam28	:MACBVC1
+	pmc1_0	:0
+	pmc2_0	:0
+	pmc3_0	:0
+	pmc4_0	:0
+	pmc1_2	:0
+	pmc2_2	:0
+	pmc3_2	:0
+	pmc4_2	:0
+	nam_exT0_1	:PM10MACH1
+	nam_exT0_2	:PM20MACH1
+	nam_exT0_3	:PM30MACH1
+	nam_exT0_4	:PM40MACH1
+	nam_exT2_1	:PM12MACH1
+	nam_exT2_2	:PM22MACH1
+	nam_exT2_3	:PM32MACH1
+	nam_exT2_4	:PM42MACH1
+	A1PosX	:-32
+	C1PosX	:32
+	LFIdent	:4
+	Num	:0
+	Num2	:0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	Vi	:1.045000
+	Ai	:-4.985300
+	Type	:PV BUS
+	Vd	:1.0
+	Ad	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 304 0 0 3
+	PARAMETERS-START:
+	Name	:W2#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 176 2 0 3
+	PARAMETERS-START:
+	Name	:EF2#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	80 304 0 0 3
+	PARAMETERS-START:
+	Name	:TM2#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	112 176 2 0 3
+	PARAMETERS-START:
+	Name	:VGB2#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_TGOV1.def
+	80 400 0 0 15
+	PARAMETERS-START:
+	Gen	:BUS2x1#
+	HTZ	:60.000000
+	Trate	:-1.0
+	Lrf	:RunTime
+	Mon	:No
+	ivName	:govMon#
+	ctrlGrp	:1
+	Pri	:6
+	R	:0.050000
+	T1	:0.490000
+	Vmax	:15.000000
+	Vmin	:0.000000
+	T2	:2.100000
+	T3	:7.000000
+	Dt	:0.000000
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	80 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	112 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	2800 2160 0 0 29
+	PARAMETERS-START:
+	BName	:BUS2#
+	NA	:A2#
+	NB	:B2#
+	NC	:C2#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0450
+	Ai	:-4.99
+	Type	:PV BUS
+	Vd	:1.04500
+	Ad	:-4.98565
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:7
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1840 1680 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	1936 1680 0 0 38
+	PARAMETERS-START:
+	Name	:ss1box4#
+	FCOL	:BLACK
+	BCOL	:GREEN
+	LW	:1.0
+	DESC1	:SYNC6
+	DESC2	:BUS6x1
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:13
+	x1	:-64
+	y1	:-64
+	x2	:64
+	y2	:64
+	canvasX	:13
+	canvasY	:23
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:480
+	canvasHeight	:514
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=lf_rtds_sharc_sld_MACV31
+	80 240 0 0 210
+	PARAMETERS-START:
+	Name	:BUS6x1#
+	cnfg	:Generator
+	cfgr	:Two
+	trfa	:No
+	mmva	:25.000000
+	Vbsll	:18.000000
+	HTZ	:60.000000
+	satur	:Factors
+	MM	:No
+	spdin	:Rated
+	tecc	:No
+	vtcc	:Yes
+	trfmr	:No
+	ldmh1	:No
+	ldmh2	:No
+	Sbrk	:No
+	phview	:SLD view
+	Sbrkof	:1.0e3
+	Sbrkon	:1.0e-4
+	Sstat1	:Closed
+	Sswdnm	:SBKWORD
+	SAbit	:1
+	SBbit	:1
+	SCbit	:1
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	H	:3.410000
+	D	:0.0
+	MSW	:RunTime
+	spdmd	:Lock
+	inh	:No
+	ind	:No
+	upexw	:1.15
+	loexw	:0.85
+	Vmagn	:1.070000
+	Vangl	:-14.414086
+	P0	:0.000000
+	Q0	:21.054466
+	rmpc	:Yes
+	rmptc	:0.05
+	iszro	:No
+	izro	:No
+	Pt	:0.000000
+	Qt	:21.115000
+	ConFlag	:0
+	XS1	:1.0
+	XMD0	:1.0
+	X230	:1.0
+	X2D	:1.0
+	X3D	:1.0
+	XMQ	:1.0
+	X2Q	:1.0
+	X3Q	:1.0
+	RS1	:1.0
+	R2D	:1.0
+	R3D	:1.0
+	R2Q	:1.0
+	R3Q	:1.0
+	Xa	:0.145000
+	Xd	:1.724100
+	Xd'	:0.258600
+	Xd''	:0.202900
+	Gfld	:100.0
+	Bfld	:100.0
+	Xq	:1.658700
+	Xq'	:0.452400
+	Xq''	:0.202900
+	Ra	:0.000125
+	Tdo'	:3.826000
+	Tdo''	:0.022500
+	Tqo'	:0.508400
+	Tqo''	:0.022500
+	Mrzro	:0.000125
+	Mxzro	:0.145000
+	Rneut	:1.0e5
+	Xneut	:0.0
+	C1	:0.0
+	V1	:0.0
+	C2	:0.5
+	V2	:0.5
+	C3	:0.8
+	V3	:0.79
+	C4	:1.0
+	V4	:0.947
+	C5	:1.2
+	V5	:1.076
+	C6	:1.5
+	V6	:1.2
+	C7	:1.8
+	V7	:1.3
+	C8	:2.2
+	V8	:1.39
+	C9	:3.2
+	V9	:1.58
+	C10	:4.2
+	V10	:1.74
+	faccnfg	:Quadratic
+	SE10	:0.140000
+	SE12	:0.480000
+	vtpri	:1.0
+	vtsec	:1.0
+	dlagp	:Lags
+	TMVA	:1.0
+	trpos	:0.0
+	txpos	:0.1
+	itzro	:Yes
+	trzro	:0.0
+	txzro	:0.1
+	tloss	:0.000
+	ldr1	:1.0e6
+	ldl1	:1.0e6
+	ldc1	:1.0
+	ldr2	:1.0e6
+	ldl2	:1.0e6
+	ldc2	:1.0
+	tconp	:0.00
+	tconc	:0.00
+	tconv	:0.00
+	ledim	:Yes
+	ledvm	:Yes
+	lednt	:Yes
+	ledit	:Yes
+	mon1	:Yes
+	mon2	:Yes
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon17	:No
+	mon18	:No
+	mon29	:No
+	mon30	:No
+	mon19	:No
+	mon20	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon26	:No
+	mon27	:No
+	mon28	:No
+	nam1	:P6
+	nam2	:Q6
+	nam3	:LA4
+	nam4	:I4A
+	nam5	:I4B
+	nam6	:I4C
+	nam7	:IM4C
+	nam8	:Ed4
+	nam9	:Eq4
+	nam11	:Id4
+	nam12	:Iq4
+	nam13	:RA4
+	nam14	:In4
+	nam15	:Vn4
+	nam16	:V4A
+	nam17	:V4B
+	nam18	:V4C
+	nam29	:PsiD1
+	nam30	:PsiQ1
+	nam19	:PTRF4C
+	nam20	:QTRF4C
+	nam21	:ITRFA4C
+	nam22	:ITRFB4C
+	nam23	:ITRFC4C
+	nam26	:MACBVA1
+	nam27	:MACBVB1
+	nam28	:MACBVC1
+	pmc1_0	:0
+	pmc2_0	:0
+	pmc3_0	:0
+	pmc4_0	:0
+	pmc1_2	:0
+	pmc2_2	:0
+	pmc3_2	:0
+	pmc4_2	:0
+	nam_exT0_1	:PM10MACH1
+	nam_exT0_2	:PM20MACH1
+	nam_exT0_3	:PM30MACH1
+	nam_exT0_4	:PM40MACH1
+	nam_exT2_1	:PM12MACH1
+	nam_exT2_2	:PM22MACH1
+	nam_exT2_3	:PM32MACH1
+	nam_exT2_4	:PM42MACH1
+	A1PosX	:-32
+	C1PosX	:32
+	LFIdent	:3
+	Num	:0
+	Num2	:0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	Vi	:1.070000
+	Ai	:-14.419400
+	Type	:PV BUS
+	Vd	:1.0
+	Ad	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 304 0 0 3
+	PARAMETERS-START:
+	Name	:W6#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 176 2 0 3
+	PARAMETERS-START:
+	Name	:EF6#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	80 304 0 0 3
+	PARAMETERS-START:
+	Name	:TM6#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	112 176 2 0 3
+	PARAMETERS-START:
+	Name	:VGB6#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	304 240 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_ctl_SLIDER
+	48 336 0 0 5
+	PARAMETERS-START:
+	Name	:Tm6#
+	Init	:0.000000
+	Max	:1.2
+	Min	:0.0
+	Units	:pu
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	80 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_IEEET1.def
+	80 80 0 1 31
+	PARAMETERS-START:
+	Gen	:BUS6x1#
+	HTZ	:60.000000
+	PSS	:No
+	LDComp	:No
+	LFInit	:Yes
+	Vi	:-1.000000
+	incVuel	:No
+	incVoel	:No
+	spdMult	:No
+	Mon	:No
+	ivName	:excmon#
+	ctrlGrp	:1
+	Pri	:5
+	Tr	:0.000000
+	Ka	:6.200000
+	Ta	:0.050000
+	Vmx	:5.200000
+	Vmn	:-4.160000
+	Ke	:1.000000
+	Te	:0.830000
+	Kf	:0.057000
+	Tf	:0.500000
+	E1	:2.800000
+	Se1	:0.041000
+	E2	:3.800000
+	Se2	:0.368000
+	Cal	:abs(A)
+	Kvuel	:0
+	Kvoel	:0
+	VuelName	:VUEL#
+	VoelName	:VOEL#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	112 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	336 240 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 144 0 0 29
+	PARAMETERS-START:
+	BName	:BUS6#
+	NA	:A6#
+	NB	:B6#
+	NC	:C6#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0700
+	Ai	:-14.42
+	Type	:PV BUS
+	Vd	:1.07000
+	Ad	:-14.41409
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:32
+	C1PosX	:-32
+	Num	:11
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	1968 1808 1 0 80
+	PARAMETERS-START:
+	Name	:DL5#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:7.600000
+	Pmin	:3.800000
+	Pmax	:15.200000
+	Qinit	:1.600000
+	Qmin	:0.800000
+	Qmax	:3.200000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:32
+	C1PosX	:-32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	2032 1808 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1968 1872 0 0 3
+	PARAMETERS-START:
+	AL1	:7.60 MW
+	AL2	:1.60 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3344 560 3 0 7
+	PARAMETERS-START:
+	LW1	:3
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:224
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	3344 336 0 0 29
+	PARAMETERS-START:
+	BName	:BUS3#
+	NA	:A3#
+	NB	:B3#
+	NC	:C3#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0100
+	Ai	:-12.73
+	Type	:PV BUS
+	Vd	:1.01000
+	Ad	:-12.72688
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:8
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	2864 592 0 1 112
+	PARAMETERS-START:
+	Name	:T6SE#
+	Tnam1	:T6#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:18.008731,7.203493,7.203493
+	TM	:0.285674,0.204053,0.204053
+	R	:3.256686,0.217112,0.217112
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T6#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	3472 592 0 0 38
+	PARAMETERS-START:
+	Name	:ss1box5#
+	FCOL	:BLACK
+	BCOL	:GREEN
+	LW	:1.0
+	DESC1	:SYNC3
+	DESC2	:BUS3x1
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:13
+	x1	:-64
+	y1	:-64
+	x2	:64
+	y2	:64
+	canvasX	:14
+	canvasY	:23
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:523
+	canvasHeight	:513
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=BUS
+	304 240 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	336 240 1 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	336 144 0 0 29
+	PARAMETERS-START:
+	BName	:BUS3#
+	NA	:A3#
+	NB	:B3#
+	NC	:C3#
+	VRate	:18.000000
+	COL	:BLACK
+	LW	:3
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0100
+	Ai	:-12.73
+	Type	:PV BUS
+	Vd	:1.01000
+	Ad	:-12.72688
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:32
+	C1PosX	:-32
+	Num	:8
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_MACV31
+	80 240 0 0 210
+	PARAMETERS-START:
+	Name	:BUS3x1#
+	cnfg	:Generator
+	cfgr	:Two
+	trfa	:No
+	mmva	:60.000000
+	Vbsll	:18.000000
+	HTZ	:60.000000
+	satur	:Factors
+	MM	:No
+	spdin	:Rated
+	tecc	:No
+	vtcc	:Yes
+	trfmr	:No
+	ldmh1	:No
+	ldmh2	:No
+	Sbrk	:No
+	phview	:SLD view
+	Sbrkof	:1.0e3
+	Sbrkon	:1.0e-4
+	Sstat1	:Closed
+	Sswdnm	:SBKWORD
+	SAbit	:1
+	SBbit	:1
+	SCbit	:1
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	H	:3.410000
+	D	:0.0
+	MSW	:RunTime
+	spdmd	:Lock
+	inh	:No
+	ind	:No
+	upexw	:1.15
+	loexw	:0.85
+	Vmagn	:1.010000
+	Vangl	:-12.726877
+	P0	:0.000000
+	Q0	:25.351749
+	rmpc	:Yes
+	rmptc	:0.05
+	iszro	:No
+	izro	:No
+	Pt	:0.000000
+	Qt	:25.471000
+	ConFlag	:0
+	XS1	:1.0
+	XMD0	:1.0
+	X230	:1.0
+	X2D	:1.0
+	X3D	:1.0
+	XMQ	:1.0
+	X2Q	:1.0
+	X3Q	:1.0
+	RS1	:1.0
+	R2D	:1.0
+	R3D	:1.0
+	R2Q	:1.0
+	R3Q	:1.0
+	Xa	:0.145000
+	Xd	:1.724100
+	Xd'	:0.258600
+	Xd''	:0.202900
+	Gfld	:100.0
+	Bfld	:100.0
+	Xq	:1.658700
+	Xq'	:0.452400
+	Xq''	:0.202900
+	Ra	:0.000125
+	Tdo'	:3.826000
+	Tdo''	:0.022500
+	Tqo'	:0.508400
+	Tqo''	:0.022500
+	Mrzro	:0.000125
+	Mxzro	:0.145000
+	Rneut	:1.0e5
+	Xneut	:0.0
+	C1	:0.0
+	V1	:0.0
+	C2	:0.5
+	V2	:0.5
+	C3	:0.8
+	V3	:0.79
+	C4	:1.0
+	V4	:0.947
+	C5	:1.2
+	V5	:1.076
+	C6	:1.5
+	V6	:1.2
+	C7	:1.8
+	V7	:1.3
+	C8	:2.2
+	V8	:1.39
+	C9	:3.2
+	V9	:1.58
+	C10	:4.2
+	V10	:1.74
+	faccnfg	:Quadratic
+	SE10	:0.140000
+	SE12	:0.480000
+	vtpri	:1.0
+	vtsec	:1.0
+	dlagp	:Lags
+	TMVA	:1.0
+	trpos	:0.0
+	txpos	:0.1
+	itzro	:Yes
+	trzro	:0.0
+	txzro	:0.1
+	tloss	:0.000
+	ldr1	:1.0e6
+	ldl1	:1.0e6
+	ldc1	:1.0
+	ldr2	:1.0e6
+	ldl2	:1.0e6
+	ldc2	:1.0
+	tconp	:0.00
+	tconc	:0.00
+	tconv	:0.00
+	ledim	:Yes
+	ledvm	:Yes
+	lednt	:Yes
+	ledit	:Yes
+	mon1	:Yes
+	mon2	:Yes
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon17	:No
+	mon18	:No
+	mon29	:No
+	mon30	:No
+	mon19	:No
+	mon20	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon26	:No
+	mon27	:No
+	mon28	:No
+	nam1	:P3
+	nam2	:Q3
+	nam3	:LA3
+	nam4	:I3A
+	nam5	:I3B
+	nam6	:I3C
+	nam7	:IM3C
+	nam8	:Ed3
+	nam9	:Eq3
+	nam11	:Id3
+	nam12	:Iq3
+	nam13	:RA3
+	nam14	:In3
+	nam15	:Vn3
+	nam16	:V3A
+	nam17	:V3B
+	nam18	:V3C
+	nam29	:PsiD1
+	nam30	:PsiQ1
+	nam19	:PTRF3C
+	nam20	:QTRF3C
+	nam21	:ITRFA3C
+	nam22	:ITRFB3C
+	nam23	:ITRFC3C
+	nam26	:MACBVA1
+	nam27	:MACBVB1
+	nam28	:MACBVC1
+	pmc1_0	:0
+	pmc2_0	:0
+	pmc3_0	:0
+	pmc4_0	:0
+	pmc1_2	:0
+	pmc2_2	:0
+	pmc3_2	:0
+	pmc4_2	:0
+	nam_exT0_1	:PM10MACH1
+	nam_exT0_2	:PM20MACH1
+	nam_exT0_3	:PM30MACH1
+	nam_exT0_4	:PM40MACH1
+	nam_exT2_1	:PM12MACH1
+	nam_exT2_2	:PM22MACH1
+	nam_exT2_3	:PM32MACH1
+	nam_exT2_4	:PM42MACH1
+	A1PosX	:-32
+	C1PosX	:32
+	LFIdent	:5
+	Num	:0
+	Num2	:0
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	Vi	:1.010000
+	Ai	:-12.734800
+	Type	:PV BUS
+	Vd	:1.0
+	Ad	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 304 0 0 3
+	PARAMETERS-START:
+	Name	:W3#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	48 176 2 0 3
+	PARAMETERS-START:
+	Name	:EF3#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	80 304 0 0 3
+	PARAMETERS-START:
+	Name	:TM3#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=wirelabel
+	112 176 2 0 3
+	PARAMETERS-START:
+	Name	:VGB3#
+	COL	:BLUE
+	Monitor	:Yes
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_ctl_SLIDER
+	48 336 0 0 5
+	PARAMETERS-START:
+	Name	:Tm3#
+	Init	:0.000000
+	Max	:1.2
+	Min	:0.0
+	Units	:pu
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	80 304 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=_rtds_IEEET1.def
+	80 80 0 1 31
+	PARAMETERS-START:
+	Gen	:BUS3x1#
+	HTZ	:60.000000
+	PSS	:No
+	LDComp	:No
+	LFInit	:Yes
+	Vi	:-1.000000
+	incVuel	:No
+	incVoel	:No
+	spdMult	:No
+	Mon	:No
+	ivName	:excmon#
+	ctrlGrp	:1
+	Pri	:8
+	Tr	:0.000000
+	Ka	:6.200000
+	Ta	:0.050000
+	Vmx	:5.200000
+	Vmn	:-4.160000
+	Ke	:1.000000
+	Te	:0.830000
+	Kf	:0.057000
+	Tf	:0.500000
+	E1	:2.800000
+	Se1	:0.041000
+	E2	:3.800000
+	Se2	:0.368000
+	Cal	:abs(A)
+	Kvuel	:0
+	Kvoel	:0
+	VuelName	:VUEL#
+	VoelName	:VOEL#
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	112 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=WIRE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:0
+	y1	:0
+	x2	:32
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2736 464 0 0 34
+	PARAMETERS-START:
+	Name	:T6#
+	Dnm1	:T6#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_udc_DYLOAD
+	3248 432 1 0 80
+	PARAMETERS-START:
+	Name	:DL3#
+	type	:RL
+	bal	:YES
+	btype	:R//X
+	YD	:Y
+	cc	:Slider
+	gnd	:No
+	Vmeas	:Internal
+	Vbus	:18.000000
+	Vmin	:0.8
+	constF	:Yes
+	freq	:60.000000
+	FreqDevMax	:2.0
+	FreqSrc	:External
+	T	:0.01
+	Tm	:0.003
+	Pinit	:94.200000
+	Pmin	:47.100000
+	Pmax	:188.400000
+	Qinit	:19.000000
+	Qmin	:9.500000
+	Qmax	:38.000000
+	Pinit1	:100
+	Pinit2	:100
+	Pinit3	:100
+	Qinit1	:100
+	Qinit2	:100
+	Qinit3	:100
+	SorC	:Runtime
+	Fract	:Constant
+	Po	:100
+	Qo	:100
+	TS	:10.0
+	Tf	:0.01
+	Pordcc	:Pordcc#
+	Qordcc	:Qordcc#
+	ZPcc	:ZPcc#
+	IPcc	:IPcc#
+	PPcc	:PPcc#
+	ZQcc	:ZQcc#
+	IQcc	:IQcc#
+	PQcc	:PQcc#
+	ZP	:20
+	IP	:40
+	PP	:40
+	ZQ	:20
+	IQ	:40
+	PQ	:40
+	Ainit	:0.0
+	PIPG	:50.0
+	PIIT	:0.01
+	Ft	:0.0015
+	WMON	:Hz
+	nFreq	:FreqLoad#
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	pPmon	:No
+	pQmon	:No
+	pIAmon	:No
+	pIBmon	:No
+	pICmon	:No
+	nPmon	:Pmon#
+	nQmon	:Qmon#
+	nIAmon	:IA#
+	nIBmon	:IB#
+	nICmon	:IC#
+	A1PosX	:32
+	C1PosX	:-32
+	loc	:group
+	P_L0	:0.0
+	Q_L0	:0.0
+	LFIdent	:0
+	HidePQ	:1
+	Cts	:0.1
+	EnLoadShed	:No
+	NmLoadShed	:ShedPar#
+	phview	:SLD view
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	3248 496 0 0 3
+	PARAMETERS-START:
+	AL1	:94.20 MW
+	AL2	:19.00 MVAr
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	3120 1264 3 0 112
+	PARAMETERS-START:
+	Name	:T3SE#
+	Tnam1	:T3#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.220575,6.88823,6.88823
+	TM	:0.345807,0.247005,0.247005
+	R	:2.283714,0.152248,0.152248
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T3#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	3120 1008 3 1 112
+	PARAMETERS-START:
+	Name	:T3RE#
+	Tnam1	:T3#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:CRT1SE#
+	nam2	:CRT2SE#
+	nam3	:CRT3SE#
+	nam4	:CRT4SE#
+	nam5	:CRT5SE#
+	nam6	:CRT6SE#
+	nam11	:CRT7SE#
+	nam12	:CRT8SE#
+	nam13	:CRT9SE#
+	nam14	:CRT10SE#
+	nam15	:CRT11SE#
+	nam16	:CRT12SE#
+	nam21	:CRTASE#
+	nam22	:CRTBSE#
+	nam23	:CRTCSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:1.000000
+	ZM	:17.220575,6.88823,6.88823
+	TM	:0.345807,0.247005,0.247005
+	R	:2.283714,0.152248,0.152248
+	TI	:0.5773503,0.8164967,0.0,0.5773503,-0.4082483,0.7071068,0.5773503,-0.4082483,-0.7071068
+	PERCENT_OF_LINE	:100.0
+	tlb	:T3#
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TL16CAL
+	2992 1136 3 0 34
+	PARAMETERS-START:
+	Name	:T3#
+	Dnm1	:T3#
+	cntyp	:Bergeron
+	pptline	:No
+	Icon	:Large
+	elimCrtLag	:No
+	dataType	:File
+	exclu	:No
+	AorM	:Manual
+	CARD	:2
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	rdData	:tlb/cbl
+	note1	:
+	note2	:
+	pp_var	:100.0
+	hmnpp	:(pp_var)%
+	frcpi	:No
+	alwpi	:Yes
+	raistt	:RaiseTT
+	Ph	:Yes
+	final_tl_berg_format_tlbclb_tloclo_or_tlines_012	:0
+	final_tl_berg_percentage_line_length	:0
+	final_tl_constants_file_name_cw_sufx	:0
+	Type	:TLINE
+	num_normal_dt_in_SE_dt	:0
+	num_normal_dt_in_RE_dt	:0
+	enDebug	:No
+	local_nmcond	:1
+	Lgrd	:0.001
+	Rgrd	:0.0
+	Laer	:0.00099
+	Raer	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3120 848 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3120 1808 3 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-448
+	y1	:0
+	x2	:480
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3152 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-224
+	y1	:0
+	x2	:192
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3216 720 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:128
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3312 432 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	3376 592 0 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-32
+	y1	:0
+	x2	:32
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=DASHED_LINE
+	176 48 0 0 6
+	PARAMETERS-START:
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	LW	:1.0
+	COL	:RED
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=DASHED_LINE
+	48 144 1 0 6
+	PARAMETERS-START:
+	x1	:-96
+	y1	:0
+	x2	:128
+	y2	:0
+	LW	:1.0
+	COL	:RED
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=DASHED_LINE
+	304 144 1 0 6
+	PARAMETERS-START:
+	x1	:-96
+	y1	:0
+	x2	:128
+	y2	:0
+	LW	:1.0
+	COL	:RED
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	176 80 0 0 3
+	PARAMETERS-START:
+	AL1	:IEEE 14 BUS POWER SYSTEM
+	AL2	:
+	FSize	:16
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_TEXT9
+	176 176 0 0 19
+	PARAMETERS-START:
+	NL	:3
+	COL1	:BLUE
+	COL2	:BLUE
+	COL3	:BLUE
+	COL4	:BLACK
+	COL5	:CYAN
+	COL6	:YELLOW
+	COL7	:GOLD
+	COL8	:BROWN
+	COL9	:VIOLET
+	AL1	:Minimum Hardware Requirements:
+	AL2	:3 cards in a PB5 rack
+	AL3	:2 cores in a NovaCor chassis
+	AL4	:Line4
+	AL5	:Line5
+	AL6	:Line6
+	AL7	:Line7
+	AL8	:Line8
+	AL9	:Line9
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_TEXT9
+	176 240 0 0 19
+	PARAMETERS-START:
+	NL	:2
+	COL1	:BLACK
+	COL2	:BLACK
+	COL3	:BLACK
+	COL4	:BLACK
+	COL5	:CYAN
+	COL6	:YELLOW
+	COL7	:GOLD
+	COL8	:BROWN
+	COL9	:VIOLET
+	AL1	:To access the help file,
+	AL2	:RightClick on white space -> Circuit -> Help
+	AL3	:
+	AL4	:Line4
+	AL5	:Line5
+	AL6	:Line6
+	AL7	:Line7
+	AL8	:Line8
+	AL9	:Line9
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=rtds_TEXT9
+	176 304 0 0 19
+	PARAMETERS-START:
+	NL	:1
+	COL1	:BLACK
+	COL2	:BLACK
+	COL3	:BLACK
+	COL4	:BLACK
+	COL5	:CYAN
+	COL6	:YELLOW
+	COL7	:GOLD
+	COL8	:BROWN
+	COL9	:VIOLET
+	AL1	:Send your questions and suggestions to support@rtds.com
+	AL2	:
+	AL3	:
+	AL4	:Line4
+	AL5	:Line5
+	AL6	:Line6
+	AL7	:Line7
+	AL8	:Line8
+	AL9	:Line9
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=DASHED_LINE
+	176 272 0 0 6
+	PARAMETERS-START:
+	x1	:-128
+	y1	:0
+	x2	:128
+	y2	:0
+	LW	:1.0
+	COL	:RED
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1456 688 0 0 24
+	PARAMETERS-START:
+	R	:0.411836
+	L	:0.002324
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1456 624 0 0 3
+	PARAMETERS-START:
+	AL1	:RL11
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1520 880 0 0 24
+	PARAMETERS-START:
+	R	:0.103064
+	L	:0.000726
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1520 816 0 0 3
+	PARAMETERS-START:
+	AL1	:RL10
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=BUS
+	1712 1552 2 0 7
+	PARAMETERS-START:
+	LW1	:3.0
+	SCOL	:BLACK
+	DOCUMENT	:NO
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1616 1552 0 0 24
+	PARAMETERS-START:
+	R	:0.307735
+	L	:0.001709
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:32
+	C1PosY	:-32
+	A2PosY	:32
+	C2PosY	:-32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1616 1488 0 0 3
+	PARAMETERS-START:
+	AL1	:RL7
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1456 1168 3 0 24
+	PARAMETERS-START:
+	R	:0.265842
+	L	:0.001651
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:32
+	C1PosY	:-32
+	A2PosY	:32
+	C2PosY	:-32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1392 1168 0 0 3
+	PARAMETERS-START:
+	AL1	:RL12
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1104 1680 0 0 24
+	PARAMETERS-START:
+	R	:0.214326
+	L	:0.001120
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1104 1616 0 0 3
+	PARAMETERS-START:
+	AL1	:RL9
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	1360 1968 0 0 24
+	PARAMETERS-START:
+	R	:0.398228
+	L	:0.002199
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	1360 1904 0 0 3
+	PARAMETERS-START:
+	AL1	:RL8
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	464 1552 0 0 24
+	PARAMETERS-START:
+	R	:0.553813
+	L	:0.002991
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	464 1488 0 0 3
+	PARAMETERS-START:
+	AL1	:RL14
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_SERIESRLC
+	464 1808 0 0 24
+	PARAMETERS-START:
+	R	:0.715781
+	L	:0.001718
+	CuF	:0.0
+	Imon	:No
+	DA	:No
+	TXT	:Yes
+	phview	:SLD view
+	IAnam	:IA#
+	IBnam	:IB#
+	ICnam	:IC#
+	PA	:None
+	CA	:1
+	PB	:None
+	CB	:1
+	PC	:None
+	CC	:1
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+COMPONENT_TYPE=annotation
+	464 1744 0 0 3
+	PARAMETERS-START:
+	AL1	:RL13
+	AL2	:
+	FSize	:10
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+GROUP-START:
+COMPONENT_TYPE=GROUP
+	1936 1488 0 0 0
+COMPONENT_TYPE=ground
+	1968 1520 1 0 0
+COMPONENT_TYPE=ground
+	1904 1520 1 0 0
+COMPONENT_TYPE=lf_rtds_sharc_sld_TRF3P2W
+	1936 1456 0 0 129
+	PARAMETERS-START:
+	Trf	:T17#
+	YD1	:Y
+	YD2	:Y
+	Lead	:Leads
+	type	:Ideal
+	tapCh	:No
+	edge	:Rising Edge
+	inps	:RunTime
+	Tmva	:100.0
+	f	:60.000000
+	xl	:0.252020
+	NLL	:0.001000
+	NLLtp	:Winding
+	phview	:SLD view
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	Aprc	:Either
+	AM	:NO
+	CORE	:1
+	VL1	:18.00
+	Im1	:1E-4
+	VL2	:16.78
+	Im2	:1E-4
+	Sat	:#1
+	Xair	:0.2
+	Tdc	:1.0
+	Xknee	:1.25
+	Lw	:30
+	useFX0	:NO
+	FXabc	:NO
+	nFX0	:FX0
+	nFX0B	:FX0B
+	nFX0C	:FX0C
+	NoTaps	:10
+	TR1	:5
+	step	:0.01
+	TR2	:1.0
+	limH	:1.2
+	limL	:0.8
+	P1	:0.80
+	P2	:0.85
+	P3	:0.90
+	P4	:0.95
+	P5	:1.00
+	P6	:1.05
+	P7	:1.10
+	P8	:1.15
+	P9	:1.20
+	P10	:1.25
+	P11	:1.26
+	P12	:1.27
+	P13	:1.28
+	P14	:1.29
+	P15	:1.30
+	P16	:1.31
+	P17	:1.32
+	P18	:1.33
+	P19	:1.34
+	P20	:1.35
+	P21	:1.36
+	P22	:1.37
+	P23	:1.38
+	P24	:1.39
+	P25	:1.40
+	P26	:1.41
+	P27	:1.42
+	P28	:1.43
+	P29	:1.44
+	P30	:1.45
+	P31	:1.46
+	P32	:1.47
+	P33	:1.48
+	P34	:1.49
+	P35	:1.50
+	P36	:1.51
+	P37	:1.52
+	P38	:1.53
+	P39	:1.54
+	P40	:1.55
+	P41	:1.56
+	P42	:1.57
+	P43	:1.58
+	P44	:1.59
+	P45	:1.60
+	P46	:1.61
+	P47	:1.62
+	P48	:1.63
+	P49	:1.64
+	P50	:1.65
+	ydm1	:Lines
+	mia1	:No
+	mib1	:No
+	mic1	:No
+	ydm2	:Lines
+	mia2	:No
+	mib2	:No
+	mic2	:No
+	monT	:No
+	fdms	:Lines
+	mfa	:No
+	mfb	:No
+	mfc	:No
+	idms	:Lines
+	mma	:No
+	mmb	:No
+	mmc	:No
+	ILA1	:IL1A
+	ILB1	:IL1B
+	ILC1	:IL1C
+	ILA2	:IL2A
+	ILB2	:IL2B
+	ILC2	:IL2C
+	TapP	:POS
+	FXA	:FluxA
+	FXB	:FluxB
+	FXC	:FluxC
+	IMA	:IMA
+	IMB	:IMB
+	IMC	:IMC
+	ZBlk	:Yes
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:-32
+	C2PosY	:32
+	P_L0	:0.0
+	Q_L0	:0.0
+	P_L1	:0.0
+	Q_L1	:0.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		0
+		Integer
+		#
+GROUP-END:
+SUBSYSTEM-END:

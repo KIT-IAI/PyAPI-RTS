@@ -1,0 +1,24 @@
+%import common.SIGNED_FLOAT -> FLOAT
+%import common.NUMBER -> NUMBER
+%import common.WORD -> WORD
+%import common.WS
+%import common.LETTER -> LETTER
+%import common.NEWLINE -> NEWLINE
+UNDERSCORE : "_"
+
+%ignore WS
+
+start : (section | rtds_meta)*
+
+value: /[a-zA-Z0-9.]+/
+    | (NUMBER " "?)+
+    | (FLOAT " "?)+
+
+dict : "{"  ((pair | rtds_meta | section) "\n" )+ "}"
+
+pair : /[^=}!]+/ "=" (value " "?)
+
+_rtds_meta_name : (WORD |UNDERSCORE | NUMBER)+
+rtds_meta : "!RTDS_" _rtds_meta_name "=" ("[" /[^]!{]+/ "]" | value)
+
+section : [/[^:}!=]+/ ":" | pair] dict

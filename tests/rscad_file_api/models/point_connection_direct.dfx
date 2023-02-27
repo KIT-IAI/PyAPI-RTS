@@ -1,0 +1,127 @@
+DRAFT 1.1
+GRAPHICS: 
+    CANVAS_WIDTH: 1420
+    CANVAS_HEIGHT: 584
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Jun 11, 2022 (JoEn)
+    LAST-MODIFIED: Jun 11, 2022 (JoEn)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 0
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+0038d570-7afc-463d-9043-cd6fa53d68e6-1:2,b6a18def-1223-40c4-a9d0-dac8bf8735787:2,b6a18def-1223-40c4-a9d0-dac8bf8735785:2,
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+COMPONENT_TYPE=WIRE
+	496 176 0 0 6
+	PARAMETERS-START:
+	x1	:-96
+	y1	:0
+	x2	:64
+	y2	:0
+	COL	:RED
+	LW	:1.0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=_rtds_currinj1p.def
+	336 176 0 0 8
+	PARAMETERS-START:
+	Name	:INORT#
+	mon	:No
+	Rp	:1.0e8
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharcu_SRC1PH2N
+	592 208 0 0 58
+	PARAMETERS-START:
+	Name	:SRC#
+	Type	:R-R//L
+	Tc	:0.05
+	Imp	:RRL Values
+	DynmImp	:Static
+	WvType	:AC
+	Sctrl	:RunTime
+	R1s	:1.0
+	R1p	:1.0
+	L1p	:0.1
+	ImpCtlSrc	:RunTime
+	R2signalCC	:R1s#
+	R1signalCC	:R1p#
+	L1signalCC	:L1p#
+	Tcc	:0.1
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	SMod	:Internal
+	Es	:230.0
+	F0	:60.0
+	Ph	:0.0
+	AFmod	:Frequency
+	Esm	:0.1
+	F0m	:1.0
+	Phm	:0.0
+	IMod	:Fmod#
+	AMmod	:Amod#
+	NHarm	:1
+	HN1	:2
+	Mag1	:0.05
+	Ph1	:0.0
+	HN2	:2
+	Mag2	:0.05
+	Ph2	:0.0
+	HN3	:2
+	Mag3	:0.05
+	Ph3	:0.0
+	HN4	:2
+	Mag4	:0.05
+	Ph4	:0.0
+	Esd	:100.0
+	F	:60.0
+	Z1	:1.0
+	Phi1	:80.0
+	RN	:2.0
+	Imon	:No
+	IMPmon	:No
+	Tf	:0.10
+	Rf	:0.50
+	Inam	:ISRC#
+	R1Snam	:R1Smon#
+	R1Pnam	:R1Pmon#
+	L1Pnam	:L1Pmon#
+	CNVGnam	:Converged#
+	TrigSigCC	:ImpTrig
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+SUBSYSTEM-END:

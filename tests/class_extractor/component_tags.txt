@@ -1,0 +1,7 @@
+connecting
+    wire
+    bus
+    wirelabel
+    buslabel
+hierarchy_connecting
+    wirelabel

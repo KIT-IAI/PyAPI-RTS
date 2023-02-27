@@ -1,0 +1,67 @@
+Component Builder 0.1.0
+PARAMETERS:
+	SECTION: "CONFIGURATION"
+        LW1  "Bus thickness (Single Phase)"         "" 5 REAL 3.0 0.0
+        SCOL "Bus Color"                   "RED;BLACK;BLUE;GREEN;CYAN;ORANGE;MAGENTA;PINK;WHITE;BROWN;GOLD;VIOLET;YELLOW;LIGHT_GRAY" 10 TOGGLE   ORANGE
+	DOCUMENT "include in print->parameters?"     "NO;YES" 10 TOGGLE 0
+    SECTION: "HIDDEN PARAMETERS" false
+      x1 "x1"  " " 4 INTEGER -32 0 0 false
+      y1 "y1"  " " 4 INTEGER -0 0 0 false
+      x2 "x2"  " " 4 INTEGER 32 0 0 false
+      y2 "y2"  " " 4 INTEGER 0 0 0 false
+
+GRAPHICS_LIBRARY:
+	FONTSIZE(12)
+	LineWidth(3)
+    LINE (-24,0,24,0)
+	LineWidth(1)
+	FText(0,18,"Bus")
+	SETCOLOR(LIGHT_GRAY)
+	BOX(-36,-36,36,36)
+
+GRAPHICS:
+        LINEWIDTH(3)
+        SETCOLOR(SCOL)
+        LINE (x1,y1,x2,y2)
+
+GRAPHICS_TINY:
+		LINEWIDTH(3)
+		SetColor(BLACK)
+        LINE (x1,y1,x2,y2)
+NRT:
+    INTEGER NRT_ENABLED = 1
+NODES:
+        A_1  $x1  $y1  DEFAULT PHASE=A_PHASE
+        A_2  $x2  $y2  SHORT PHASE=A_PHASE
+        B_1  $x1  $y1  DEFAULT PHASE=B_PHASE
+        B_2  $x2  $y2  SHORT PHASE=B_PHASE
+        C_1  $x1  $y1  DEFAULT PHASE=C_PHASE
+        C_2  $x2  $y2  SHORT PHASE=C_PHASE
+DESCRIPTION:
+	3 phase bus connection
+	Enforces correct phase connections
+KEYWORDS:
+	bus 3phase DISTRIBUTION_SUPPORT
+
+DIRECTIVES:
+	DOCUMENT = $DOCUMENT
+	DOCUMENT_SECTION("HIDDEN PARAMETERS") = false
+	STRETCHABLE = STRETCHABLE_UP_DOWN_LINE
+
+LIBRARY-DESCRIPTION:
+	3P Wire
+
+COMPONENT-DESCRIPTORS:
+	CLASSIFICATION:BUS
+	PHASES:3
+	MAINSTEP:YES
+	SUBSTEP:YES
+	SUPERSTEP:YES
+	SMALLDT:NO
+	GPES:NO
+	TWRT:NO
+	DIST:YES
+	DEPRECATED:NO
+
+
+

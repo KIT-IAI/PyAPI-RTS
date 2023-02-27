@@ -1,0 +1,20 @@
+pyapi\_rts package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyapi_rts.api
+   pyapi_rts.class_extractor
+   pyapi_rts.shared
+
+Module contents
+---------------
+
+.. automodule:: pyapi_rts
+   :members:
+   :undoc-members:
+   :show-inheritance:

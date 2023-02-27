@@ -1,0 +1,272 @@
+DRAFT 1.2
+GRAPHICS: 
+    CANVAS_WIDTH: 2022
+    CANVAS_HEIGHT: 951
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: May 20, 2022 (ah4430)
+    LAST-MODIFIED: May 20, 2022 (ah4430)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 1
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	240 176 0 0 112
+	PARAMETERS-START:
+	Name	:LINESE#
+	Tnam1	:TLINE#
+	endsr	:SENDING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:I1SE#
+	nam2	:I2SE#
+	nam3	:I3SE#
+	nam4	:I4SE#
+	nam5	:I5SE#
+	nam6	:I6SE#
+	nam11	:I7SE#
+	nam12	:I8SE#
+	nam13	:I9SE#
+	nam14	:I10SE#
+	nam15	:I11SE#
+	nam16	:I12SE#
+	nam21	:IASE#
+	nam22	:IBSE#
+	nam23	:ICSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:0
+	ZM	:0.0,0.0,0.0
+	TM	:0.0,0.0,0.0
+	R	:0.0,0.0,0.0
+	TI	:0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	PERCENT_OF_LINE	:100
+	tlb	:Name
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=lf_rtds_sharc_sld_TLINE
+	464 176 0 0 112
+	PARAMETERS-START:
+	Name	:LINESE#
+	Tnam1	:TLINE#
+	endsr	:RECEIVING
+	numc	:3
+	lnbkr	:No
+	enbrl	:No
+	phview	:SLD view
+	dirct	:In
+	ctpo	:Yes
+	dirpq	:In
+	pctpo	:Yes
+	tcnpq	:0.01
+	bkrof	:1.0e6
+	bkron	:0.1
+	stat1	:Closed
+	stat2	:Closed
+	holdi	:0.0
+	resi	:0.0
+	indc	:1.0
+	swdnm	:BKWORD#
+	mon1	:No
+	mon2	:No
+	mon3	:No
+	mon4	:No
+	mon5	:No
+	mon6	:No
+	mon11	:No
+	mon12	:No
+	mon13	:No
+	mon14	:No
+	mon15	:No
+	mon16	:No
+	mon21	:No
+	mon22	:No
+	mon23	:No
+	mon7	:No
+	mon8	:No
+	mon9	:No
+	mon10	:No
+	mon17	:No
+	mon18	:No
+	mon19	:No
+	mon20	:No
+	mon24	:No
+	mon25	:No
+	monv1	:No
+	monv2	:No
+	monv3	:No
+	monv4	:No
+	monv5	:No
+	monv6	:No
+	nam1	:I1SE#
+	nam2	:I2SE#
+	nam3	:I3SE#
+	nam4	:I4SE#
+	nam5	:I5SE#
+	nam6	:I6SE#
+	nam11	:I7SE#
+	nam12	:I8SE#
+	nam13	:I9SE#
+	nam14	:I10SE#
+	nam15	:I11SE#
+	nam16	:I12SE#
+	nam21	:IASE#
+	nam22	:IBSE#
+	nam23	:ICSE#
+	nam7	:PL1SE#
+	nam8	:QL1SE#
+	nam9	:PL2SE#
+	nam10	:QL2SE#
+	nam17	:PL3SE#
+	nam18	:QL3SE#
+	nam19	:PL4SE#
+	nam20	:QL4SE#
+	nam24	:PTSE#
+	nam25	:QTSE#
+	namv1	:V1SE#
+	namv2	:V2SE#
+	namv3	:V3SE#
+	namv4	:V4SE#
+	namv5	:V5SE#
+	namv6	:V6SE#
+	LENGTH	:0
+	ZM	:0.0,0.0,0.0
+	TM	:0.0,0.0,0.0
+	R	:0.0,0.0,0.0
+	TI	:0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	PERCENT_OF_LINE	:100
+	tlb	:Name
+	A1PosY	:-32
+	C1PosY	:32
+	A2PosY	:64
+	C2PosY	:128
+	A3PosY	:160
+	C3PosY	:224
+	A4PosY	:256
+	C4PosY	:320
+	P0	:0.0
+	Q0	:0.0
+	P1	:0.0
+	Q1	:0.0
+	P2	:0.0
+	Q2	:0.0
+	P3	:0.0
+	Q3	:0.0
+	LFIdent	:0
+	enDebug	:No
+	AorM	:Automatic
+	CARD	:1
+	Rprc	:A
+	AM	:NO
+	CORE	:1
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+SUBSYSTEM-END:

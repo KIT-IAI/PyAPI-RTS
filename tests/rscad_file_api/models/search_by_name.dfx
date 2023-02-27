@@ -1,0 +1,329 @@
+DRAFT 1.1
+GRAPHICS: 
+    CANVAS_WIDTH: 1420
+    CANVAS_HEIGHT: 671
+    CURRENT_SUBSYSTEM_IDX: 0
+    DEFAULT_VIEW_MODE: 3
+    DEFAULT_ZOOM: 100
+    DEFAULT_TOP_LEFT_POINT: 0,0
+DATA: 
+    TITLE: Test Circuit
+    CREATED: Jul 20, 2022 (JoEn)
+    LAST-MODIFIED: Jul 20, 2022 (JoEn)
+    TIME-STEP: 5.0E-5
+    FINISH-TIME: 0.2
+    RTDS-RACK: 0
+    COMPILE-MODE: AUTO
+    DISTRIBUTION_MODE: 0
+    RTDS REAL-TIME: Yes 
+COMPONENT_ENUMERATION_START:
+918b63c3-2460-4b8f-9d59-5f0efea0bde4-1:3,0b590130-2f0c-44b4-a1c8-748e38f8964b-1:2,25adaa2c-4331-48f5-ad07-5f84efd0caf3-1:3,
+COMPONENT_ENUMERATION_END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	272 240 0 0 39
+	PARAMETERS-START:
+	Name	:box#
+	ID	:
+	FCOL	:YELLOW
+	BCOL	:BLACK
+	LW	:1.0
+	DESC1	:Description
+	DESC2	:continued
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:0
+	x1	:-32
+	y1	:-32
+	x2	:32
+	y2	:32
+	canvasX	:10
+	canvasY	:10
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:500
+	canvasHeight	:300
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	272 208 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	432 272 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+SUBSYSTEM-END:
+SUBSYSTEM-START:
+SUBSYSTEM-TAB-NAME: 
+SUBSYSTEM-CANVAS-SIZE:3000,2000
+SUBSYSTEM-PRINT-LAYOUT:PORTRAIT
+SUBSYSTEM-PAPER-TYPE:LETTER
+SUBSYSTEM-COMPONENTS:
+HIERARCHY-START:
+COMPONENT_TYPE=HIERARCHY
+	176 272 0 0 39
+	PARAMETERS-START:
+	Name	:box#
+	ID	:
+	FCOL	:YELLOW
+	BCOL	:BLACK
+	LW	:1.0
+	DESC1	:Description
+	DESC2	:continued
+	DESC_OR_NAME	:Description
+	IMAGE	:
+	IMAGE_RESIZE	:NO
+	EXCLUDE	:NO
+	ExcludeFrmIF	:NO
+	Type	:HIERARCHY_BOX
+	SubstepBoxType	:POWER_SYSTEM
+	SubstepDivisor	:15
+	SuperstepBoxType	:POWER_SYSTEM
+	SuperstepMultiplier	:2
+	SuperstepMultiplier_CTLS_ONLY	:2
+	ComponentCount	:0
+	x1	:-32
+	y1	:-32
+	x2	:32
+	y2	:32
+	canvasX	:10
+	canvasY	:10
+	hugeCanvasWidth	:3000
+	hugeCanvasHeight	:2000
+	canvasWidth	:500
+	canvasHeight	:300
+	isOpen	:NO
+	scrtpass	:
+	smtsProcesses	:1
+	smallTSExecTime	:0
+	cross_chassis_comm_port	:1
+	zoomFactor	:100
+	topLeftX	:0
+	topLeftY	:0
+	isPreCompiled	:NO
+	preCompiledVersion	:6.0_0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+RUNTIME-OVERLAY-START: view VIEW-TYPE: DRAFT-VIEW VIEW-ID: test
+RUNTIME-OVERLAY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	176 144 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	304 176 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		2
+		Integer
+		#
+HIERARCHY-END:
+COMPONENT_TYPE=rtds_sharc_sld_BUSLABEL
+	400 240 0 0 29
+	PARAMETERS-START:
+	BName	:BUS#
+	NA	:N#A
+	NB	:N#B
+	NC	:N#C
+	VRate	:230.0
+	COL	:RED
+	LW	:1.0
+	COLA	:ORANGE
+	COLB	:RED
+	COLC	:RED
+	phview	:SLD view
+	linkNodes	:No
+	sameNames	:No
+	monVoltageA	:YES
+	monVoltageB	:YES
+	monVoltageC	:YES
+	Vi	:1.0
+	Ai	:0.0
+	Type	:PQ BUS
+	Vd	:1.0
+	Ad	:1.0
+	Dis1	:No
+	LCOL	:GREEN
+	LCOLA	:CYAN
+	LCOLB	:GREEN
+	LCOLC	:GREEN
+	A1PosX	:-32
+	C1PosX	:32
+	Num	:0
+	PARAMETERS-END:
+	ENUMERATION:
+		true
+		1
+		Integer
+		#
+SUBSYSTEM-END:

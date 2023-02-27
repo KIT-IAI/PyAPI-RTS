@@ -1,0 +1,21 @@
+connecting
+    BUS
+    WIRE
+    jumper
+    jumper2
+    jumper3
+    jumper4
+    jumper5
+    jumper6
+    rtds_sharc_sld_BUSLABEL
+    wirelabel
+    rtds_sharc_sld_BUSOVER
+    rtds_sharc_node
+hierarchy_connecting
+    wirelabel
+    rtds_sharc_node
+    lf_rtds_sharc_sld_TLINE
+label
+    rtds_sharc_sld_BUSLABEL
+    wirelabel
+    rtds_sharc_node

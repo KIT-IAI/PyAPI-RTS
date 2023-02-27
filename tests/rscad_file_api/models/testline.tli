@@ -1,0 +1,21 @@
+!RTDS_REVISION = 2
+Line Summary:
+  {
+  Line Length = 1.0
+  Steady State Frequency = 60.0
+  }
+Line Constants Ground Data:
+  {
+  GroundResistivity = 10.0
+  }
+RLC Options:
+  {
+  Data Entry Format                      = 0
+  Positive Sequence Series Resistance    = 1.0
+  Positive Sequence Series Ind Reactance = 1.0
+  Positive Sequence Series Cap Reactance = 1.0
+  Zero Sequence Series Resistance        = 1.0
+  Zero Sequence Series Ind Reactance     = 1.0
+  Zero Sequence Series Cap Reactance     = 1.0
+  Number of Phases                       = 3
+  }

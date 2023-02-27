@@ -1,0 +1,45 @@
+
+# This file was generated with ClassExtractor
+
+from pyapi_rts.api.parameters.parameter import Parameter
+from enum import Enum, auto
+
+class {{name}}Enum(Enum):
+    FOREACH:{{option_sani}} = "{{option}}"
+
+class {{name}}EnumParameter(Parameter):
+
+    default: {{name}}Enum = {{name}}Enum("{{defaultValue}}")
+
+    def __init__(self, key: str, value: {{name}}Enum, from_str : bool = False) -> None:
+        if not (type(value) is {{name}}Enum) and not (from_str and isinstance(value, str)):
+            raise Exception("Not allowed in {{name}}Enum")
+        super().__init__(key, value, from_str)
+
+    def get_value(self) -> {{name}}Enum:
+        return self._value
+
+    def set_value(self, value: {{name}}Enum) -> bool:
+        if not (type(value) is {{name}}Enum):
+            return False
+        super().set_value(value)
+        return True
+
+    def get_value_as_int(self) -> int:
+        return list({{name}}Enum).index(self._value)
+
+    def set_str(self, value: str) -> bool:
+        if not isinstance(value, str) or value.startswith("$"):
+            return False
+        try:
+            self._value = {{name}}Enum(value)
+            return True
+        except:
+            pass
+        try:
+            self._value = list({{name}}Enum)[int(value)]
+        except:
+            return False
+    
+    def __str__(self) -> str:
+        return self._value.value

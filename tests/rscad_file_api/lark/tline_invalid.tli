@@ -1,0 +1,10 @@
+!RTDS_REVISION = 2
+Line Summary:
+  {
+  Line Length = 23.0
+  Steady State Frequency = 50.0
+  }
+Line Constants Ground Data:
+  {
+  GroundResistivity = 100.0
+  }

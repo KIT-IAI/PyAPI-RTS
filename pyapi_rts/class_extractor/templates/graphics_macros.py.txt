@@ -1,0 +1,46 @@
+import re
+from typing import Union
+
+from pyapi_rts.shared.bounding_box import BoundingBox
+
+
+def macro(
+    bbox: BoundingBox, groups: tuple, norotate: bool, nomirror: bool
+) -> Union[tuple, BoundingBox]:
+    all_int = True
+    try:
+        x = int(groups[0])
+    except ValueError:
+        x = str(groups[0])
+        all_int = False
+    try:
+        y = int(groups[1])
+    except ValueError:
+        y = str(groups[1])
+        all_int = False
+
+    if all_int:
+        return (
+            x + int(bbox.x1.get_value()),
+            y + int(bbox.y1.get_value()),
+            x + int(bbox.x2.get_value()),
+            y + int(bbox.y2.get_value()),
+            norotate,
+            nomirror,
+        )
+    return BoundingBox(
+        f"{x}+{bbox.x1.get_value()}",
+        f"{y}+{bbox.y1.get_value()}",
+        f"{x}+{bbox.x2.get_value()}",
+        f"{y}+{bbox.y2.get_value()}",
+        norotate,
+        nomirror,
+    )
+
+MACRO_REGEXS = {
+    FOREACH_REGEX:"{{MACRO}}": re.compile(r"\b{{MACRO}}\(\s*([^,]+),\s*([^,]+)\)", re.IGNORECASE),
+}
+
+MACRO_FUNCTIONS = {
+    FOREACH_FUNC:"{{MACRO}}": lambda groups, norotate, nomirror: macro({{BBOX}}, groups, norotate, nomirror),
+}
