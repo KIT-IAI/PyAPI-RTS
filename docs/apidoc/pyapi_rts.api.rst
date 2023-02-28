@@ -13,22 +13,6 @@ Subpackages
 Submodules
 ----------
 
-pyapi\_rts.api.block module
----------------------------
-
-.. automodule:: pyapi_rts.api.block
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyapi\_rts.api.blockreader module
----------------------------------
-
-.. automodule:: pyapi_rts.api.blockreader
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pyapi\_rts.api.component module
 -------------------------------
 
@@ -37,26 +21,10 @@ pyapi\_rts.api.component module
    :undoc-members:
    :show-inheritance:
 
-pyapi\_rts.api.componentBox module
-----------------------------------
+pyapi\_rts.api.component\_box module
+------------------------------------
 
-.. automodule:: pyapi_rts.api.componentBox
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyapi\_rts.api.dfxblock module
-------------------------------
-
-.. automodule:: pyapi_rts.api.dfxblock
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyapi\_rts.api.dfxfilereader module
------------------------------------
-
-.. automodule:: pyapi_rts.api.dfxfilereader
+.. automodule:: pyapi_rts.api.component_box
    :members:
    :undoc-members:
    :show-inheritance:
@@ -89,14 +57,6 @@ pyapi\_rts.api.hierarchy module
 -------------------------------
 
 .. automodule:: pyapi_rts.api.hierarchy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyapi\_rts.api.parameters\_block module
----------------------------------------
-
-.. automodule:: pyapi_rts.api.parameters_block
    :members:
    :undoc-members:
    :show-inheritance:

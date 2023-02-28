@@ -4,14 +4,6 @@ pyapi\_rts.shared package
 Submodules
 ----------
 
-pyapi\_rts.shared.NodeType module
----------------------------------
-
-.. automodule:: pyapi_rts.shared.NodeType
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pyapi\_rts.shared.bounding\_box module
 --------------------------------------
 
@@ -32,6 +24,14 @@ pyapi\_rts.shared.condition\_tree module
 ----------------------------------------
 
 .. automodule:: pyapi_rts.shared.condition_tree
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyapi\_rts.shared.node\_type module
+-----------------------------------
+
+.. automodule:: pyapi_rts.shared.node_type
    :members:
    :undoc-members:
    :show-inheritance:

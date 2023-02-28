@@ -29,7 +29,7 @@ pyapi_rts/class_extractor/COMPONENTS directory.
 Use the --path option to specify the path to the RSCAD FX components directory.
 
 2. Run the ClassExtractor tool: 
-    >>> poetry run python ./pyapi_rts/class_extractor/class_extractor.py
+    >>> poetry run python ./pyapi_rts/class_extractor/main.py
     
     Options:
 

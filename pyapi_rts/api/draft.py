@@ -53,7 +53,7 @@ class Draft:
         non_rt_computation_us: int = 150,
         compile_mode: CompileMode = CompileMode.AUTO,
         show_feedback_warnings: bool = False,
-        circuit_comments: list[str] = [],
+        circuit_comments: list[str] = None,
         finish_time: float = 0.2,
         rack_number: int = 1,
         canvas_width: int = 1500,
@@ -76,7 +76,10 @@ class Draft:
         self.non_rt_computation_us = non_rt_computation_us
         self.compile_mode = compile_mode
         self.show_feedback_warnings = show_feedback_warnings
-        self.circuit_comments = circuit_comments
+        if circuit_comments is None:
+            circuit_comments = []
+        else:
+            self.circuit_comments = circuit_comments
         self.finish_time = finish_time
         self.rack_number = rack_number
         self.canvas_width = canvas_width

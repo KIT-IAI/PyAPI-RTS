@@ -21,7 +21,7 @@ These classes are not included in the pyapi_rts distribution.
 1. Check the :code:`pyapi_rts/class_extractor/COMPONENTS` directory. If it exisists and is not empty, you can skip this step.
    Otherwise, copy the content of the COMPONENTS directory from the RSCAD distribution to the :code:`pyapi_rts/class_extractor/COMPONENTS` directory.
    On Windows, this directory likely can be found at :code:`C:\Program Files\RTDS\RSCAD FX x.x\MLIB\COMPONENTS`
-2. Run :code:`poetry run python ./pyapi_rts/class_extractor/class_extractor.py`. For options and more information, see :ref:`Class Extractor Usage<class_extractor>`. 
+2. Run :code:`poetry run python ./pyapi_rts/class_extractor/main.py`. For options and more information, see :ref:`Class Extractor Usage<class_extractor>`. 
 
 
 Check for errors

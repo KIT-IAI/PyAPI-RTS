@@ -305,7 +305,7 @@ if __name__ == "__main__":
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             print(
-                "Usage: python3 class_extractor.py [--path=<path>] [--delete] [--includeobsolete] [--threads=<count>]"
+                "Usage: python3 main.py [--path=<path>] [--delete] [--includeobsolete] [--threads=<count>]"
             )
             sys.exit()
         elif opt in ("-p", "--path"):
