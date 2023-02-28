@@ -1,8 +1,8 @@
 # PyAPI-RTS
 
-A Python library to read and manipulate RSCAD draft files.
+**A Python library to read and manipulate RSCAD draft files.**
 
-See examples/min.py for a small usage example.
+See <a href="examples/simple_example/simple_example.ipynb">examples/simple_example/simple_example.ipynb</a> for a short preview of the API or take a look into our <a href="docs/pyapi_rts.pdf">documentation</a>.
 
 ## Installation
 
