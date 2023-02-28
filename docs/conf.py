@@ -25,7 +25,7 @@ def setup(app):
 
 project = "pyapi_rts"
 copyright = "2023, KIT-IAI-ESA"
-author = "Jona Enzinger, Moritz Weber"
+author = "KIT-IAI-ESA"
 
 # The full version, including alpha/beta/rc tags
 release = "0.1"

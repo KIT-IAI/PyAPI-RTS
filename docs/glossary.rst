@@ -4,7 +4,7 @@ Glossary
 ========
 
 General
---------
+-------
 
 .. glossary::
 
@@ -25,7 +25,7 @@ General
         Included in RSCAD FX distributions.
 
 pyapi_rts
---------
+---------
 
 .. glossary::
     Draft

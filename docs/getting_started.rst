@@ -75,28 +75,6 @@ It uses restructured text (reST) as its markup language, a language similar to m
 All relevant files for the documentation are located in the :code:`docs` directory.
 
 To generate the documentation, switch to the :code:`docs` directory and run :code:`make html` or :code:`make latex`.
-After changes to the API, you can manually delete the :code:`docs/apidoc` directory and regenerate it by running :code:`poetry run sphinx-apidoc ./pyapi_rts/ */tests/* */generated/* -o ./docs/apidoc/make apidoc` from the pyapi_rts directory.
+After changes to the API, you can manually delete the :code:`docs/apidoc` directory and regenerate it by running :code:`poetry run sphinx-apidoc ./pyapi_rts/ */tests/* */generated/* -o ./docs/apidoc` from the pyapi_rts directory.
 
 It is not recommended to do this, as the documentation is generated automatically by the pipeline on the main git branch.
-
-GitLab pipeline
-^^^^^^^^^^^^^^^
-
-The pipeline defined in .gitlab-ci.yml automates the generation of the documentation, running tests and tracking code coverage.
-
-There are currently four stages in the pipeline:
-
-
-+----------------+--------------------------------------------------------+-------------+------------+
-| Stage          | Description                                            | Condition   | Depends on |
-+----------------+--------------------------------------------------------+-------------+------------+
-| test           | Run tests and coverage (excluding extensions)          | None        | None       |
-+----------------+--------------------------------------------------------+-------------+------------+
-| extension-test | Run test including extensions                          | None        | None       |
-+----------------+--------------------------------------------------------+-------------+------------+
-| pages          | Generate HTML documentation and LateX source           | main branch | test       |
-+----------------+--------------------------------------------------------+-------------+------------+
-| profiler       | Run a profiler on the tests and generate the call tree | None        | test       |
-+----------------+--------------------------------------------------------+-------------+------------+
-| docs-pdf       | Run latexpdf on the LateX files from the pages stage   | main branch | pages      |
-+----------------+--------------------------------------------------------+-------------+------------+

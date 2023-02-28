@@ -127,7 +127,7 @@ Enums
 Enums used by parameters of RSCAD components, shared between components to save memory and storage.
 
 class_loader.py
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Includes a set of attributes and methods used to lazy-load the generated classes and execute the hooks.
 
