@@ -56,7 +56,7 @@ class ComponentGeneratorTest(unittest.TestCase):
         """
 
         cdn1 = CompDefNode(
-            "name", "$x", "$y", NodeIO.SHORT, NodeType.NC_LINKED, "link", "phase"
+            "name", "$x", "$y", NodeIO.SHORT, NodeType.NAME_CONNECTED, "link", "phase"
         )
         cdn2 = CompDefNode(
             "name", "$x", "$y", NodeIO.SHORT, NodeType.OTHER, "link", "phase"
@@ -67,7 +67,7 @@ class ComponentGeneratorTest(unittest.TestCase):
         self.assertEqual(ext_conn_point.name, "name")
         self.assertEqual(ext_conn_point.x, "$x")
         self.assertEqual(ext_conn_point.y, "$y")
-        self.assertEqual(ext_conn_point.type, NodeType.NC_LINKED)
+        self.assertEqual(ext_conn_point.type, NodeType.NAME_CONNECTED)
         self.assertEqual(ext_conn_point.link_name, "link")
         self.assertEqual(ext_conn_point.io, NodeIO.SHORT)
         # self.assertEqual(ext_conn_point.phase, "phase")
@@ -77,13 +77,13 @@ class ComponentGeneratorTest(unittest.TestCase):
             "$x",
             "$y",
             NodeIO.SHORT,
-            NodeType.NC_CONNECTED_LINKED,
+            NodeType.NAME_CONNECTED_LINKED,
             "link",
             "phase",
         )
         ext_conn_point2 = cdn2.as_ext_conn_point()
         ext_conn_point.merge(ext_conn_point2)
-        self.assertEqual(ext_conn_point.type, NodeType.NC_CONNECTED_LINKED)
+        self.assertEqual(ext_conn_point.type, NodeType.NAME_CONNECTED_LINKED)
 
 
 if __name__ == "__main__":

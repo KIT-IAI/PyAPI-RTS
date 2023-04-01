@@ -1,68 +1,66 @@
 # LGPL-3.0 License
 # Copyright (c) 2023 KIT-IAI-ESA
 
-from typing import Any
+from abc import ABC, abstractmethod
+from typing import TypeVar, Generic
 
+T = TypeVar('T')
 
-class Parameter:
+class Parameter(Generic[T], ABC):
     """
     Base class for all parameters
     """
 
-    #: Default value for the parameter
-    default: Any = None
-
-    def __init__(self, key: str, value: Any, from_str: bool = False) -> None:
-        #: The key of the parameter
-        self.key: str = key
+    def __init__(self, value: T) -> None:
         #: The value of the parameter
-        self._value: Any = None
-        # Whether the value should be set from a string
-        if from_str:
-            self.set_str(value)
-        else:
-            self._value = value
+        self._value: T = value
+        self._default: T = value
 
-    def get_value(self) -> Any:
+    @classmethod
+    def from_str(cls, value: str) -> "Parameter":
+        return cls(cls._parse_str(value))
+
+    @property
+    def default(self) -> T:
+        """
+        Get the default value of the parameter
+
+        :return: The default value of the parameter
+        :rtype: T
+        """
+        return self._default
+
+    @property
+    def value(self) -> T:
         """
         Get the value of the parameter
 
         :return: The value of the parameter
-        :rtype: Any
+        :rtype: T
         """
         return self._value
 
-    def get_value_as_int(self) -> int:
-        """
-        Get the value of the parameter as an integer
-
-        :return: The value of the parameter as an integer
-        :rtype: int
-        """
-        raise NotImplementedError("Not implemented. Use get_value()")
-
-    def set_value(self, value: Any) -> bool:
+    @value.setter
+    @abstractmethod
+    def value(self, value: T) -> None:
         """
         Set the value of the parameter
 
         :param value: The value to set
-        :type value: Any
-        :return: Success of the operation
-        :rtype: bool
+        :type value: T
         """
-        self._value = value
-        return True
+        ...
 
-    def set_str(self, value: str) -> bool:
+    def set_str(self, value: str) -> None:
         """
         Set the value of the parameter from a string
 
         :param value: The value to set
         :type value: str
-        :return: Success of the operation
-        :rtype: bool
         """
-        return False
+        self._value = self._parse_str(value)
 
-    def __str__(self) -> str:
-        raise Exception("Abstract class, don't call")
+    @classmethod
+    @abstractmethod
+    def _parse_str(cls, value: str) -> T:
+        ...

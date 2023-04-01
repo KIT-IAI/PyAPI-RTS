@@ -5,7 +5,6 @@
 Classes for handling parameters in RSCAD files.
 """
 
-from .boolean_parameter import BooleanParameter
 from .float_parameter import FloatParameter
 from .integer_parameter import IntegerParameter
 from .string_parameter import StringParameter
@@ -16,7 +15,6 @@ from .parameter_collection import ParameterCollection
 from .parameter import Parameter
 
 __all__ = [
-    "BooleanParameter",
     "FloatParameter",
     "IntegerParameter",
     "StringParameter",

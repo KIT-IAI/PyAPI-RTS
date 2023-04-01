@@ -21,7 +21,7 @@ class {{TypeName}}(Component):
 
     def __init__(self) -> None:
         super().__init__(type_name=self._COMPONENT_TYPE_NAME)
-        FOREACH_PARAM:self.{{name}} : {{TypeParam}} = {{TypeParam}}("{{key}}", {{default}}, True)
+        FOREACH_PARAM:self.{{name}} : {{TypeParam}} = {{TypeParam}}.from_str({{args}})
         FOREACH_COLL:self.{{name}} : {{TypeParam}} = {{TypeParam}}()
         self._name_parameter_key: str = {{name_param_key}}
         TAGS[is_connecting]:self._is_connecting = {{value}}

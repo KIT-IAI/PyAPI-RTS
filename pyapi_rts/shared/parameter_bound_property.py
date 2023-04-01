@@ -46,7 +46,7 @@ class ParameterBoundProperty:
         if string[0] == "$" and not "(" in string:
             if not string[1:].strip() in dictionary:
                 return 0
-            value = dictionary[string[1:].strip()].get_value()
+            value = dictionary[string[1:].strip()].value
             if isinstance(value, Enum):
                 return list(value.__class__).index(value)
             else:

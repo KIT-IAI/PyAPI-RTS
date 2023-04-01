@@ -4,76 +4,50 @@
 from pyapi_rts.api.parameters.parameter import Parameter
 
 
-class FloatParameter(Parameter):
+class FloatParameter(Parameter[float]):
     """
     A parameter containing a floating point number.
     """
 
-    default = 0.0
-
-    def __init__(self, key: str, value: float, from_str: bool = False) -> None:
+    def __init__(self, value: float, minimum: float = None, maximum: float = None) -> None:
         """
         Initializes the parameter.
 
-        :param key: The key of the parameter
-        :type key: str
         :param value: The value of the parameter
         :type value: float
         :raises Exception: If the value is not a float
         """
-        if (not from_str and isinstance(value, str)) and float(value) != value:
-            raise Exception("value is not a floating point number")
-        super().__init__(key, value, from_str)
-        self._value: float
+        if not isinstance(value, (float, int)):
+            raise TypeError("value is not a floating point number")
+        super().__init__(float(value))
+        self._minimum = minimum
+        self._maximum = maximum
 
-    def get_value(self) -> float:
-        """
-        Returns the value of the parameter.
+    @classmethod
+    def from_str(cls, value: str, minimum: str = None, maximum: str = None) -> "FloatParameter":
+        _min = cls._parse_str(minimum) if minimum is not None else None
+        _max = cls._parse_str(maximum) if maximum is not None else None
+        return cls(cls._parse_str(value), _min, _max)
 
-        :return: The value of the parameter
-        :rtype: float
-        """
-        return super().get_value()
-
-    def set_value(self, value: float) -> bool:
+    @Parameter.value.setter
+    def value(self, value: float) -> None:
         """
         Sets the value of the parameter.
 
         :param value: The value of the parameter
         :type value: float
-        :return: Success of the operation
-        :rtype: bool
         """
-        try:
-            if float(value) != value:
-                return False
-        except ValueError as _:
-            return False
+        if not isinstance(value, (int, float)):
+            raise TypeError
+        self._value = value
 
-        super().set_value(value)
-        return True
-
-    def get_value_as_int(self) -> int:
-        return int(self._value)
-
-    def set_str(self, value: str) -> bool:
-        """
-        Sets the value of the parameter from a string.
-
-        :param value: The value of the parameter as a string
-        :type value: str
-        :return: Success of the operation
-        :rtype: bool
-        """
-        if not isinstance(value, str) or value.startswith("$"):
-            return False
-        try:
-            self._value = float(value)
-        except TypeError:
-            return False
-        except ValueError:
-            return False
-        return True
+    @classmethod
+    def _parse_str(cls, value: str) -> float:
+        if not isinstance(value, str):
+            raise TypeError
+        if value.startswith("$"):
+            raise ValueError
+        return float(value)
 
     def __str__(self) -> str:
         return str(self._value)

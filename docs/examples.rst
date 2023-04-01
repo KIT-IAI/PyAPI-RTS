@@ -54,7 +54,7 @@ Basic editing of model
         draft = Draft() 
         draft.read_file(PATH / 'test.dfx')
         bus_component : BUSComponent = draft.get_components()[0]
-        bus_component.BUSComponent__CONFIGURATION.SCOL.set_str('RED')
+        bus_component.CONFIGURATION.SCOL.set_str('RED')
         draft.subsystems[0].modify_component(bus_component)
         draft.write_file(PATH / 'test_out.dfx')
 

@@ -14,7 +14,6 @@ class ClassGenerator:
     GENERATED_PATH = "pyapi_rts.generated."
     BASIC_COMPONENT_PATH = "pyapi_rts.api.parameters"
     BASIC_COMPONENTS = [
-        "BooleanParameter",
         "StringParameter",
         "NameParameter",
         "IntegerParameter",

@@ -59,21 +59,21 @@ class ParameterConditionTest(unittest.TestCase):
         param_cond = ParameterCondition(
             pbp, pbp_param, ParameterConditionOperator.EQUAL
         )
-        self.assertTrue(param_cond.check({"a": IntegerParameter("a", 1)}))
-        self.assertFalse(param_cond.check({"a": IntegerParameter("a", 2)}))
+        self.assertTrue(param_cond.check({"a": IntegerParameter(1)}))
+        self.assertFalse(param_cond.check({"a": IntegerParameter(2)}))
 
         # Test the operator chain
         condition_chain = ParameterCondition(
             param_cond, param_cond, OperatorChainOperator.AND
         )
-        self.assertTrue(condition_chain.check({"a": IntegerParameter("a", 1)}))
-        self.assertFalse(condition_chain.check({"a": IntegerParameter("a", 2)}))
+        self.assertTrue(condition_chain.check({"a": IntegerParameter(1)}))
+        self.assertFalse(condition_chain.check({"a": IntegerParameter(2)}))
 
         condition_chain = ParameterCondition(
             param_cond, param_cond, OperatorChainOperator.OR
         )
-        self.assertTrue(condition_chain.check({"a": IntegerParameter("a", 1)}))
-        self.assertFalse(condition_chain.check({"a": IntegerParameter("a", 2)}))
+        self.assertTrue(condition_chain.check({"a": IntegerParameter(1)}))
+        self.assertFalse(condition_chain.check({"a": IntegerParameter(2)}))
 
         param_cond_2 = ParameterCondition(
             pbp, pbp_param, ParameterConditionOperator.NOT_EQUAL
@@ -81,8 +81,8 @@ class ParameterConditionTest(unittest.TestCase):
         condition_chain = ParameterCondition(
             param_cond, param_cond_2, OperatorChainOperator.LEFT
         )
-        self.assertTrue(condition_chain.check({"a": IntegerParameter("a", 1)}))
-        self.assertFalse(condition_chain.check({"a": IntegerParameter("a", 2)}))
+        self.assertTrue(condition_chain.check({"a": IntegerParameter(1)}))
+        self.assertFalse(condition_chain.check({"a": IntegerParameter(2)}))
 
     def test_param_cond_ops(self):
         """

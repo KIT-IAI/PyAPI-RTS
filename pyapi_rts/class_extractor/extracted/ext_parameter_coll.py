@@ -24,36 +24,6 @@ class ExtParameterColl:
         #: The parameters in the collection.
         self.parameters: list[ExtParameter] = []
 
-    def write(self) -> list[str]:
-        """
-        Writes the ExtParameterColl object to a list of strings.
-
-        :return: Lines of strings.
-        :rtype: list[str]
-        """
-        lst = []
-        lst.append("COLL")
-        lst.append(self.name)
-        for param in self.parameters:
-            lst += param.write()
-        lst.append("END")
-        return lst
-
-    @classmethod
-    def read(self, lst: list[str]) -> Any:
-        """
-        Reads an ExtParameterColl object from a list of strings.
-
-        :param lst: The list of strings.
-        :type lst: list[str]
-        :return: The ExtParameterColl object.
-        :rtype: ExtParameterColl
-        """
-        epc = ExtParameterColl(lst[1])
-        for line in lst[2:-1]:
-            epc.parameters.append(ExtParameter.read([line]))
-        return epc
-
     @property
     def type_name(self):
         """

@@ -27,8 +27,8 @@ class CompDefParameterReaderTest(unittest.TestCase):
         self.assertEqual(reader.results["parameter"][0].mystery, "5")
         self.assertEqual(reader.results["parameter"][0]._type, "REAL")
         self.assertEqual(reader.results["parameter"][0].default, "3.0")
-        self.assertEqual(reader.results["parameter"][0]._from, "0.0")
-        self.assertEqual(reader.results["parameter"][0]._to, "")
+        self.assertEqual(reader.results["parameter"][0].minimum, "0.0")
+        self.assertEqual(reader.results["parameter"][0].maximum, "")
 
         reader.read_line(r'x1 "x1"  " " 4 INTEGER -32 0 0 false')
         self.assertEqual(reader.results["parameter"][1].key, "x1")
@@ -37,8 +37,8 @@ class CompDefParameterReaderTest(unittest.TestCase):
         self.assertEqual(reader.results["parameter"][1].mystery, "4")
         self.assertEqual(reader.results["parameter"][1]._type, "INTEGER")
         self.assertEqual(reader.results["parameter"][1].default, "-32")
-        self.assertEqual(reader.results["parameter"][1]._from, "0")
-        self.assertEqual(reader.results["parameter"][1]._to, "0")
+        self.assertEqual(reader.results["parameter"][1].minimum, "0")
+        self.assertEqual(reader.results["parameter"][1].maximum, "0")
 
         with self.assertRaises(ValueError):
             reader.read_line("invalid")

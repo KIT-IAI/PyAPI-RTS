@@ -12,7 +12,14 @@ class ExtParameter:
     __forbidden_names = ["del"]
 
     def __init__(
-        self, key: str, name: str, _type: str, default: Any, description: str = ""
+        self,
+        key: str,
+        name: str,
+        _type: str,
+        default: Any,
+        description: str = "",
+        minimum: str = "",
+        maximum: str = "",
     ) -> None:
         """
         Initialize the parameter
@@ -40,6 +47,8 @@ class ExtParameter:
         self.default: Any = default
         #: Description of the parameter
         self.description: str = description
+        self.minimum = minimum
+        self.maximum = maximum
 
     @property
     def comp_type(self):
@@ -57,24 +66,10 @@ class ExtParameter:
         """
         self._type = _type
 
-    def write(self) -> list[str]:
-        """
-        Write the parameter to a list of lines
-
-        :return: list of lines
-        :rtype: list[str]
-        """
-        return ["{0}:{1}:{2}:{3}".format(self.key, self.name, self._type, self.default)]
-
-    @classmethod
-    def read(cls, line: list[str]) -> "ExtParameter":
-        """
-        Read the parameter from a list of lines
-
-        :param line: list of lines
-        :type line: list[str]
-        :return: Read parameter
-        :rtype: ExtParameter
-        """
-        split = line[0].split(":")
-        return ExtParameter(split[0], split[1], split[2], split[3])
+    def get_args(self) -> str:
+        args = f"'{self.default}'"
+        if self.minimum != "":
+            args += f", minimum='{self.minimum}'"
+        if self.maximum != "":
+            args += f", maximum='{self.maximum}'"
+        return args

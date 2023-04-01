@@ -30,7 +30,7 @@ class Hierarchy(HIERARCHY, ComponentBox):
         :return: Type of the box
         :rtype: int
         """
-        return self.get_by_key("Type").get_value()
+        return self.get_by_key("Type").value
 
     def read_block(self, block: Block, check=True):
         """

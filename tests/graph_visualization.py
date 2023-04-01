@@ -44,7 +44,7 @@ def visualize_graph(
         style=edge_style,
     )
     if show_labels:
-        labels = {n: n.loc_name for n in graph}
+        labels = {n: graph.nodes[n]["type"] for n in graph}
         nx.draw_networkx_labels(graph, pos, labels=labels)
 
     plt.tight_layout()

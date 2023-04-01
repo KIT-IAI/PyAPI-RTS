@@ -106,6 +106,6 @@ class ParameterCollectionGenerator(ClassGenerator):
             .replace("{{name}}", p.name)
             .replace("{{key}}", p.key)
             .replace("{{TypeParam}}", p.comp_type)
-            .replace("{{default}}", repr(p.default))
+            .replace("{{args}}", p.get_args())
             for p in self.pc.parameters
         ]

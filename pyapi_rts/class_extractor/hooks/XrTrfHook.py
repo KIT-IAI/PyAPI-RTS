@@ -25,7 +25,7 @@ class XrTrfHook(ComponentHook):
                         f"XRTRF-{name}",
                         component.uuid,
                         "XRTRF",
-                        NodeType.NC_CONNECTED_LINKED,
+                        NodeType.NAME_CONNECTED_LINKED,
                     )
                 )
         return result

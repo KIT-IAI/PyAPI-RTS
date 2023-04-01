@@ -364,7 +364,7 @@ class Component(DfxBlock):
         for key, param in self._parameters.items():
             param.set_str(dictionary.get(key))
         for collection in self._collections:
-            collection._read_parameters(dictionary)
+            collection.read_parameters(dictionary)
 
     def _write_parameters(self) -> list[str]:
         """
@@ -378,7 +378,7 @@ class Component(DfxBlock):
         for key, param in self._parameters.items():
             lines.append(f"{key}\t:{param}")
         for collection in self._collections:
-            lines += collection._write_parameters()
+            lines += collection.write_parameters()
 
         return lines
 
@@ -404,7 +404,7 @@ class Component(DfxBlock):
         """
         value = None
         if key in self._parameters:
-            value = self._parameters[key].get_value()
+            value = self._parameters[key].value
         elif key in self._computations:
             value = self._computations[key]()
         else:

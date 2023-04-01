@@ -24,9 +24,9 @@ class SpecialValueHook(ComponentHook):
 
         if key.lower() == "frequency":
             if component.has_key("Freq"):
-                return component.get_by_key("Freq").get_value()
+                return component.get_by_key("Freq").value
             elif component.has_key("Freq_Hz"):
-                return component.get_by_key("Freq_Hz").get_value()
+                return component.get_by_key("Freq_Hz").value
             return 50.0  # Default frequency
 
         return None

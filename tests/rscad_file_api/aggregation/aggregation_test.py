@@ -80,9 +80,9 @@ class AggregationTest(unittest.TestCase):
 
         draft.write_file(PATH / "out.dfx")
         self.assertEqual(len(draft.get_components()), 142)
-        self.assertAlmostEqual(dyl.PANDQSETTINGS.Qinit.get_value(), 0.14555)
-        self.assertAlmostEqual(dyl.PANDQSETTINGS.Pinit.get_value(), 0.58098)
-        self.assertAlmostEqual(shunt.CONFIGURATION.CuF.get_value(), 1989.437)
+        self.assertAlmostEqual(dyl.PANDQSETTINGS.Qinit.value, 0.14555)
+        self.assertAlmostEqual(dyl.PANDQSETTINGS.Pinit.value, 0.58098)
+        self.assertAlmostEqual(shunt.CONFIGURATION.CuF.value, 1989.437)
 
         os.remove(PATH / "out.dfx")
 

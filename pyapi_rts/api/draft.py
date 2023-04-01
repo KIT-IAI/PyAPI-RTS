@@ -92,6 +92,12 @@ class Draft:
         self._component_enumeration: list[str] = []
         self.rack_types: list[RackType] = []
 
+    @classmethod
+    def from_file(cls, path: str) -> "Draft":
+        draft = cls()
+        draft.read_file(path)
+        return draft
+
     def add_subsystem(self, subsystem: Subsystem):
         """
         Adds a subsystem to the draft

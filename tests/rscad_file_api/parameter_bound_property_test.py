@@ -3,6 +3,7 @@
 
 from enum import Enum
 import unittest
+from pyapi_rts.api.parameters.enum_parameter import EnumParameter
 from pyapi_rts.api.parameters.parameter import Parameter
 
 from pyapi_rts.shared import (
@@ -55,13 +56,13 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         pbp = ParameterBoundProperty("$(a + b)", int)
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             3,
         )
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             3,
         )
@@ -72,9 +73,9 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         self.assertEqual(
             pbp.get_value(
                 {
-                    "a": IntegerParameter("a", 1),
-                    "b": IntegerParameter("b", 2),
-                    "c": IntegerParameter("c", 3),
+                    "a": IntegerParameter(1),
+                    "b": IntegerParameter(2),
+                    "c": IntegerParameter(3),
                 }
             ),
             6,
@@ -89,13 +90,13 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         pbp = ParameterBoundProperty("$(a - b)", int)
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             -1,
         )
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             -1,
         )
@@ -106,9 +107,9 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         self.assertEqual(
             pbp.get_value(
                 {
-                    "a": IntegerParameter("a", 1),
-                    "b": IntegerParameter("b", 2),
-                    "c": IntegerParameter("c", 3),
+                    "a": IntegerParameter(1),
+                    "b": IntegerParameter(2),
+                    "c": IntegerParameter(3),
                 }
             ),
             -4,
@@ -123,13 +124,13 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         pbp = ParameterBoundProperty("$(a * b)", int)
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             2,
         )
         self.assertEqual(
             pbp.get_value(
-                {"a": IntegerParameter("a", 1), "b": IntegerParameter("b", 2)}
+                {"a": IntegerParameter(1), "b": IntegerParameter(2)}
             ),
             2,
         )
@@ -140,9 +141,9 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         self.assertEqual(
             pbp.get_value(
                 {
-                    "a": IntegerParameter("a", 1),
-                    "b": IntegerParameter("b", 2),
-                    "c": IntegerParameter("c", 3),
+                    "a": IntegerParameter(1),
+                    "b": IntegerParameter(2),
+                    "c": IntegerParameter(3),
                 }
             ),
             6,
@@ -155,9 +156,9 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         Tests the bracket syntax
         """
         dictionary = {
-            "a": IntegerParameter("a", 1),
-            "b": IntegerParameter("b", 2),
-            "c": IntegerParameter("c", 3),
+            "a": IntegerParameter(1),
+            "b": IntegerParameter(2),
+            "c": IntegerParameter(3),
         }
         pbp = ParameterBoundProperty("$(a - b - c)", int)
         self.assertEqual(pbp.get_value(dictionary), -4)
@@ -171,11 +172,11 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         Tests the resolving of parameters
         """
         pbp = ParameterBoundProperty("$abc", int)
-        self.assertEqual(pbp.get_value({"abc": IntegerParameter("abc", 1)}), 1)
-        self.assertEqual(pbp.get_value({"abc": IntegerParameter("abc", 1)}), 1)
+        self.assertEqual(pbp.get_value({"abc": IntegerParameter(1)}), 1)
+        self.assertEqual(pbp.get_value({"abc": IntegerParameter(1)}), 1)
         self.assertEqual(
             pbp.get_value(
-                {"abc": IntegerParameter("abc", 1), "def": IntegerParameter("def", 2)}
+                {"abc": IntegerParameter(1), "def": IntegerParameter(2)}
             ),
             1,
         )
@@ -188,19 +189,19 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         """
         pbp = ParameterBoundProperty("$abc", ParameterBoundPropertyTestEnum)
         self.assertEqual(
-            pbp.get_value({"abc": Parameter("abc", ParameterBoundPropertyTestEnum.A)}),
+            pbp.get_value({"abc": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.A)}),
             0,
         )
         self.assertEqual(
-            pbp.get_value({"abc": Parameter("abc", ParameterBoundPropertyTestEnum.B)}),
+            pbp.get_value({"abc": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.B)}),
             1,
         )
         pbp = ParameterBoundProperty("$(a + b)", ParameterBoundPropertyTestEnum)
         self.assertEqual(
             pbp.get_value(
                 {
-                    "a": Parameter("a", ParameterBoundPropertyTestEnum.B),
-                    "b": Parameter("b", ParameterBoundPropertyTestEnum.C),
+                    "a": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.B),
+                    "b": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.C),
                 }
             ),
             3,

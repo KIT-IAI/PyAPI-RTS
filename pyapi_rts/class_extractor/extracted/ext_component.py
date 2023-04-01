@@ -35,63 +35,6 @@ class ExtComponent:
         #: True if the component is a label
         self.is_label: bool = False
 
-    def write(self) -> list[str]:
-        """
-        Converts the component to a list of lines
-        :return: list of lines
-        :rtype: list[str]
-        """
-        lst = []
-        lst.append("COMPONENT")
-        lst.append(self._type)
-        if self.rectangle is not None:
-            lst.extend(self.rectangle.write_lines())
-        for param in self.parameters:
-            lst += param.write()
-        for c in self.collections:
-            lst += c.write()
-        lst.append("END")
-        return lst
-
-    def read(self, _list: list[str]) -> None:
-        """
-        Loads the component from a list of lines
-
-        :param _list: list of lines
-        :type _list: list[str]
-        """
-        self._type = _list[1]
-        rect_line = next(
-            filter((lambda i: _list[i] == "RECT"), range(2, len(_list) - 1)), -1
-        )
-        end_line = (
-            next(
-                filter((lambda i: _list[i] == "END"), range(rect_line, len(_list) - 1)),
-                len(_list) - 1,
-            )
-            if rect_line != -1
-            else 2
-        )
-        splits = list(
-            filter(
-                (lambda i: _list[i] == "COLL"),
-                range(end_line + 1 if rect_line != -1 else 2, len(_list) - 1),
-            )
-        ) + [len(_list) - 1]
-        # Read rectangle
-        if rect_line != -1:
-            self.rectangle = ExtRectangle()
-        # Read Parameters
-        for param_line in _list[end_line : splits[0]]:
-            self.parameters.append(ExtParameter.read([param_line]))
-        # Read Collections
-        for i in range(len(splits) - 1):
-            c = ExtParameterColl.read(_list[splits[i] : splits[i + 1]])
-            if not c.name in [x.name for x in self.collections]:
-                self.collections.append(c)
-
-        return
-
     @property
     def type_name(self):
         """
@@ -140,21 +83,3 @@ class ExtComponent:
         self.is_connecting = "connecting" in tag_dict[self._type]
         self.is_hierarchy_connecting = "hierarchy_connecting" in tag_dict[self._type]
         self.is_label = "label" in tag_dict[self._type]
-
-    def __key_path(self, key: str) -> str:
-        """
-        Returns the module path for a given key
-
-        :param key: The key
-        :type key: str
-        :return: The module path
-        :rtype: str
-        """
-        for param in self.parameters:
-            if param.key == key:
-                return param.key
-        for coll in self.collections:
-            for param in coll.parameters:
-                if param.key == key:
-                    return coll.name + "." + param.key
-        return ""

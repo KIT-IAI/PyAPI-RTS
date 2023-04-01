@@ -140,7 +140,7 @@ class ComponentGenerator(ClassGenerator):
             .replace("{{name}}", p.name)
             .replace("{{key}}", repr(p.key)[1:-1])
             .replace("{{TypeParam}}", p.comp_type)
-            .replace("{{default}}", repr(p.default))
+            .replace("{{args}}", p.get_args())
             for p in self.comp.parameters
         ]
 

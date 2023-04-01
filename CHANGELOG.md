@@ -1,0 +1,7 @@
+- added Draft.from_file()
+- removed BooleanParameter (unused)
+- removed read() and write() from ExtComponent, ExtParameterColl, ExtParameter (unused)
+- removed ParameterCollection.set_str() (unused)
+- added index to EnumParameter
+- added minimum, maximum to IntegerParameter and FloatParameter
+- added default values per instance to all Parameters

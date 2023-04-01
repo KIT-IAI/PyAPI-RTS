@@ -6,7 +6,7 @@ class {{name}}(ParameterCollection):
     DOCSTR:
     def __init__(self) -> None:
         super().__init__()
-        FOREACH:self.{{name}} : {{TypeParam}} = {{TypeParam}}("{{key}}", {{default}}, True)
+        FOREACH:self.{{name}} : {{TypeParam}} = {{TypeParam}}.from_str({{args}})
 
         self._dict: dict[str, Parameter] = {
             FOREACH:"{{key}}" : self.{{name}},

@@ -272,7 +272,7 @@ def read_component_dir(
 
     print("Hash over read Component Builder files: ", hash_input.hexdigest())
 
-    read_graphics_files(filter(lambda path: path.suffix == ".g", read_paths))
+    read_graphics_files(path for path in read_paths if path.suffix == ".g")
 
     # Create threads
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
@@ -319,6 +319,11 @@ if __name__ == "__main__":
         else:
             assert False, "unhandled option"
 
+    # Delete 'generated' folder if specified by user
+    if DELETE:
+        shutil.rmtree(PATH / "../generated")
+        os.mkdir(PATH / "../generated")
+
     tag_dict = read_component_tags(PATH / "component_tags.txt")
     read = read_component_dir(path, tag_dict, INCLUDE_OBSOLETE, WORKER_COUNT)
     TOTAL = 0
@@ -331,11 +336,6 @@ if __name__ == "__main__":
     hash_pool.load_from_file(PATH / "enum_pool.txt")
 
     file_hash = hashlib.new("sha256")
-
-    # Delete 'generated' folder if specified by user
-    if DELETE:
-        shutil.rmtree(PATH / "../generated")
-        os.mkdir(PATH / "../generated")
 
     read.sort(key=lambda x: x[0].type.lower())
     with Bar("Generating", max=TOTAL) as bar:

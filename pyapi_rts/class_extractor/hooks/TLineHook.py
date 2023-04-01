@@ -36,7 +36,7 @@ class TLineHook(ComponentHook):
                 if len(filtered) > 0:
                     comp = filtered[0]
 
-                    name = comp.enumeration.apply(comp.as_dict()["Tnam1"].get_value())
+                    name = comp.enumeration.apply(comp.as_dict()["Tnam1"].value)
                     if name in tnam1_dict:
                         tnam1_dict[name].append(comp.uuid)
                     else:

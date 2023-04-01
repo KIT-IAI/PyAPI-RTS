@@ -8,12 +8,12 @@ class NodeType(Enum):
     """
     Enum for the different types of nodes
 
-    :param Enum: NC_CONNECTED_LINKED, NC_LINKED, OTHER
+    :param Enum: NAME_CONNECTED_LINKED, NAME_CONNECTED, OTHER
     :type Enum: Enum
     """
 
-    NC_CONNECTED_LINKED = "NAME_CONNECTED:LINKED"
-    NC_LINKED = "NAME_CONNECTED"
+    NAME_CONNECTED_LINKED = "NAME_CONNECTED:LINKED"
+    NAME_CONNECTED = "NAME_CONNECTED"
     OTHER = "OTHER"
 
 

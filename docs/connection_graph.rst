@@ -60,12 +60,12 @@ Types of connections
     - e.g. via BUS or WIRE
 - grid-based connections over multiple hierarchies
     - e.g. BUSLABEL connected to HIERARCHY via BUS
-    - characterized by node type NAME_CONNECTED (?)
+    - characterized by node type `NAME_CONNECTED`
 - label based connections 
     - i.e. wirelabel and signal names of components
 - linked node connections 
     - connect over one or multiple hierarchies without grid connection
-    - characterized by node type NAME_CONNECTED:LINKED
+    - characterized by node type `NAME_CONNECTED_LINKED`
     - used in rtds_sharc_node and rtds_sharc_sld_BUSLABEL
 - cross-rack connections
     - line, cable and cross-rack transformer

@@ -118,11 +118,10 @@ class ComponentBoxTest(unittest.TestCase):
         component_box.add_component(component)
         self.assertEqual(component_box.get_components()[0].uuid, component.uuid)
 
-        self.assertTrue(component_box.set_parameter_at(component.uuid, "LW1", 0.5))
+        component_box.set_parameter_at(component.uuid, "LW1", 0.5)
         self.assertEqual(component.get_by_key("LW1"), 0.5)
-        self.assertFalse(
+        with self.assertRaises(TypeError):
             component_box.set_parameter_at(component.uuid, "LW1", "string")
-        )
 
     def test_get_connected_to(self):
         """

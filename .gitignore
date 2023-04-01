@@ -148,6 +148,7 @@ examples/**/real_*
 
 pyapi_rts/generated/*
 pyapi_rts/class_extractor/COMPONENTS/*
+pyapi_rts/class_extractor/TEST/*
 *.backup
 
 build-docs

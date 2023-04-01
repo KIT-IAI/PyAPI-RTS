@@ -415,7 +415,7 @@ class ComponentBox:
                 if (
                     values[i][0] != values[j][0]  # 2 different components
                     and values[i][2] == values[j][2]  # same connection type
-                    and values[i][2] == NodeType.NC_CONNECTED_LINKED
+                    and values[i][2] == NodeType.NAME_CONNECTED_LINKED
                 ):
                     graph.add_edge(values[i][0], values[j][0])
 
@@ -575,13 +575,13 @@ class ComponentBox:
         labels = {}
         for c in components:
             if c.type == "rtds_sharc_sld_BUSLABEL":
-                if c.Parameters.linkNodes.get_value_as_int() == 1:
+                if c.Parameters.linkNodes.index == 1:
                     if linked.get(c.name) is None:
                         linked[c.name] = [c.uuid]
                     else:
                         linked[c.name].append(c.uuid)
             elif c.type == "rtds_sharc_node":
-                if c.NODEPARAMETERS.linkNode.get_value_as_int() == 1:
+                if c.NODEPARAMETERS.linkNode.index == 1:
                     if linked.get(c.name) is None:
                         linked[c.name] = [c.uuid]
                     else:
@@ -592,7 +592,7 @@ class ComponentBox:
                 else:
                     labels[c.name].append(c.uuid)
             elif c.type in {"lf_rtds_sharc_sld_TLINE", "_rtds_CABLE1.def"}:
-                name = c.CONFIGURATION.Tnam1.get_value()
+                name = c.CONFIGURATION.Tnam1.value
                 label = (c.enumeration.apply(name), c.type)
                 if xrack.get(label) is None:
                     xrack[label] = [c.uuid]

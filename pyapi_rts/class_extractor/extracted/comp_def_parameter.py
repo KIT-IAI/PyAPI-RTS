@@ -12,7 +12,16 @@ class CompDefParameter:
     """
 
     def __init__(
-        self, key, description, descValid, mystery, _type, default, _from, _to, _if
+        self,
+        key,
+        description,
+        descValid,
+        mystery,
+        _type,
+        default,
+        minimum,
+        maximum,
+        condition,
     ) -> None:
         #: The key of the parameter
         self.key = key
@@ -24,9 +33,9 @@ class CompDefParameter:
         self._type = _type
         #: The default value of the parameter
         self.default = default
-        self._from = _from
-        self._to = _to
-        self._if = _if
+        self.minimum = minimum
+        self.maximum = maximum
+        self.condition = condition
 
     @property
     def comp_type(self):
@@ -51,6 +60,8 @@ class CompDefParameter:
                     "FloatParameter",
                     self.default,
                     self.description,
+                    minimum=self.minimum,
+                    maximum=self.maximum,
                 ),
                 None,
             )
@@ -62,6 +73,8 @@ class CompDefParameter:
                     "IntegerParameter",
                     self.default,
                     self.description,
+                    minimum=self.minimum,
+                    maximum=self.maximum,
                 ),
                 None,
             )
