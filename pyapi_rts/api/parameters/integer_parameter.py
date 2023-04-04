@@ -39,7 +39,30 @@ class IntegerParameter(Parameter[int]):
         """
         if not isinstance(value, int):
             raise TypeError
+        if self._minimum is not None and value < self._minimum:
+            raise ValueError("value is too small")
+        if self._maximum is not None and value > self._maximum:
+            raise ValueError("value is too big")
         self._value = value
+
+    def set_within_limits(self, value: int) -> int:
+        """
+        Sets the value of the parameter within the parameter limits. Returns the value that was set.
+
+        :param value: The value of the parameter
+        :type value: int
+        :return: The value the parameter was set to
+        :rtype: int
+        """
+        if not isinstance(value, int):
+            raise TypeError
+        if self._minimum is not None and value < self._minimum:
+            self._value = self._minimum
+        elif self._maximum is not None and value > self._maximum:
+            self._value = self._maximum
+        else:
+            self._value = value
+        return self._value
 
     @classmethod
     def _parse_str(cls, value: str) -> int:
