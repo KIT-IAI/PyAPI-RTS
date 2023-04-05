@@ -12,14 +12,34 @@ from pyapi_rts.shared import (
 from pyapi_rts.api.parameters.integer_parameter import IntegerParameter
 
 
-class ParameterBoundPropertyTestEnum(Enum):
-    """
-    An enum for testing ParameterBoundProperty.
-    """
-
+class PBPTestEnum(Enum):
     A = 1
     B = 2
     C = 3
+
+class PBPTestEnumParameter(EnumParameter[PBPTestEnum]):
+
+    def __init__(self, value: PBPTestEnum) -> None:
+        if not isinstance(value, PBPTestEnum):
+            raise TypeError("value is not an NoyesEnum")
+        super().__init__(value)
+
+    @EnumParameter.value.setter
+    def value(self, value: PBPTestEnum) -> None:
+        if not isinstance(value, PBPTestEnum):
+            raise TypeError
+        self._value = value
+
+    @classmethod
+    def _parse_str(cls, value: str) -> PBPTestEnum:
+        if not isinstance(value, str):
+            raise TypeError
+        if value.startswith("$"):
+            raise ValueError
+        try:
+            return PBPTestEnum(value)
+        except:
+            return list(PBPTestEnum)[int(value)]
 
 
 class ParameterBoundPropertyTest(unittest.TestCase):
@@ -187,21 +207,21 @@ class ParameterBoundPropertyTest(unittest.TestCase):
         """
         Tests the resolving of an enum index
         """
-        pbp = ParameterBoundProperty("$abc", ParameterBoundPropertyTestEnum)
+        pbp = ParameterBoundProperty("$abc", PBPTestEnum)
         self.assertEqual(
-            pbp.get_value({"abc": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.A)}),
+            pbp.get_value({"abc": PBPTestEnumParameter(PBPTestEnum.A)}),
             0,
         )
         self.assertEqual(
-            pbp.get_value({"abc": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.B)}),
+            pbp.get_value({"abc": PBPTestEnumParameter(PBPTestEnum.B)}),
             1,
         )
-        pbp = ParameterBoundProperty("$(a + b)", ParameterBoundPropertyTestEnum)
+        pbp = ParameterBoundProperty("$(a + b)", PBPTestEnum)
         self.assertEqual(
             pbp.get_value(
                 {
-                    "a": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.B),
-                    "b": EnumParameter[ParameterBoundPropertyTestEnum](ParameterBoundPropertyTestEnum.C),
+                    "a": PBPTestEnumParameter(PBPTestEnum.B),
+                    "b": PBPTestEnumParameter(PBPTestEnum.C),
                 }
             ),
             3,

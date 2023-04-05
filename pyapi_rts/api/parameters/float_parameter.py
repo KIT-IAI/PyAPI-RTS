@@ -45,6 +45,14 @@ class FloatParameter(Parameter[float]):
             raise ValueError("value is too big")
         self._value = value
 
+    @property
+    def minimum(self) -> float | None:
+        return self._minimum
+
+    @property
+    def maximum(self) -> float | None:
+        return self._maximum
+
     def set_within_limits(self, value: float) -> float:
         """
         Sets the value of the parameter within the parameter limits. Returns the value that was set.

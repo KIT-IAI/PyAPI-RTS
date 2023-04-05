@@ -18,7 +18,7 @@ class ParameterTest(unittest.TestCase):
         """
         Tests the FloatParameter class
         """
-        float_param = FloatParameter(1.0)
+        float_param = FloatParameter(1.0, -10.0, 10.0)
         self.assertEqual(float_param.value, 1.0)
         float_param.value = 2
         self.assertEqual(float_param.value, 2.0)
@@ -29,12 +29,23 @@ class ParameterTest(unittest.TestCase):
         self.assertEqual(float_param.value, 1.5)
         self.assertEqual(str(float_param), "1.5")
         self.assertEqual(float_param.default, 1.0)
+        float_param.reset()
+        self.assertEqual(float_param.value, 1.0)
+
+        self.assertEqual(float_param.minimum, -10.0)
+        self.assertEqual(float_param.maximum, 10.0)
+        with self.assertRaises(ValueError):
+            float_param.value = -100.0
+        with self.assertRaises(ValueError):
+            float_param.value = 100.0
+        self.assertEqual(float_param.set_within_limits(-100), -10.0)
+        self.assertEqual(float_param.set_within_limits(100), 10.0)
 
     def test_integer_parameter(self):
         """
         Tests the IntegerParameter class
         """
-        integer_param = IntegerParameter(1)
+        integer_param = IntegerParameter(1, -10, 10)
         self.assertEqual(integer_param.value, 1)
         integer_param.value = 2
         self.assertEqual(integer_param.value, 2)
@@ -45,6 +56,18 @@ class ParameterTest(unittest.TestCase):
             integer_param.set_str("abc")
         self.assertEqual(integer_param.value, 2)
         self.assertEqual(str(integer_param), "2")
+
+        integer_param.reset()
+        self.assertEqual(integer_param.value, 1)
+
+        self.assertEqual(integer_param.minimum, -10)
+        self.assertEqual(integer_param.maximum, 10)
+        with self.assertRaises(ValueError):
+            integer_param.value = -100
+        with self.assertRaises(ValueError):
+            integer_param.value = 100
+        self.assertEqual(integer_param.set_within_limits(-100), -10)
+        self.assertEqual(integer_param.set_within_limits(100), 10)
 
     def test_name_parameter(self):
         """
@@ -59,6 +82,9 @@ class ParameterTest(unittest.TestCase):
         self.assertEqual(name_param.value, "name2")
         self.assertEqual(str(name_param), "name2")
 
+        name_param.reset()
+        self.assertEqual(name_param.value, "name")
+
     def test_string_parameter(self):
         """
         Tests the StringParameter class
@@ -70,6 +96,9 @@ class ParameterTest(unittest.TestCase):
         string_param.value = 1
         self.assertEqual(string_param.value, "1")
         self.assertEqual(str(string_param), "1")
+
+        string_param.reset()
+        self.assertEqual(string_param.value, "string")
 
 
 if __name__ == "__main__":

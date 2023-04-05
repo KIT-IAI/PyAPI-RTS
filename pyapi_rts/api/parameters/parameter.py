@@ -12,7 +12,6 @@ class Parameter(Generic[T], ABC):
     """
 
     def __init__(self, value: T) -> None:
-        #: The value of the parameter
         self._value: T = value
         self._default: T = value
 
@@ -50,6 +49,12 @@ class Parameter(Generic[T], ABC):
         :type value: T
         """
         ...
+
+    def reset(self) -> None:
+        """
+        Reset the parameter to its default value.
+        """
+        self._value = self._default
 
     def set_str(self, value: str) -> None:
         """
