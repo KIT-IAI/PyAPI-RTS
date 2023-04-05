@@ -12,7 +12,7 @@ class ClassLoaderGenerator(ClassGenerator):
     Generates the class loader responsible for loading all other classes at runtime
     """
 
-    def __init__(self, comps: list[ExtComponent], hook_names=list[str]) -> None:
+    def __init__(self, comps: list[ExtComponent]) -> None:
         """
         Initializes the ClassLoaderGenerator
 
@@ -21,9 +21,7 @@ class ClassLoaderGenerator(ClassGenerator):
         """
         super().__init__()
         self.foreach_re = re.compile(r"(.*)FOREACH:(.+)")
-        self.foreach_hook_re = re.compile(r"(.*)FOREACH_HOOK:(.+)")
         self.comps = comps
-        self.hooks_name: list[str] = hook_names
 
     def replace(self, lines: list[str]) -> list[str]:
         """
@@ -38,8 +36,6 @@ class ClassLoaderGenerator(ClassGenerator):
         for l in lines:
             if bool(self.foreach_re.match(l)):
                 lines_out += self.replace_foreach(l)
-            elif bool(self.foreach_hook_re.match(l)):
-                lines_out += self.replace_foreach_hook(l)
             else:
                 lines_out.append(l)
         return lines_out
@@ -68,18 +64,4 @@ class ClassLoaderGenerator(ClassGenerator):
                 ),
             )
             for c in self.comps
-        ]
-
-    def replace_foreach_hook(self, line: str) -> list[str]:
-        """
-        Replaces the FOREACH_HOOK statement in one line
-
-        :param line: Line to replace
-        :type line: str
-        :return: list of lines (changed)
-        :rtype: list[str]
-        """
-        g = self.foreach_hook_re.match(line).groups()
-        return [
-            g[0] + g[1].replace("{{name}}", hook_name) for hook_name in self.hooks_name
         ]

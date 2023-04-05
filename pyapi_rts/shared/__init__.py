@@ -13,7 +13,6 @@ from .parameter_condition import (
 )
 from .node_type import NodeType, NodeIO
 from .stretchable import Stretchable
-from .component_hook import ComponentHook
 from .bounding_box import BoundingBox
 
 __all__ = [
@@ -24,6 +23,5 @@ __all__ = [
     "NodeType",
     "NodeIO",
     "Stretchable",
-    "ComponentHook",
     "BoundingBox",
 ]

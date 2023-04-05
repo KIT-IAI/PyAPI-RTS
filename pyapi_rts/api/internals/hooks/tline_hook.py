@@ -3,21 +3,17 @@
 
 import itertools
 
-from pyapi_rts.api.component import Component
-from pyapi_rts.shared.component_hook import ComponentHook
+from pyapi_rts.api.internals.hooks.component_hook import ComponentHook
 
 
 class TLineHook(ComponentHook):
     """
     Adds TLINE connections.
-
-    :param ComponentHook: _description_
-    :type ComponentHook: _type_
     """
 
     @classmethod
     def graph_connections(
-        cls, components: list[Component], pos_dict: dict, link_dict: dict
+        cls, components: list, pos_dict: dict, link_dict: dict
     ) -> list[tuple[str, str]]:
         tnam1_dict = {}
         result = []

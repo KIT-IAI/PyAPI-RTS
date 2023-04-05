@@ -2,8 +2,8 @@
 # Copyright (c) 2023 KIT-IAI-ESA
 
 
+from pyapi_rts.api.internals.hooks.component_hook import ComponentHook
 from pyapi_rts.shared.node_type import NodeType
-from pyapi_rts.shared.component_hook import ComponentHook
 
 
 class XrTrfHook(ComponentHook):

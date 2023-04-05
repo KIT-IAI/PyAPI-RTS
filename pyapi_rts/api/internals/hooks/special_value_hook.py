@@ -3,8 +3,7 @@
 
 from typing import Any
 
-from pyapi_rts.api.component import Component
-from pyapi_rts.shared.component_hook import ComponentHook
+from pyapi_rts.api.internals.hooks.component_hook import ComponentHook
 
 
 class SpecialValueHook(ComponentHook):
@@ -13,7 +12,7 @@ class SpecialValueHook(ComponentHook):
     """
 
     @classmethod
-    def special_value(cls, component: Component, key: str) -> Any | None:
+    def special_value(cls, component, key: str) -> Any | None:
         """
         Adds new special values to components.
         :param component: Component to evaluate.

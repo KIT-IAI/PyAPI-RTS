@@ -1,12 +1,8 @@
-
-
+import importlib
 
 from pyapi_rts.api.component import Component
-from pyapi_rts.shared.component_hook import ComponentHook
 
-FOREACH_HOOK:from pyapi_rts.generated.hooks.{{name}} import {{name}}
 
-import importlib
 COMPONENT_CLASS_DICT : dict[str, str] = {\
     FOREACH:"{{name}}" : "{{TypePath}}",\
     }
@@ -17,8 +13,3 @@ def get_by_key(key : str) -> Component:
         return getattr(module, COMPONENT_CLASS_DICT[key].split(".")[-1])()
     except:
         raise Exception("import of {0} failed".format(key))
-
-def hooks() -> list[ComponentHook]:
-    return [
-        FOREACH_HOOK:{{name}},
-    ]

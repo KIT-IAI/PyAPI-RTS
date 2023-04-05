@@ -11,6 +11,7 @@ from networkx.classes.graph import Graph
 
 from pyapi_rts.shared import NodeType
 from pyapi_rts.api.component import Component
+from pyapi_rts.api.internals.hooks import hooks
 
 
 class ComponentBox:
@@ -19,12 +20,18 @@ class ComponentBox:
     """
 
     def __init__(self, parent=None) -> None:
-        self._components = []
+        self._components: list[Component] = []
         self._conn_graph = None
         self._pos_dict = {}
         self._link_dict: dict[str, list[tuple[str, str, NodeType]]] = None
         #: The parent component box of this component box
-        self.box_parent = parent
+        self.box_parent = parent  # TODO: what is this used for?
+
+        # TODO
+        # keep dict of draft vars in this box
+        # keep dict of other boxes in this box
+        # calculate draft vars recursively, maybe as cached property
+        # update dicts on add_component and remove_component
 
     def get_box_type(self) -> int:
         """
@@ -32,7 +39,7 @@ class ComponentBox:
         :return: The type of the component box.
         :rtype: int
         """
-        return -1
+        return -1  # TODO: is this correct?! this is only valid for Hierarchy
 
     def get_rack_type(self) -> int:
         """
@@ -200,6 +207,7 @@ class ComponentBox:
         """
         Returns a list of all component boxes in the component box.
         """
+        # TODO: WHY? we also have get_hierarchies
         return (
             [cb for cb in self._components if isinstance(cb, ComponentBox)]
             if not recursive
@@ -327,16 +335,13 @@ class ComponentBox:
         :rtype: list[Component]
         """
 
-        if not recursive:
-            return list(
-                filter(
-                    (lambda c: c.type == "HIERARCHY"),
-                    self._components,
-                )
-            )
+        local_hierarchies = [c for c in self._components if c.type == "HIERARCHY"]
 
-        return self.get_hierarchies() + [
-            l for h in self.get_hierarchies() for l in h.get_hierarchies(True)
+        if not recursive:
+            return local_hierarchies
+
+        return local_hierarchies + [
+            l for h in local_hierarchies for l in h.get_hierarchies(True)
         ]
 
     def get_link_dict(self) -> dict[str, list[tuple[str, str, NodeType]]]:
@@ -401,9 +406,8 @@ class ComponentBox:
             graph.add_node(comp.uuid, type=comp.type)
 
         graph.add_edges_from(edges)
-        import pyapi_rts.generated.class_loader as ClassLoader
 
-        for hook in ClassLoader.hooks():
+        for hook in hooks:
             for edge in hook.graph_connections(
                 self.get_components(False, False, True), position_dict, link_dict
             ):
@@ -438,9 +442,7 @@ class ComponentBox:
                         link_dict[comp.name] = [(comp.uuid, node.name, node.link_type)]
 
         # Link dictionary hook
-        import pyapi_rts.generated.class_loader as ClassLoader
-
-        for hook in ClassLoader.hooks():
+        for hook in hooks:
             for (
                 link_name,
                 link_uuid,

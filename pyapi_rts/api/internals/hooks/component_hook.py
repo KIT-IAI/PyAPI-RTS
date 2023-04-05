@@ -29,6 +29,7 @@ class ComponentHook:
     def link_connections(cls, components: list) -> list[tuple[str, str, str, NodeType]]:
         """
         Hook for adding entries to link_dict.
+
         :param components: list of components
         :type components: list[Component]
         :return: list of connections in form [(name, component_uuid, point_name, node_type), ...]
@@ -40,6 +41,7 @@ class ComponentHook:
     def special_value(cls, component: Any, key: str) -> Any | None:
         """
         Adds new special values to components.
+
         :param component: Component to evaluate.
         :type component: Component
         :return: Value of the special key or None if it does not exist for this component.

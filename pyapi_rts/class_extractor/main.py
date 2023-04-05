@@ -34,7 +34,6 @@ from pyapi_rts.class_extractor.generators import (
 from pyapi_rts.class_extractor.utils import valid_file_name
 from pyapi_rts.shared import BoundingBox, Stretchable
 from pyapi_rts.shared.condition_tree import BBNode
-from pyapi_rts.class_extractor.hooks import __all__ as hook_names
 
 
 PATH = pathlib.Path(__file__).parent.resolve()
@@ -380,28 +379,11 @@ if __name__ == "__main__":
         bar.next()
     print(f"{len(hash_pool.pool.values())} Enums generated")
 
-    clg = ClassLoaderGenerator(list(map((lambda c: c[0]), read)), hook_names)
+    clg = ClassLoaderGenerator(list(map((lambda c: c[0]), read)))
     lines = clg.read_file(PATH / "templates/class_loader.py.txt")
     lines = clg.replace(lines)
-    file_hash.update(clg.write_file(PATH / ("../generated/" + lines[0]), lines[1:]))
+    file_hash.update(clg.write_file(PATH / ("../generated/" + lines[0]), lines))
     print("class_loader.py generated")
-
-    # Copy hook files
-    try:
-        shutil.rmtree(PATH / "../generated/hooks")
-    except NotADirectoryError:
-        pass
-    except FileNotFoundError:
-        pass
-    try:
-        os.mkdir(PATH / "../generated/hooks")
-    except FileExistsError:
-        pass
-    for hook in hook_names:
-        shutil.copy(
-            PATH / "hooks" / (hook + ".py"),
-            PATH / "../generated/hooks" / (hook + ".py"),
-        )
 
     print("Hash of generated files: ", file_hash.hexdigest())
     print(

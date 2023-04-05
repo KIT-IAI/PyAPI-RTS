@@ -17,6 +17,7 @@ from .enumeration import Enumeration
 from .internals.dfxblock import DfxBlock
 from .internals.parameters_block import ParametersBlock
 from .internals.block import Block
+from .internals.hooks import hooks
 
 
 class Component(DfxBlock):
@@ -314,9 +315,8 @@ class Component(DfxBlock):
         if "." in key:
             # Reference to values of node
             return 1.0  # TODO: Return actual value
-        import pyapi_rts.generated.class_loader
 
-        for hook in pyapi_rts.generated.class_loader.hooks():
+        for hook in hooks:
             value = hook.special_value(self, key)
             if value is not None:
                 return value

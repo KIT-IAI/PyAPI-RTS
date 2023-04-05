@@ -3,7 +3,7 @@
 
 import itertools
 
-from pyapi_rts.shared.component_hook import ComponentHook
+from pyapi_rts.api.internals.hooks.component_hook import ComponentHook
 
 
 class LinkedNodeHook(ComponentHook):
