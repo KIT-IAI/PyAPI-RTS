@@ -71,4 +71,4 @@ class ParameterCollection:
         :type dictionary: dict[str, str]
         """
         for key, param in self._dict.items():
-            param.set_str(dictionary.get(key))
+            param.set_str(dictionary.get(key), is_init=True)

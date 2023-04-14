@@ -244,7 +244,7 @@ def read_component_dir(
     next_index = 0
     hash_input = hashlib.new("sha256")
     for subdir in filter(
-        lambda f: True if include_obsolete else (not "OBSOLETE" in f.parts),
+        lambda f: _not_blacklisted(include_obsolete, f.parts),
         component_dir,
     ):
         paths = list(os.scandir(str(subdir)))
@@ -282,9 +282,13 @@ def read_component_dir(
     return read_list
 
 
+def _not_blacklisted(include_obsolete: bool, parts: tuple[str,...]) -> bool:
+    blacklisted = ("TLINE_ICONS",)
+    return (include_obsolete or (not "OBSOLETE" in parts)) and not (any(b in parts for b in blacklisted))
+
 if __name__ == "__main__":
 
-    WORKER_COUNT = 8
+    WORKER_COUNT = 10
 
     # Load arguments
     time_start = time.perf_counter()

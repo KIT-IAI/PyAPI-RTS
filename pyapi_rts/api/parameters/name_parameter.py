@@ -29,11 +29,11 @@ class NameParameter(Parameter[str]):
         self._value = value
 
     @classmethod
-    def _parse_str(cls, value: str) -> str:
+    def _parse_str(cls, value: str, is_init: bool = False) -> str:
         if not isinstance(value, str):
             raise TypeError
-        if value.startswith("$"):
-            raise ValueError
+        if not is_init and value.startswith("$"):
+            raise ValueError("Implicit setting of draft variables is forbidden!")
         return value
 
     def __str__(self) -> str:

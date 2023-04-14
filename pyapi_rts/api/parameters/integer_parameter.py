@@ -27,7 +27,7 @@ class IntegerParameter(Parameter[int]):
     def from_str(cls, value: str, minimum: str = None, maximum: str = None) -> "IntegerParameter":
         _min = cls._parse_str(minimum) if minimum is not None else None
         _max = cls._parse_str(maximum) if maximum is not None else None
-        return cls(cls._parse_str(value), _min, _max)
+        return cls(cls._parse_str(value, True), _min, _max)
 
     @Parameter.value.setter
     def value(self, value: int) -> None:
@@ -73,14 +73,19 @@ class IntegerParameter(Parameter[int]):
         return self._value
 
     @classmethod
-    def _parse_str(cls, value: str) -> int:
+    def _parse_str(cls, value: str, is_init: bool = False) -> int | str:
         if not isinstance(value, str):
             raise TypeError
         if value.startswith("$"):
-            raise ValueError
-        if int(value) != float(value):
-            raise ValueError
-        return int(value)
+            if not is_init:
+                raise ValueError("Implicit setting of draft variables is forbidden!")
+            else:
+                return value
+        flt_val = float(value)  # for cases like 1e6
+        int_val = int(flt_val)
+        if int_val != flt_val:
+            raise ValueError("Value is not an integer number")
+        return int_val
 
     def __str__(self) -> str:
         return str(self._value)

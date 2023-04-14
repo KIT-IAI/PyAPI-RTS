@@ -18,8 +18,11 @@ class FloatParameter(Parameter[float]):
         :raises Exception: If the value is not a float
         """
         if not isinstance(value, (float, int)):
-            raise TypeError("value is not a floating point number")
-        super().__init__(float(value))
+            if value is not None and not (isinstance(value, str) and value.startswith("$")):
+                raise TypeError("value is not a floating point number")
+            super().__init__(value)
+        else:
+            super().__init__(float(value))
         self._minimum = minimum
         self._maximum = maximum
 
@@ -27,7 +30,7 @@ class FloatParameter(Parameter[float]):
     def from_str(cls, value: str, minimum: str = None, maximum: str = None) -> "FloatParameter":
         _min = cls._parse_str(minimum) if minimum is not None else None
         _max = cls._parse_str(maximum) if maximum is not None else None
-        return cls(cls._parse_str(value), _min, _max)
+        return cls(cls._parse_str(value, True), _min, _max)
 
     @Parameter.value.setter
     def value(self, value: float) -> None:
@@ -73,11 +76,16 @@ class FloatParameter(Parameter[float]):
         return self._value
 
     @classmethod
-    def _parse_str(cls, value: str) -> float:
+    def _parse_str(cls, value: str, is_init: bool = False) -> float | str:
         if not isinstance(value, str):
             raise TypeError
         if value.startswith("$"):
-            raise ValueError
+            if not is_init:
+                raise ValueError("Implicit setting of draft variables is forbidden!")
+            else:
+                return value
+        if value in ('""', "None"):
+            return None
         return float(value)
 
     def __str__(self) -> str:

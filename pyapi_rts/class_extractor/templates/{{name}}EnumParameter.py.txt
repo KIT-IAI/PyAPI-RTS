@@ -26,12 +26,16 @@ class {{name}}EnumParameter(EnumParameter[{{name}}Enum]):
         self._value = value
 
     @classmethod
-    def _parse_str(cls, value: str) -> {{name}}Enum:
+    def _parse_str(cls, value: str, _: bool = False) -> {{name}}Enum:
         if not isinstance(value, str):
             raise TypeError
         if value.startswith("$"):
-            raise ValueError
+            raise ValueError("No draft variables allowed in enum parameters!")
         try:
             return {{name}}Enum(value)
-        except:
-            return list({{name}}Enum)[int(value)]
+        except ValueError:
+            try:
+                return list({{name}}Enum.__members__.values())[int(value)]
+            except ValueError:
+                lowercase_vals = [option.value.lower() for option in list({{name}}Enum)]
+                return list({{name}}Enum)[lowercase_vals.index(value.lower())]

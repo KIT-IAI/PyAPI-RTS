@@ -17,7 +17,7 @@ class Parameter(Generic[T], ABC):
 
     @classmethod
     def from_str(cls, value: str) -> "Parameter":
-        return cls(cls._parse_str(value))
+        return cls(cls._parse_str(value, True))
 
     @property
     def default(self) -> T:
@@ -56,16 +56,18 @@ class Parameter(Generic[T], ABC):
         """
         self._value = self._default
 
-    def set_str(self, value: str) -> None:
+    def set_str(self, value: str, is_init: bool = False) -> None:
         """
         Set the value of the parameter from a string
 
         :param value: The value to set
         :type value: str
+        :param is_init: True if the method is used for initialization (e.g. by reading a file).
+        :type is_init: bool
         """
-        self._value = self._parse_str(value)
+        self._value = self._parse_str(value, is_init)
 
     @classmethod
     @abstractmethod
-    def _parse_str(cls, value: str) -> T:
+    def _parse_str(cls, value: str, is_init: bool = False) -> T:
         ...
