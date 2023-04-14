@@ -413,6 +413,19 @@ class Draft:
                 return True
         return False
 
+    def get_draft_vars(self) -> dict[str, Component]:
+        """Get a dictionary with all draft variables in the draft with names as key.
+
+        :return: Dictionary of draft variables.
+        :rtype: dict[str, Component]
+        """
+        draft_vars = {}
+
+        for subsys in self._subsystems:
+            draft_vars |= subsys.get_draft_vars(recursive=True)
+
+        return draft_vars
+
     def get_connection_graph(self) -> nx.Graph:
         """
         Returns the combined connection graph from the subsystems.

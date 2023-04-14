@@ -100,7 +100,9 @@ class Component(DfxBlock):
     def bounding_box_abs(self) -> tuple[int, int, int, int]:
         return self.bounding_box_from_dict(self.as_dict(), absolute=True)
 
-    def bounding_box_from_dict(self, dictionary: dict, absolute: bool = False) -> tuple[int, int, int, int]:
+    def bounding_box_from_dict(
+        self, dictionary: dict, absolute: bool = False
+    ) -> tuple[int, int, int, int]:
         return (0, 0, 0, 0)
 
     @property
@@ -391,14 +393,24 @@ class Component(DfxBlock):
         :rtype: dict[str, Parameter]
         """
 
-    def get_by_key(self, key: str, default_value: Any = None, as_int: bool = False) -> Any | None:
+    def get_by_key(
+        self,
+        key: str,
+        default: Any = None,
+        as_int: bool = False,
+        draft_vars: dict[str, "Component"] = None,
+    ) -> Any | None:
         """
         Returns the parameter with a certain key
 
         :param key: The key of the parameter
         :type key: str
-        :param default_value: The default value if the parameter is not found, defaults to None
-        :type default_value: Any, optional
+        :param default: The default value if the parameter is not found, defaults to None
+        :type default: Any, optional
+        :param as_int: Return Enum values as their index; ignored for other types.
+        :type as_int: bool, optional
+        :param draft_vars: A dictionary with draft variables for evaluation; see Draft.get_draft_vars()
+        :type draft_vars: dict, optional
         :return: The parameter or the default value if not found
         :rtype: Any | None
         """
@@ -415,8 +427,28 @@ class Component(DfxBlock):
         if value is not None:
             if as_int and isinstance(value, Enum):
                 return get_enum_index(value)
+            if (
+                isinstance(value, str)
+                and value.startswith("$")
+                and draft_vars is not None
+            ):
+                return self._eval_draft_var(value, draft_vars)
             return value
-        return default_value
+        return default
+
+    def _eval_draft_var(self, value: str, draft_vars: dict[str, "Component"]):
+        if self.enumeration is None or "#" not in value:
+            name = value
+        else:
+            name = self.enumeration.apply(value)
+
+        draft_var = draft_vars[name[1:]]
+        val_type = str(draft_var.Type)
+        if val_type == "CHARACTER":
+            return str(draft_var.Value.value)
+        elif val_type == "REAL":
+            return float(draft_var.Value.value)
+        return int(draft_var.Value.value)
 
     def set_by_key(self, key: str, value: Any) -> bool:
         """
@@ -430,10 +462,13 @@ class Component(DfxBlock):
         :rtype: bool
         """
         if key in self._parameters:
-            return self._parameters[key].set_value(value)
+            self._parameters[key].value = value
+            return True
         for collection in self._collections:
             if collection.has_key(key):
-                return collection.set_value(key, value)
+                collection.set_value(key, value)
+                return True
+        return False
 
     def has_key(self, key: str) -> bool:
         """
@@ -457,8 +492,7 @@ class Component(DfxBlock):
         :return: The copy of the component
         :rtype: Component
         """
-        component = copy.deepcopy(self)
-        return component
+        return copy.deepcopy(self)
 
     def overlaps(self, other: "Component") -> bool:
         """

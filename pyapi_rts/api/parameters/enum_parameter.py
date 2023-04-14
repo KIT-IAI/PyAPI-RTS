@@ -34,5 +34,8 @@ class EnumParameter(Parameter[S], Generic[S]):
         """
         return list(type(self._value)).index(self._value)
 
+    def set_draft_var(self, name: str) -> None:
+        raise TypeError(f"Setting draft vars to EnumParameters is not allowed. ({name=})")
+
     def __str__(self) -> str:
         return str(self._value.value)

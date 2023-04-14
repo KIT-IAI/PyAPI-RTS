@@ -67,6 +67,19 @@ class Parameter(Generic[T], ABC):
         """
         self._value = self._parse_str(value, is_init)
 
+    def set_draft_var(self, name: str) -> None:
+        """
+        Set the value of the parameter to the name of a draft variable.
+
+        :param name: The name of the draft var; starting with '$'.
+        :type name: str
+        """
+        if not isinstance(name, str):
+            raise TypeError("Draft var name must be of type str.")
+        if not name.startswith("$"):
+            raise ValueError("Draft var name must start with '$'.")
+        self._value = name
+
     @classmethod
     @abstractmethod
     def _parse_str(cls, value: str, is_init: bool = False) -> T:

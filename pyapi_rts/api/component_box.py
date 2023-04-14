@@ -27,11 +27,7 @@ class ComponentBox:
         #: The parent component box of this component box
         self.box_parent = parent  # TODO: what is this used for?
 
-        # TODO
-        # keep dict of draft vars in this box
-        # keep dict of other boxes in this box
-        # calculate draft vars recursively, maybe as cached property
-        # update dicts on add_component and remove_component
+        self._draft_vars: dict[str, Component] = {}
 
     def get_box_type(self) -> int:
         """
@@ -116,6 +112,22 @@ class ComponentBox:
             return self.box_parent.get_draft()
         return self.box_parent  # Parent of top-level component box is the draft object
 
+    def get_draft_vars(self, recursive: bool = True) -> dict[str, Component]:
+        """Get a dictionary with the draft variables in the component box with names as key.
+
+        :param recursive: If true, also return the draft variables of contained component boxes, defaults to True
+        :type recursive: bool, optional
+        :return: Dictionary of draft variables.
+        :rtype: dict[str, Component]
+        """
+        draft_vars = {}
+
+        if recursive:
+            for box in self.get_component_boxes(recursive=False):
+                draft_vars |= box.get_draft_vars(recursive=True)
+
+        return draft_vars | self._draft_vars
+
     def search_by_name(
         self, name: str, recursive: bool = False, case_sensitive: bool = False
     ) -> list[Component] | None:
@@ -190,6 +202,9 @@ class ComponentBox:
 
         self._components.append(component)
 
+        if component.type == "rtds_draft_var":
+            self._draft_vars[component.name] = component
+
         if self._conn_graph is not None:  # Only calculate changes in graph
             self._conn_graph.add_node(component.uuid, type=component.type)  # New node
             pos_dict = component.generate_pos_dict()
@@ -250,6 +265,9 @@ class ComponentBox:
             return False
         self._components.remove(comp)
 
+        if comp.type == "rtds_draft_var":
+            self._draft_vars.pop(comp.name, None)
+
         if self._conn_graph is None:
             return True
 
@@ -300,8 +318,14 @@ class ComponentBox:
                 if hier.modify_component(component, recursive):
                     return True
             return False
+
         self.remove_component(comp.uuid)
         self.add_component(component)
+
+        if comp.type == "rtds_draft_var":
+            self._draft_vars.pop(comp.name, None)
+            self._draft_vars[component.name] = component
+
         return True
 
     def set_parameter_at(self, cid: str, param_key: str, value: Any) -> bool:

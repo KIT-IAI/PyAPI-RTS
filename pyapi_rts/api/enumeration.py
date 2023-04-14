@@ -108,9 +108,9 @@ class Enumeration(DfxBlock):
         :rtype: str
         """
         if not self.is_active:
-            return name.replace(self.enumeration_string, "")
+            return name.replace("#", "")
 
-        # fill the enumeration string with the actual number
+        # fill the enumeration string with the actual number (or letter)
         enum_str = self.enumeration_string.replace("#", self.value_str)
         # insert the enumeration string into the name
         return name.replace("#", enum_str)
