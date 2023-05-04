@@ -33,3 +33,7 @@ Other options for the class generation:
 ## Run tests
 
 `poetry run pytest`
+
+## Citing
+
+> M. Weber, J. Enzinger, H. K. Çakmak, U. Kühnapfel and V. Hagenmeyer, "PyAPI-RTS: A Python-API for RSCAD Modeling," 2023 Open Source Modelling and Simulation of Energy Systems (OSMSES), Aachen, Germany, 2023, pp. 1-7, doi: [10.1109/OSMSES58477.2023.10089671](https://doi.org/10.1109/OSMSES58477.2023.10089671).
