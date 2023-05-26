@@ -43,9 +43,9 @@ class FloatParameter(Parameter[float]):
         if not isinstance(value, (int, float)):
             raise TypeError
         if self._minimum is not None and value < self._minimum:
-            raise ValueError("value is too small")
+            raise ValueError(f"Value is too small: {value} < {self._minimum}")
         if self._maximum is not None and value > self._maximum:
-            raise ValueError("value is too big")
+            raise ValueError(f"Value is too big: {value} > {self._maximum}")
         self._value = value
 
     @property

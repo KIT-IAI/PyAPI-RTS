@@ -77,7 +77,7 @@ class Draft:
         self.compile_mode = compile_mode
         self.show_feedback_warnings = show_feedback_warnings
         if circuit_comments is None:
-            circuit_comments = []
+            self.circuit_comments = []
         else:
             self.circuit_comments = circuit_comments
         self.finish_time = finish_time
