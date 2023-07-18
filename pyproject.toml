@@ -24,7 +24,7 @@ black = {version = "^22.3.0", allow-prereleases = true}
 matplotlib = "^3.5.2"
 numpy = "^1.23.1"
 vprof = "^0.38"
-scipy = "^1.9.1"
+scipy = "^1.10.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
