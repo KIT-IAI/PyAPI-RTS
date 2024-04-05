@@ -3,13 +3,12 @@
 
 import re
 
+from pyapi_rts.api.internals.block import Block
 from pyapi_rts.api.internals.dfxblock import DfxBlock
 
 
 class ParametersBlock(DfxBlock):
-    """
-    A block with a collection of parameters as a dictionary
-    """
+    """A block with a collection of parameters as a dictionary"""
 
     _title_regex = re.compile(r"^PARAMETERS-START:\s?\n?$")
 
@@ -17,8 +16,7 @@ class ParametersBlock(DfxBlock):
         self._parameters: dict[str, str] = {}
         super().__init__()
 
-    def read_block(self, block):
-        super().read_block(block)
+    def read_block(self, block: Block) -> None:
         for line in block.lines:
             split = line.split("\t:")
             self._parameters[split[0]] = split[1]

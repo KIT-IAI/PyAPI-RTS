@@ -4,6 +4,7 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
+
 def visualize_graph(
     graph: nx.Graph,
     show_labels: bool = False,
@@ -55,7 +56,7 @@ def visualize_graph(
     return pos
 
 
-def _color_node_type(ntype):
+def _color_node_type(ntype: str) -> str:
     if ntype in {"BUS", "WIRE"}:
         return "#dddddd"
     if ntype == "rtds_sharc_sld_BUSLABEL":
@@ -73,10 +74,12 @@ def _color_node_type(ntype):
     return "#0a72d3"
 
 
-def _color_edge_type(etype):
+def _color_edge_type(etype: str) -> str:
     if etype is None:
+        # grid-based
         return "#000000"
     if etype == "NAME_CONNECTED":
+        # grid-based hierarchy
         return "#d80000"
     if etype == "LABEL_CONNECTED":
         return "#eadb07"

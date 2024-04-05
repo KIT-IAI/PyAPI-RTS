@@ -6,9 +6,7 @@ from pyapi_rts.shared import ParameterBoundProperty
 
 
 class BoundingBox:
-    """
-    The bounding box of a component rectangle.
-    """
+    """The bounding box of a component rectangle."""
 
     def __init__(
         self,
@@ -19,8 +17,7 @@ class BoundingBox:
         norotate: bool = False,
         nomirror: bool = False,
     ) -> None:
-        """
-        Initializes the BoundingBox object.
+        """Initialize the BoundingBox object.
 
         :param x1: Relative x-position of left border.
         :type x1: int | str
@@ -42,9 +39,11 @@ class BoundingBox:
         self.norotate = norotate
         self.nomirror = nomirror
 
-    def evaluate(self, dictionary, rotation=0, mirror=0) -> tuple[int, int, int, int]:
-        """
-        Evaluates the parameter bound bounding box to an integer tuple.
+    def evaluate(
+        self, dictionary: dict, rotation: int = 0, mirror: int = 0
+    ) -> tuple[int, int, int, int]:
+        """Evaluate the parameter bound bounding box to an integer tuple.
+
         :return: The integer tuple.
         :rtype: tuple[int, int, int, int]
         """
@@ -73,7 +72,7 @@ class BoundingBox:
 
         return bbox
 
-    def init_code(self):
+    def init_code(self) -> str:
         x1 = self.x1.get_direct_value()
         y1 = self.y1.get_direct_value()
         x2 = self.x2.get_direct_value()
@@ -84,4 +83,6 @@ class BoundingBox:
         x2_str = str(x2) if isinstance(x2, int) else f'"{x2}"'
         y2_str = str(y2) if isinstance(y2, int) else f'"{y2}"'
 
-        return f"BoundingBox({x1_str}, {y1_str}, {x2_str}, {y2_str}, {self.norotate}, {self.nomirror})"
+        return (
+            f"BoundingBox({x1_str}, {y1_str}, {x2_str}, {y2_str}, {self.norotate}, {self.nomirror})"
+        )

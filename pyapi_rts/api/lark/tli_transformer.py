@@ -9,9 +9,7 @@ PATH = pathlib.Path(__file__).parent.absolute()
 
 
 class TliDataType(Enum):
-    """
-    Enum for the different data types in the tli file.
-    """
+    """Enum for the different data types in the tli file."""
 
     #: Allow both data types, keys in upper case use metadata, keys in lower case use data if both exist at path.
     ANY = 1
@@ -24,11 +22,9 @@ class TliDataType(Enum):
 
 
 class TliRtdsMetadata:
-    """
-    Contains key-value metadata in \*.tli files
-    """
+    """Contains key-value metadata in .tli files."""
 
-    def __init__(self, key, value):
+    def __init__(self, key, value) -> None:
         #: The key of the metadata
         self.key = key
         #: The value of the metadata
@@ -36,11 +32,9 @@ class TliRtdsMetadata:
 
 
 class TliSection:
-    """
-    Contains a section in a \*.tli file. The title can be a string or key-value pair.
-    """
+    """Contains a section in a .tli file. The title can be a string or key-value pair."""
 
-    def __init__(self, title, value=None):
+    def __init__(self, title: str, value: str | None = None) -> None:
         #: The title of the section.
         self.title_key: str = title
         #: The value of the title if it is a key-value pair. None otherwise.
@@ -79,8 +73,7 @@ class TliSection:
         return output
 
     def get(self, path: str, data_type: TliDataType = TliDataType.ANY) -> str:
-        """
-        Returns the data, metadata or section at the given path.
+        """Return the data, metadata or section at the given path.
 
         :param path: Path to the section. If it only contains whitespace, returns the section itself.
         :type path: str
@@ -91,9 +84,7 @@ class TliSection:
         """
         path = path.split("/")
 
-        if (
-            len(path) == 1 and path[0].strip() == ""
-        ):  # If path is empty, return the section itself.
+        if len(path) == 1 and path[0].strip() == "":  # If path is empty, return the section itself.
             if data_type in (TliDataType.SECTION, TliDataType.ANY):
                 return self
             else:
@@ -141,11 +132,9 @@ class TliSection:
 
 
 class TliTransformer(Transformer):
-    """
-    Transformer for the lark parser for .tli files
-    """
+    """Transformer for the lark parser for .tli files."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def value(self, val):
@@ -219,19 +208,14 @@ class TliTransformer(Transformer):
 
 
 class TliFile:
-    """
-    The class for a .tli file.
-    """
+    """The class for a .tli file."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.sections: list[TliSection] = []
         self.metadata: list[TliRtdsMetadata] = []
 
-    def get(
-        self, path: str, data_type: TliDataType = TliDataType.ANY
-    ) -> str | TliSection:
-        """
-        Gets the value of the key at the path.
+    def get(self, path: str, data_type: TliDataType = TliDataType.ANY) -> str | TliSection | None:
+        """Get the value of the key at the path.
 
         :param path: The path to the key through the sections, split by '/'.
         :type path: str
@@ -241,33 +225,33 @@ class TliFile:
         :rtype: str
         """
 
-        path = path.split("/")
+        path_segments = path.split("/")
         # Check for metadata on top level of file
         metadata = next(
             filter(
-                (lambda x: x.key.lower() == path[0].lower()),
+                (lambda x: x.key.lower() == path_segments[0].lower()),
                 self.metadata,
             ),
             None,
         )
 
         for section in self.sections:
-            if section.title_key == path[0]:
-                if len(path) == 1:
+            if section.title_key == path_segments[0]:
+                if len(path_segments) == 1:
                     if data_type != TliDataType.DATA:
                         if not metadata is None:
-                            return metadata.value  # Metdata takes priority over section
-                return section.get(
-                    "/".join(path[1:]), data_type
-                )  # Return data or section at path
+                            # Metdata takes priority over section
+                            return metadata.value
+                # Return data or section at path
+                return section.get("/".join(path_segments[1:]), data_type)
 
         if not metadata is None:
             return metadata.value
+        return None
 
     @classmethod
     def from_file(cls, file_path: str) -> "TliFile":
-        """
-        Creates a TliFile from a file.
+        """Create a TliFile object from a file.
 
         :param file_path: The path to the file.
         :type file_path: str
@@ -279,15 +263,15 @@ class TliFile:
         return tli_file
 
     def read_file(self, path: str) -> None:
-        """
-        Reads a .tli file from the path and fills the object with the data
+        """Read a .tli file from the path and fills the object with the data.
+
         :param path: The path to the .tli file
         :type path: str
         :return: None
         """
 
         tli_parser = Lark.open(
-            PATH / "definitions/tli.lark",
+            str(PATH / "definitions/tli.lark"),
             parser="earley",
         )
 
@@ -297,13 +281,7 @@ class TliFile:
             self.sections = new_tli.sections
             self.metadata = new_tli.metadata
 
-    def __str__(self):
-        """
-        Returns a string representation of the object.
-
-        :return: A string representation of the object.
-        :rtype: str
-        """
+    def __str__(self) -> str:
         output = ""
         for meta in self.metadata:
             output += f"!RTDS_{meta.key.upper()} = {meta.value}\n"
@@ -313,8 +291,7 @@ class TliFile:
         return output
 
     def write_file(self, path: str) -> bool:
-        """
-        Writes the .tli file to the path.
+        """Write the .tli file to the path.
 
         :param path: The path to write the .tli file to.
         :type path: str
@@ -324,7 +301,7 @@ class TliFile:
         try:
             with open(path, "w") as file:
                 file.write(str(self))
-        except Exception as e:
+        except IOError as e:
             print(f"Error writing *.tli file: {e}")
             return False
         return True

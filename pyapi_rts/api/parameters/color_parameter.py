@@ -6,6 +6,6 @@ from pyapi_rts.api.parameters.string_parameter import StringParameter
 
 class ColorParameter(StringParameter):
 
-    def __init__(self, value):
+    def __init__(self, value: str) -> None:
         super().__init__(value)
         self.type = "ColorParameter"

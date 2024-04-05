@@ -3,11 +3,13 @@
 
 from enum import Enum
 import re
+from typing import Any
 
 from pyapi_rts.api.component import Component
 from pyapi_rts.api.component_box import ComponentBox
+from pyapi_rts.api.internals.block import Block
+from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.internals.dfxblock import DfxBlock
-from pyapi_rts.api.internals.dfxfilereader import DfxFileReader
 from pyapi_rts.api.group import Group
 from pyapi_rts.api.hierarchy import Hierarchy
 import pyapi_rts.generated.class_loader as ClassLoader
@@ -33,15 +35,13 @@ class SubsystemPaperType(Enum):
 
 
 class Subsystem(DfxBlock, ComponentBox):
-    """
-    RSCAD subsystem, a canvas with components on it
-    """
+    """RSCAD subsystem, a canvas with components on it."""
 
     _title_regex = re.compile(r"^SUBSYSTEM-START:\s?\n?$")
 
     def __init__(
         self,
-        draft,
+        draft: Any,
         number: int,
         canvas_size_x: int = 3000,
         canvas_size_y: int = 2000,
@@ -59,8 +59,7 @@ class Subsystem(DfxBlock, ComponentBox):
 
     @property
     def index(self) -> str:
-        """
-        The index of the subsystem in the draft.
+        """The index of the subsystem in the draft.
 
         :return: The index of the subsystem in the draft as a string.
         :rtype: str
@@ -68,20 +67,17 @@ class Subsystem(DfxBlock, ComponentBox):
 
         return f"{self.number}"
 
-    def read_block(self, block: list[str]):
-        """
-        Read a subsystem block from a DFX file
+    def read_block(self, block: Block) -> None:
+        """Read a subsystem block from a DFX file
 
         :param block: A subsystem block
         :type block: list[str]
         """
-        super().read_block(block)
         self._read_info(block)
-        self._read_components(block.reader)
+        self._read_components(block)
 
-    def _read_info(self, block: list[str]):
-        """
-        Reads the subsystem information from the .dfx file
+    def _read_info(self, block: Block) -> None:
+        """Read the subsystem information from the .dfx file
 
         :param block: A subsystem block from a .dfx file
         :type block: list[str]
@@ -92,12 +88,15 @@ class Subsystem(DfxBlock, ComponentBox):
         canvas_size = block.lines[1].split("SUBSYSTEM-CANVAS-SIZE:")[-1].split(",")
         self.canvas_size_x = int(canvas_size[0])
         self.canvas_size_y = int(canvas_size[1])
-        self.print_layout = SubsystemPrintLayout[block.lines[2].split("SUBSYSTEM-PRINT-LAYOUT:")[-1].strip()]
-        self.paper_type = SubsystemPaperType[block.lines[3].split("SUBSYSTEM-PAPER-TYPE:")[-1].strip()]
+        self.print_layout = SubsystemPrintLayout[
+            block.lines[2].split("SUBSYSTEM-PRINT-LAYOUT:")[-1].strip()
+        ]
+        self.paper_type = SubsystemPaperType[
+            block.lines[3].split("SUBSYSTEM-PAPER-TYPE:")[-1].strip()
+        ]
 
     def block(self) -> list[str]:
-        """
-        Writes the subsystem to a .dfx file
+        """Writes the subsystem to a .dfx file
 
         :return: A list of strings representing the subsystem block
         :rtype: list[str]
@@ -114,13 +113,14 @@ class Subsystem(DfxBlock, ComponentBox):
         lst.append("SUBSYSTEM-END:")
         return lst
 
-    def _read_components(self, reader: DfxFileReader):
-        """
-        Reads the components in the subsystem from the .dfx file
+    def _read_components(self, block: Block) -> None:
+        """Reads the components in the subsystem from the .dfx file
 
-        :param reader: A DfxFileReader object
-        :type reader: DfxFileReader
+        :param block: The block describing the subsystem
+        :type block: Block
         """
+        reader = BlockReader(block.lines)
+        comp: Component
         while reader.current_block is not None:
             if Hierarchy.check_title(reader.current_block.title):
                 comp = Hierarchy()

@@ -9,7 +9,7 @@ from pyapi_rts.api.lark.tli_transformer import TliFile, TliSection
 class RLCTLine:
     """A TliFile wrapper that simplifies data entry for metric RLC Options in ohms."""
 
-    def __init__(self, name: str, tli_file: TliFile = None) -> None:
+    def __init__(self, name: str, tli_file: TliFile | None = None) -> None:
         self.name = name
         if tli_file is None:
             self._tli_file = TliFile()
@@ -60,9 +60,7 @@ class RLCTLine:
                 rlc_index = i
 
         if rlc_index < 0:
-            raise ValueError(
-                "The read .tli file does not contain an 'RLC Options' section."
-            )
+            raise ValueError("The read .tli file does not contain an 'RLC Options' section.")
 
         if tli_file.sections[rlc_index].get("Data Entry Format") != "0":
             raise ValueError("The read .tli file does not use the 'ohms' input format.")
@@ -92,7 +90,7 @@ class RLCTLine:
         return float(self._tli_file.get("Line Summary/Line Length"))
 
     @length.setter
-    def length(self, value: float):
+    def length(self, value: float) -> None:
         self._tli_file.sections[0].dictionary["Line Length"] = value
 
     @property
@@ -105,7 +103,7 @@ class RLCTLine:
         return float(self._tli_file.get("Line Summary/Steady State Frequency"))
 
     @frequency.setter
-    def frequency(self, value: float):
+    def frequency(self, value: float) -> None:
         self._tli_file.sections[0].dictionary["Steady State Frequency"] = value
 
     @property
@@ -118,7 +116,7 @@ class RLCTLine:
         return float(self._tli_file.get("Line Constants Ground Data/GroundResistivity"))
 
     @ground_resistivity.setter
-    def ground_resistivity(self, value: float):
+    def ground_resistivity(self, value: float) -> None:
         self._tli_file.sections[1].dictionary["GroundResistivity"] = value
 
     @property
@@ -128,15 +126,11 @@ class RLCTLine:
         :return: Positive Sequence Series Resistance in Ohm/km
         :rtype: float
         """
-        return float(
-            self._tli_file.get("RLC Options/Positive Sequence Series Resistance")
-        )
+        return float(self._tli_file.get("RLC Options/Positive Sequence Series Resistance"))
 
     @r1.setter
-    def r1(self, value: float):
-        self._tli_file.sections[2].dictionary[
-            "Positive Sequence Series Resistance"
-        ] = value
+    def r1(self, value: float) -> None:
+        self._tli_file.sections[2].dictionary["Positive Sequence Series Resistance"] = value
 
     @property
     def r0(self) -> float:
@@ -148,7 +142,7 @@ class RLCTLine:
         return float(self._tli_file.get("RLC Options/Zero Sequence Series Resistance"))
 
     @r0.setter
-    def r0(self, value: float):
+    def r0(self, value: float) -> None:
         self._tli_file.sections[2].dictionary["Zero Sequence Series Resistance"] = value
 
     @property
@@ -158,15 +152,11 @@ class RLCTLine:
         :return: Positive Sequence Series Ind Reactance in Ohm/km
         :rtype: float
         """
-        return float(
-            self._tli_file.get("RLC Options/Positive Sequence Series Ind Reactance")
-        )
+        return float(self._tli_file.get("RLC Options/Positive Sequence Series Ind Reactance"))
 
     @xind1.setter
-    def xind1(self, value: float):
-        self._tli_file.sections[2].dictionary[
-            "Positive Sequence Series Ind Reactance"
-        ] = value
+    def xind1(self, value: float) -> None:
+        self._tli_file.sections[2].dictionary["Positive Sequence Series Ind Reactance"] = value
 
     @property
     def xind0(self) -> float:
@@ -175,15 +165,11 @@ class RLCTLine:
         :return: Zero Sequence Series Ind Reactance in Ohm/km
         :rtype: float
         """
-        return float(
-            self._tli_file.get("RLC Options/Zero Sequence Series Ind Reactance")
-        )
+        return float(self._tli_file.get("RLC Options/Zero Sequence Series Ind Reactance"))
 
     @xind0.setter
-    def xind0(self, value: float):
-        self._tli_file.sections[2].dictionary[
-            "Zero Sequence Series Ind Reactance"
-        ] = value
+    def xind0(self, value: float) -> None:
+        self._tli_file.sections[2].dictionary["Zero Sequence Series Ind Reactance"] = value
 
     @property
     def xcap1(self) -> float:
@@ -192,15 +178,11 @@ class RLCTLine:
         :return: Positive Sequence Series Cap Reactance in MOhm*km
         :rtype: float
         """
-        return float(
-            self._tli_file.get("RLC Options/Positive Sequence Series Cap Reactance")
-        )
+        return float(self._tli_file.get("RLC Options/Positive Sequence Series Cap Reactance"))
 
     @xcap1.setter
-    def xcap1(self, value: float):
-        self._tli_file.sections[2].dictionary[
-            "Positive Sequence Series Cap Reactance"
-        ] = value
+    def xcap1(self, value: float) -> None:
+        self._tli_file.sections[2].dictionary["Positive Sequence Series Cap Reactance"] = value
 
     @property
     def xcap0(self) -> float:
@@ -209,15 +191,11 @@ class RLCTLine:
         :return: Zero Sequence Series Cap Reactance in MOhm*km
         :rtype: float
         """
-        return float(
-            self._tli_file.get("RLC Options/Zero Sequence Series Cap Reactance")
-        )
+        return float(self._tli_file.get("RLC Options/Zero Sequence Series Cap Reactance"))
 
     @xcap0.setter
-    def xcap0(self, value: float):
-        self._tli_file.sections[2].dictionary[
-            "Zero Sequence Series Cap Reactance"
-        ] = value
+    def xcap0(self, value: float) -> None:
+        self._tli_file.sections[2].dictionary["Zero Sequence Series Cap Reactance"] = value
 
     @property
     def num_phases(self) -> int:
@@ -229,7 +207,7 @@ class RLCTLine:
         return int(self._tli_file.get("RLC Options/Number of Phases"))
 
     @num_phases.setter
-    def num_phases(self, value: int):
+    def num_phases(self, value: int) -> None:
         if value not in (1, 3, 6):
             raise ValueError("Only 1, 3 or 6 phases allowed")
         self._tli_file.sections[2].dictionary["Number of Phases"] = value
@@ -244,7 +222,7 @@ class RLCTLine:
         return int(self._tli_file.get("RLC Options/Transposed")) == 1
 
     @transposed.setter
-    def transposed(self, value: bool):
+    def transposed(self, value: bool) -> None:
         self._tli_file.sections[2].dictionary["Transposed"] = 1 if value else 0
 
     @property
@@ -257,7 +235,7 @@ class RLCTLine:
         return float(self._tli_file.get("RLC Options/Mutual Resistance"))
 
     @mutual_resistance.setter
-    def mutual_resistance(self, value: float):
+    def mutual_resistance(self, value: float) -> None:
         self._tli_file.sections[2].dictionary["Mutual Resistance"] = value
 
     @property
@@ -270,5 +248,5 @@ class RLCTLine:
         return float(self._tli_file.get("RLC Options/Mutual Reactance"))
 
     @mutual_reactance.setter
-    def mutual_reactance(self, value: float):
+    def mutual_reactance(self, value: float) -> None:
         self._tli_file.sections[2].dictionary["Mutual Reactance"] = value

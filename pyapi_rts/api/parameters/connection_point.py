@@ -1,6 +1,7 @@
 # LGPL-3.0 License
 # Copyright (c) 2023 KIT-IAI-ESA
 
+from typing import Any
 from pyapi_rts.shared import (
     ParameterBoundProperty,
 )
@@ -8,9 +9,7 @@ from pyapi_rts.shared.node_type import NodeType, NodeIO
 
 
 class ConnectionPoint:
-    """
-    A connection point of a component rectangle.
-    """
+    """A connection point of a component rectangle."""
 
     def __init__(
         self,
@@ -18,11 +17,10 @@ class ConnectionPoint:
         y: int | str,
         name: str,
         io: NodeIO,
-        component,
+        component: Any,
         link: tuple[NodeType, str] = (NodeType.OTHER, ""),
     ) -> None:
-        """
-        Initializes the ConnectionPoint object.
+        """Initialize the ConnectionPoint object.
 
         :param x: X position
         :type x: int | str
@@ -32,10 +30,13 @@ class ConnectionPoint:
         :type name: str
         :param io: IO of the connection point
         :type io: NodeIO
+        :param component: The component this connection point belongs to.
+        :type component: Component
         :param link: Node link by name, defaults to ('NodeType.OTHER', "")
         :type link: tuple[NodeType, str], optional
         """
         from pyapi_rts.api import Component
+
         #: X position relative to the center of the component.
         self.x: ParameterBoundProperty = ParameterBoundProperty(x, int)
         #: Y position relative to the center of the component.
@@ -53,8 +54,8 @@ class ConnectionPoint:
 
     @property
     def link_name(self) -> str:
-        """
-        The link name or the name of the connection point if no link is defined.
+        """The link name or the name of the connection point if no link is defined.
+
         :return: The key for the link dictionary.
         :rtype: str
         """

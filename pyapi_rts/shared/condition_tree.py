@@ -16,7 +16,7 @@ class ConditionTreeNode:
 class IfNode(ConditionTreeNode):
     """A condition tree node that has condition and contains a list of other nodes."""
 
-    def __init__(self, condition) -> None:
+    def __init__(self, condition: ParameterCondition) -> None:
         super().__init__()
         self.condition: ParameterCondition = condition
         """The condition of the node."""
@@ -38,7 +38,7 @@ class IfNode(ConditionTreeNode):
 class NewConditionTree(ConditionTreeNode):
     """A condition tree that contains an if branch, and optionally an else branch and multiple elif branches."""
 
-    def __init__(self, if_branch) -> None:
+    def __init__(self, if_branch: IfNode) -> None:
         super().__init__()
         self.if_branch: IfNode = if_branch
         """The mandatory if branch of the tree, consisting of a single IfNode."""

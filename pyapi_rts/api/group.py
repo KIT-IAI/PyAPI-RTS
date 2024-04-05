@@ -11,9 +11,7 @@ from pyapi_rts.api.component_box import ComponentBox
 
 
 class Group(Component, ComponentBox):
-    """
-    Group of components
-    """
+    """Group of components."""
 
     _COMPONENT_TYPE_NAME = "GROUP"
     _title_regex = re.compile(r"^GROUP-START:\s?\n?$")
@@ -21,34 +19,25 @@ class Group(Component, ComponentBox):
     def __init__(self) -> None:
         super().__init__(self._COMPONENT_TYPE_NAME)
 
-    def get_box_type(self) -> int:
-        return self.parent.get_box_type()
-
-    def read_block(self, block: Block, check=True):
+    def read_block(self, block: Block) -> None:
         import pyapi_rts.generated.class_loader as ClassLoader
         from pyapi_rts.api.hierarchy import Hierarchy
 
         if not self.check_title(block.title):
-            raise Exception(
-                "Group read_block() called with malformed title: " + block.lines[0]
-            )
+            raise Exception("Group read_block() called with malformed title: " + block.lines[0])
         reader = BlockReader(block.lines)
-        super().read_block(reader.current_block, False)  # Read the group component
+        super().read_block(reader.current_block)  # Read the group component
+
         next_exists = reader.next_block()  # Move to start of components in group
         if not next_exists:
             return
 
         while True:
-
-            if Group.check_title(
-                reader.current_block.title
-            ):  # Read subhierarchy recursively
+            if Group.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Group()
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
-            elif Hierarchy.check_title(
-                reader.current_block.title
-            ):  # Read subhierarchy recursively
+            elif Hierarchy.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Hierarchy()
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
@@ -88,9 +77,6 @@ class Group(Component, ComponentBox):
         self,
     ) -> dict[str, Any]:
         return {}
-
-    def get_by_key(self, key: str) -> Any | None:
-        return None
 
     def has_key(self, key: str) -> bool:
         return False

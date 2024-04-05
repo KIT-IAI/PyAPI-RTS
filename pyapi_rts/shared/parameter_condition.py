@@ -8,40 +8,36 @@ from pyapi_rts.shared import ParameterBoundProperty
 
 
 class ParameterCondition:
-    """
-    A condition that compares two ParameterBoundProperty objects
-    """
+    """A condition that compares two ParameterBoundProperty objects."""
 
     def __init__(
         self,
-        left: Union[ParameterBoundProperty, "ParameterCondition"],
-        right: Union[ParameterBoundProperty, "ParameterCondition"],
+        left: Union[ParameterBoundProperty, "ParameterCondition", None],
+        right: Union[ParameterBoundProperty, "ParameterCondition", None],
         operator: Union["ParameterConditionOperator", "OperatorChainOperator"],
         negate: bool = False,
     ) -> None:
         #: The left side of the condition
-        self.left: ParameterBoundProperty | ParameterCondition = left
+        self.left: ParameterBoundProperty | ParameterCondition | None = left
         #: The right side of the condition
-        self.right: ParameterBoundProperty | ParameterCondition = right
+        self.right: ParameterBoundProperty | ParameterCondition | None = right
         #: The operator of the condition
         self.operator: ParameterConditionOperator | OperatorChainOperator = operator
         #: If True, negate the evaluation of the condition.
         self.negate = negate
 
     @classmethod
-    def empty(cls):
-        """
-        Returns an empty ParameterCondition that always returns True
+    def empty(cls) -> "ParameterCondition":
+        """Return an empty ParameterCondition that always returns True
 
         :return: An empty ParameterCondition
-        :rtype: _type_
+        :rtype: ParameterCondition
         """
         return ParameterCondition(None, None, ParameterConditionOperator.NONE)
 
     @classmethod
-    def single(cls, lst: list[Any]):
-        """
-        Returns a parameter condition that always returns the node_list
+    def single(cls, lst: list[Any]) -> tuple["ParameterCondition", list]:
+        """Returns a parameter condition that always returns the node_list
 
         :param node_list: The node list to always return
         :type node_list: list[Any]
@@ -50,9 +46,8 @@ class ParameterCondition:
         """
         return (ParameterCondition.empty(), lst)
 
-    def check(self, dictionary) -> bool:
-        """
-        Evaluates the condition on a dictionary of a component's parameters
+    def check(self, dictionary: dict[str, Any]) -> bool:
+        """Evaluates the condition on a dictionary of a component's parameters
 
         :param dictionary: The dictionary of parameters to evaluate the condition on
         :type dictionary: dict[str, Any]
@@ -74,8 +69,7 @@ class ParameterCondition:
 
 
 def get_enum_index(enum_value: Any) -> int:
-    """
-    Returns the index of an enum value
+    """Return the index of an enum value
 
     :param enumValue: The enum value to get the index of
     :type enumValue: Any
@@ -86,8 +80,7 @@ def get_enum_index(enum_value: Any) -> int:
 
 
 def get_with_enum_as_index(value: Any) -> Any:
-    """
-    Returns the index of an enum value if it is an enum value, otherwise returns the value
+    """Return the index of an enum value if it is an enum value, otherwise returns the value
 
     :param value: The value to get the index of
     :type value: Any
@@ -98,8 +91,7 @@ def get_with_enum_as_index(value: Any) -> Any:
 
 
 class ParameterConditionOperator(Enum):
-    """
-    Enum of all possible parameter condition operators.
+    """Enum of all possible parameter condition operators.
     Composed of a function that evaluates the condition and a string representation of the operator
     """
 
@@ -147,8 +139,7 @@ class ParameterConditionOperator(Enum):
 
 
 class OperatorChainOperator(Enum):
-    """
-    Enum of all possible operator chain operators.
+    """Enum of all possible operator chain operators.
     Composed of the check function and the string representation of the operator.
     """
 

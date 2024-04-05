@@ -3,31 +3,33 @@
 
 import re
 
-import pyapi_rts.api.internals.block
+from pyapi_rts.api.internals.block import Block
 
 
 class BlockReader:
-    """
-    Extracts content blocks from lines read from a DFX file
+    """Used to read the content of DFX files.
+    
+    The BlockReader is instantiated with a list of strings that represent the lines of a DFX file.
+    Its sole purpose is to identify the limits of blocks in these lines and provide them for 
+    further processing.
     """
 
     def __init__(self, source: list[str]) -> None:
-        #: The source lines of the file
         self.source = source
-        # The last block read
-        self.current_block: pyapi_rts.api.internals.block.Block = None
-        self.__position = 0
-        #: All blocks read until now
-        self.blocks: list[pyapi_rts.api.internals.block.Block] = []
+        """The source lines of the file."""
+        self.current_block: Block | None = None
+        """The last block that was read."""
+        self.blocks: list[Block] = []
+        """All blocks read until now"""
 
+        self.__position = 0
         self.__start_regex = re.compile(r"^(.+)[-_]START:(?:.*)\n?$")
         self.__indent_regex = re.compile(r"^(?:[^\S\t]{2,4}|\t+)(.+)\s?\n?$")
 
         self.next_block()
 
     def __check_indent(self, line: str) -> bool:
-        """
-        Checks if a string starts with tabulator or multiple spaces
+        """Checks if a string starts with tabulator or multiple spaces
 
         :param line: string to check
         :type line: str
@@ -37,8 +39,7 @@ class BlockReader:
         return bool(self.__indent_regex.match(line))
 
     def next_block(self) -> bool:
-        """
-        Tries to read next block
+        """Try to read next block
 
         :return: success, false if no next block exists
         :rtype: bool
@@ -65,11 +66,8 @@ class BlockReader:
             elif bool(self.__start_regex.match(self.source[self.__position])):
                 # Found START-END block
                 start = self.__position
-                block_id = self.__start_regex.match(
-                    self.source[self.__position]
-                ).groups()[
-                    0
-                ]  # Extract Name of block (???-START:)
+                # Extract Name of block (???-START:)
+                block_id = self.__start_regex.match(self.source[self.__position]).groups()[0]
 
                 # Regexes for counting depth of hierarchy
                 start_reg = re.compile(r"^" + block_id + r"[-_]START:(?:.*)\n?")
@@ -93,9 +91,7 @@ class BlockReader:
                 self.__position += 1
 
             if fin:
-                self.current_block = pyapi_rts.api.internals.block.Block(
-                    self.source[start:end]
-                )  # Create new block
+                self.current_block = Block(self.source[start:end])  # Create new block
                 self.__position = end
                 # Append new block to list of blocks
                 self.blocks.append(self.current_block)

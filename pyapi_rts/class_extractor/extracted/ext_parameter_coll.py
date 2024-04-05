@@ -8,9 +8,7 @@ from ..utils import valid_file_name
 
 
 class ExtParameterColl:
-    """
-    A named collection of parameters.
-    """
+    """A named collection of parameters."""
 
     def __init__(self, name: str) -> None:
         """
@@ -25,16 +23,13 @@ class ExtParameterColl:
         self.parameters: list[ExtParameter] = []
 
     @property
-    def type_name(self):
-        """
-        The type name of the ExtParameterColl object.
+    def type_name(self) -> str:
+        """The type name of the ExtParameterColl object.
 
         :return: The type name.
         :rtype: str
         """
-        return (
-            valid_file_name(self.name.title()) + "ParameterCollection"
-        )
+        return valid_file_name(self.name.title()) + "ParameterCollection"
 
     def __eq__(self, __o: object) -> bool:
         return isinstance(__o, ExtParameterColl) and set(

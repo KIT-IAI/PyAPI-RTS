@@ -4,12 +4,11 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar, Generic
 
-T = TypeVar('T')
+T = TypeVar("T")
+
 
 class Parameter(Generic[T], ABC):
-    """
-    Base class for all parameters
-    """
+    """Base class for all parameters"""
 
     def __init__(self, value: T) -> None:
         self._value: T = value
@@ -21,8 +20,7 @@ class Parameter(Generic[T], ABC):
 
     @property
     def default(self) -> T:
-        """
-        Get the default value of the parameter
+        """Get the default value of the parameter
 
         :return: The default value of the parameter
         :rtype: T
@@ -31,8 +29,7 @@ class Parameter(Generic[T], ABC):
 
     @property
     def value(self) -> T:
-        """
-        Get the value of the parameter
+        """Get the value of the parameter
 
         :return: The value of the parameter
         :rtype: T
@@ -42,23 +39,18 @@ class Parameter(Generic[T], ABC):
     @value.setter
     @abstractmethod
     def value(self, value: T) -> None:
-        """
-        Set the value of the parameter
+        """Set the value of the parameter
 
         :param value: The value to set
         :type value: T
         """
-        ...
 
     def reset(self) -> None:
-        """
-        Reset the parameter to its default value.
-        """
+        """Reset the parameter to its default value."""
         self._value = self._default
 
     def set_str(self, value: str, is_init: bool = False) -> None:
-        """
-        Set the value of the parameter from a string
+        """Set the value of the parameter from a string
 
         :param value: The value to set
         :type value: str
@@ -68,8 +60,7 @@ class Parameter(Generic[T], ABC):
         self._value = self._parse_str(value, is_init)
 
     def set_draft_var(self, name: str) -> None:
-        """
-        Set the value of the parameter to the name of a draft variable.
+        """Set the value of the parameter to the name of a draft variable.
 
         :param name: The name of the draft var; starting with '$'.
         :type name: str
@@ -82,5 +73,4 @@ class Parameter(Generic[T], ABC):
 
     @classmethod
     @abstractmethod
-    def _parse_str(cls, value: str, is_init: bool = False) -> T:
-        ...
+    def _parse_str(cls, value: str, is_init: bool = False) -> T: ...

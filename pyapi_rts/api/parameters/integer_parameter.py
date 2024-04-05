@@ -9,7 +9,7 @@ class IntegerParameter(Parameter[int]):
     A parameter containing an integer number.
     """
 
-    def __init__(self, value: int, minimum: int = None, maximum: int = None) -> None:
+    def __init__(self, value: int, minimum: int | None = None, maximum: int | None = None) -> None:
         """
         A parameter containing an integer number.
 
@@ -24,12 +24,14 @@ class IntegerParameter(Parameter[int]):
         self._maximum = maximum
 
     @classmethod
-    def from_str(cls, value: str, minimum: str = None, maximum: str = None) -> "IntegerParameter":
+    def from_str(
+        cls, value: str, minimum: str | None = None, maximum: str | None = None
+    ) -> "IntegerParameter":
         _min = cls._parse_str(minimum) if minimum is not None else None
         _max = cls._parse_str(maximum) if maximum is not None else None
         return cls(cls._parse_str(value, True), _min, _max)
 
-    @Parameter.value.setter
+    @Parameter.value.setter  # type: ignore
     def value(self, value: int) -> None:
         """
         Sets the value of the parameter.

@@ -12,9 +12,7 @@ from pyapi_rts.api.component_box import ComponentBox
 
 
 class Hierarchy(HIERARCHY, ComponentBox):
-    """
-    A component of type hierarchy, can contain other components
-    """
+    """A component of type hierarchy, can contain other components."""
 
     _title_regex = re.compile(r"^HIERARCHY-START:\s?\n?$")
     # class_loader = ClassLoader()
@@ -24,15 +22,14 @@ class Hierarchy(HIERARCHY, ComponentBox):
         HIERARCHY.__init__(self)
 
     def get_box_type(self) -> int:
-        """
-        Returns the type of the box.
+        """Returns the type of the box.
 
         :return: Type of the box
         :rtype: int
         """
         return self.get_by_key("Type").value
 
-    def read_block(self, block: Block, check=True):
+    def read_block(self, block: Block) -> None:
         """
         Reads a hierarchy block of a .dfx file
 
@@ -43,22 +40,18 @@ class Hierarchy(HIERARCHY, ComponentBox):
         import pyapi_rts.generated.class_loader as ClassLoader
 
         reader = BlockReader(block.lines)
-        super().read_block(reader.current_block, False)  # Read the hierarchy component
+        super().read_block(reader.current_block)  # Read the hierarchy component
         next_exists = reader.next_block()  # Move to start of components in hierarchy
         if not next_exists:
             return
 
         while True:
 
-            if Hierarchy.check_title(
-                reader.current_block.title
-            ):  # Read subhierarchy recursively
+            if Hierarchy.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Hierarchy()
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
-            elif Group.check_title(
-                reader.current_block.title
-            ):  # Read subhierarchy recursively
+            elif Group.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Group()
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
@@ -73,8 +66,7 @@ class Hierarchy(HIERARCHY, ComponentBox):
                 break
 
     def block(self) -> list[str]:
-        """
-        Writes the hierarchy to a .dfx block
+        """Write the hierarchy to a .dfx block
 
         :return: Hierarchy block of a .dfx file
         :rtype: list[str]

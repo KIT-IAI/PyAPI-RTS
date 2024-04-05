@@ -6,9 +6,7 @@ from pyapi_rts.api.parameters.parameter import Parameter
 
 
 class ParameterCollection:
-    """
-    A collection of specific parameters with certain keys and types
-    """
+    """A collection of specific parameters with certain keys and types"""
 
     def __init__(self) -> None:
         self._dict: dict[str, Parameter] = {}

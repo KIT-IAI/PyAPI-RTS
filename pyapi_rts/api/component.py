@@ -9,6 +9,7 @@ import itertools
 import re
 import uuid
 
+from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.parameters import Parameter, ConnectionPoint, ParameterCollection
 from pyapi_rts.shared import Stretchable, NodeIO
 from pyapi_rts.shared.parameter_condition import get_enum_index
@@ -17,26 +18,21 @@ from .enumeration import Enumeration
 from .internals.dfxblock import DfxBlock
 from .internals.parameters_block import ParametersBlock
 from .internals.block import Block
-from .internals.hooks import hooks
 
 
 class Component(DfxBlock):
-    """
-    A RSCAD component
-    """
+    """Base class for RSCAD components."""
 
     _title_regex = re.compile(r"^COMPONENT_TYPE=(.+)\s?\n?$")
 
     _COMPONENT_TYPE_NAME = ""
     GRID_SIZE = 32
-    LOAD_UNIT_NAMES = ["loadunit", "LoadUnit", "load"]
-    LOAD_UNITS_DEFAULT = 10
 
     def __init__(
         self,
-        type_name: str = None,
+        type_name: str | None = None,
         stretchable: Stretchable = Stretchable.NO,
-        linked: bool = None,
+        linked: bool = False,
     ) -> None:
         from pyapi_rts.api.component_box import ComponentBox
 
@@ -50,13 +46,13 @@ class Component(DfxBlock):
         self._number: int = 0
         self._params: list[str] = []
         self._parameters_block: ParametersBlock = ParametersBlock()
-        self._name_parameter_key: str = None
+        self._name_parameter_key: str | None = None
         self.enumeration: Enumeration = Enumeration()
         self._is_connecting = False
         self._is_hierarchy_connecting = False
         self._is_label = False
         #: The component that contains this component.
-        self.parent: ComponentBox = None
+        self.parent: ComponentBox | None = None
 
         #: Stretchable dimensions of the component
         self.stretchable: Stretchable = stretchable
@@ -70,8 +66,7 @@ class Component(DfxBlock):
 
     @property
     def uuid(self) -> str:
-        """
-        Returns the component uuid
+        """Return the component uuid
 
         :return: The component UUID
         :rtype: str
@@ -80,14 +75,10 @@ class Component(DfxBlock):
 
     @property
     def name(self) -> str:
-        """
-        The parameter with key 'Name' with the enumerator applied
-        """
+        """The parameter with key 'Name' with the enumerator applied"""
         if self.has_key("Name"):
             return self.enumeration.apply(self.get_by_key("Name"))
-        elif self._name_parameter_key is not None and self.has_key(
-            self._name_parameter_key
-        ):
+        elif self._name_parameter_key is not None and self.has_key(self._name_parameter_key):
             return self.enumeration.apply(self.get_by_key(self._name_parameter_key))
         else:
             return self.type
@@ -129,17 +120,14 @@ class Component(DfxBlock):
     def height(self) -> int:
         return self.bounding_box[3] - self.bounding_box[1]
 
-    def read_block(self, block: Block, check=True):
-        """
-        Reads a component from a list of lines
+    def read_block(self, block: Block) -> None:
+        """Read a component from a list of lines
 
         :param block: A list of lines describing the component
         :type block: Block
         :param check: Checks the block format before parsing, defaults to True
         :type check: bool, optional
         """
-        if check:
-            super().read_block(block)
         if len(block.lines) == 0:
             return
         position = block.lines[0].split(" ")
@@ -149,19 +137,17 @@ class Component(DfxBlock):
         self._rotation = int(position[2])
         self._mirror = int(position[3])
         self._number = int(position[4])
-        if block.reader.current_block is not None:
+        reader = BlockReader(block.lines)
+        if reader.current_block is not None:
             while True:
                 # Found "PARAMETER-START-END" block
-                if ParametersBlock.check_title(block.reader.current_block.title):
-                    self._parameters_block.read_block(block.reader.current_block)
-                elif Enumeration.check_title(block.reader.current_block.title):
-                    self.enumeration.read_block(
-                        block.reader.current_block,
-                        self._parameters_block._parameters.get("Name") or "",
-                    )
+                if ParametersBlock.check_title(reader.current_block.title):
+                    self._parameters_block.read_block(reader.current_block)
+                elif Enumeration.check_title(reader.current_block.title):
+                    self.enumeration.read_block(reader.current_block)
                 else:
                     pass  # Block not recognized, can be ignored
-                if not block.reader.next_block():
+                if not reader.next_block():
                     break
 
         # Put parameters in their corresponding Parameter objects in component
@@ -207,7 +193,7 @@ class Component(DfxBlock):
         return self._coord_x
 
     @x.setter
-    def x(self, x):
+    def x(self, x: int) -> None:
         if x % Component.GRID_SIZE != Component.GRID_SIZE / 2:
             raise ValueError(
                 f"Coordinates need to be aligned on the grid: {Component.GRID_SIZE / 2} + n * {Component.GRID_SIZE}"
@@ -225,7 +211,7 @@ class Component(DfxBlock):
         return self._coord_y
 
     @y.setter
-    def y(self, y):
+    def y(self, y: int) -> None:
         if y % Component.GRID_SIZE != Component.GRID_SIZE / 2:
             raise ValueError(
                 f"Coordinates need to be aligned on the grid: {Component.GRID_SIZE / 2} + n * {Component.GRID_SIZE}"
@@ -243,7 +229,7 @@ class Component(DfxBlock):
         return self._rotation
 
     @rotation.setter
-    def rotation(self, rotation: int):
+    def rotation(self, rotation: int) -> None:
         """
         Sets the rotation of the component
 
@@ -263,7 +249,7 @@ class Component(DfxBlock):
         return self._mirror
 
     @mirror.setter
-    def mirror(self, mirror: int):
+    def mirror(self, mirror: int) -> None:
         """
         Sets the mirror state of the component
 
@@ -302,40 +288,52 @@ class Component(DfxBlock):
         """
         return self._is_label
 
-    def get_special_value(self, key: str) -> str:
-        """
-        Returns the special value of the component.
+    def get_special_value(self, key: str) -> Any:
+        """Returns the special value of the component.
+
         :param key: The key of the special value.
         :type key: str
         :return: The special value or empty string if not found.
-        :rtype: str
+        :rtype: Any
         """
         if key.strip().lower() == "getboxparenttype()":
-            return self.parent.get_box_type()
+            from .hierarchy import Hierarchy
+
+            parent = self.parent
+            while parent is not None:
+                if isinstance(parent, Hierarchy):
+                    return parent.get_box_type()
+                parent = parent.box_parent
+            return None
         if key.strip().lower() == "getracktype()":
-            return self.parent.get_rack_type()
+            if self.parent is not None:
+                return self.parent.get_rack_type()
+            return None
         if "." in key:
             # Reference to values of node
             return 1.0  # TODO: Return actual value
 
-        for hook in hooks:
-            value = hook.special_value(self, key)
-            if value is not None:
-                return value
+        if key.lower() == "frequency":
+            if self.has_key("Freq"):
+                return self.get_by_key("Freq").value
+            if self.has_key("Freq_Hz"):
+                return self.get_by_key("Freq_Hz").value
+            return 50.0  # Default frequency
+
         return 0.0
 
     @property
     def connection_points(self) -> dict[str, ConnectionPoint]:
         return self.connection_points_from_dict(self.as_dict())
 
-    def connection_points_from_dict(self, dictionary) -> dict[str, ConnectionPoint]:
+    def connection_points_from_dict(self, dictionary: dict) -> dict[str, ConnectionPoint]:
         return {}
 
     def get_connected_at_point(
         self,
         point_name: str,
         return_connecting: bool = False,
-        component_type: str = None,
+        component_type: str | None = None,
     ) -> list["Component"]:
         """
         Returns a list of all components connected at the connection point with the given name.
@@ -356,9 +354,8 @@ class Component(DfxBlock):
             self.uuid, point_name, return_connecting, component_type, []
         )
 
-    def _read_parameters(self, dictionary: dict[str, str]):
-        """
-        Reads the parameters of the component from a dictionary
+    def _read_parameters(self, dictionary: dict[str, str]) -> None:
+        """Read the parameters of the component from a dictionary
 
         :param dictionary: _description_
         :type dictionary: dict[str, str]
@@ -369,8 +366,7 @@ class Component(DfxBlock):
             collection.read_parameters(dictionary)
 
     def _write_parameters(self) -> list[str]:
-        """
-        Writes the parameters to a block of a .dfx file
+        """Write the parameters to a block of a .dfx file
 
         :return: A parameter block for a .dfx file.
         :rtype: list[str]
@@ -386,8 +382,7 @@ class Component(DfxBlock):
 
     @abstractmethod
     def as_dict(self) -> dict[str, Parameter]:
-        """
-        Returns the parameters of the component as a dictionary
+        """Return the parameters of the component as a dictionary
 
         :return: The parameters of the component as a dictionary
         :rtype: dict[str, Parameter]
@@ -398,10 +393,9 @@ class Component(DfxBlock):
         key: str,
         default: Any = None,
         as_int: bool = False,
-        draft_vars: dict[str, "Component"] = None,
+        draft_vars: dict[str, "Component"] | None = None,
     ) -> Any | None:
-        """
-        Returns the parameter with a certain key
+        """Return the parameter with a certain key
 
         :param key: The key of the parameter
         :type key: str
@@ -427,16 +421,12 @@ class Component(DfxBlock):
         if value is not None:
             if as_int and isinstance(value, Enum):
                 return get_enum_index(value)
-            if (
-                isinstance(value, str)
-                and value.startswith("$")
-                and draft_vars is not None
-            ):
+            if isinstance(value, str) and value.startswith("$") and draft_vars is not None:
                 return self._eval_draft_var(value, draft_vars)
             return value
         return default
 
-    def _eval_draft_var(self, value: str, draft_vars: dict[str, "Component"]):
+    def _eval_draft_var(self, value: str, draft_vars: dict[str, "Component"]) -> Any | None:
         if self.enumeration is None or "#" not in value:
             name = value
         else:
@@ -451,8 +441,7 @@ class Component(DfxBlock):
         return int(draft_var.Value.value)
 
     def set_by_key(self, key: str, value: Any) -> bool:
-        """
-        Sets a parameter with a certain key
+        """Set a parameter with a certain key
 
         :param key: The key of the parameter
         :type key: str
@@ -471,8 +460,7 @@ class Component(DfxBlock):
         return False
 
     def has_key(self, key: str) -> bool:
-        """
-        Checks if a parameter with a certain key exists
+        """Check if a parameter with a certain key exists
 
         :param key: The key of the parameter
         :type key: str
@@ -485,18 +473,19 @@ class Component(DfxBlock):
             or any(c.has_key(key) for c in self._collections)
         )
 
-    def duplicate(self) -> "Component":
-        """
-        Creates a copy of the component with the same UUID
+    def duplicate(self, new_id: bool = False) -> "Component":
+        """Create a copy of the component with the same UUID
 
         :return: The copy of the component
         :rtype: Component
         """
-        return copy.deepcopy(self)
+        clone = copy.deepcopy(self)
+        if new_id:
+            clone.__id = str(uuid.uuid4())
+        return clone
 
     def overlaps(self, other: "Component") -> bool:
-        """
-        Checks if the rectangles overlap.
+        """Check if the rectangles overlap.
 
         :param other: Another component
         :type other: Component
@@ -517,15 +506,12 @@ class Component(DfxBlock):
         bbox_other[1] += other.y
         bbox_other[3] += other.y
 
-        return not (
-            bbox_self[2] < bbox_other[0] or bbox_self[0] > bbox_other[2]
-        ) and not (bbox_self[3] < bbox_other[1] or bbox_self[1] > bbox_other[3])
+        return not (bbox_self[2] < bbox_other[0] or bbox_self[0] > bbox_other[2]) and not (
+            bbox_self[3] < bbox_other[1] or bbox_self[1] > bbox_other[3]
+        )
 
-    def touches(
-        self, comp: "Component"
-    ) -> list[tuple[ConnectionPoint, ConnectionPoint]]:
-        """
-        Returns a list of connection points the two components touch at the same time
+    def touches(self, comp: "Component") -> list[tuple[ConnectionPoint, ConnectionPoint]]:
+        """Return a list of connection points the two components touch at the same time
 
         :param comp: The component to check for touching connection points
         :type comp: Component
@@ -549,8 +535,8 @@ class Component(DfxBlock):
         return result
 
     def graph_similar_to(self, comp: "Component") -> bool:
-        """
-        Checks if the two components are identical for the purposes of the graph reperesentation.
+        """Check if the two components are identical for the purposes of the graph reperesentation.
+
         That is the case if:
         1. They have the same id
         2. They have the same coordinates, mirror and rotation
@@ -574,19 +560,20 @@ class Component(DfxBlock):
 
     @property
     def load_units(self) -> int:
-        """
-        Returns the load units of the component based on the data available.
+        """Return the load units of the component based on the data available.
+
         :return: The load units of the component.
         :rtype: int
         """
-        for load_unit_name in Component.LOAD_UNIT_NAMES:
+        for load_unit_name in ("loadunit", "LoadUnit", "load"):
             if self.has_key(load_unit_name):
                 return (int)(self.__getattribute__(load_unit_name)())
-        return Component.LOAD_UNITS_DEFAULT
+        # if the component does not specify a load value, return 10
+        return 10
 
-    def generate_pos_dict(self) -> dict[str, list[tuple]]:
-        """
-        Creates a dictionary that maps positions to connection points
+    def generate_pos_dict(self) -> dict[str, list[tuple[str, str]]]:
+        """Create a dictionary that maps positions to connection points.
+
         Key: "{x-coord},{y-coord}" of connection point
         Value: tuple of name of connection point and id of component
 
@@ -620,9 +607,7 @@ class Component(DfxBlock):
             for x in range(min(x_s), max(x_s) + 1, self.GRID_SIZE):
                 for y in range(min(y_s), max(y_s) + 1, self.GRID_SIZE):
                     stretch_cons.append(
-                        ConnectionPoint(
-                            x, y, "stretch" + str(i), NodeIO.UNDEFINED, self
-                        )
+                        ConnectionPoint(x, y, "stretch" + str(i), NodeIO.UNDEFINED, self)
                     )
                     i += 1
             if len(stretch_cons) > 0:
@@ -630,16 +615,8 @@ class Component(DfxBlock):
 
         elif self.stretchable == Stretchable.BOX:
             # BOXES are things like hierarchy boxes with two stretchable axis
-            x_s = range(
-                int(self.x1),
-                int(self.x2) + 1,
-                self.GRID_SIZE,
-            )
-            y_s = range(
-                int(self.y1),
-                int(self.y2) + 1,
-                self.GRID_SIZE,
-            )
+            x_s = list(range(int(self.x1), int(self.x2) + 1, self.GRID_SIZE))
+            y_s = list(range(int(self.y1), int(self.y2) + 1, self.GRID_SIZE))
             conns = []
             i = 0
             # Add new dummy connection points with name scheme "stretch-{i}"
@@ -647,18 +624,12 @@ class Component(DfxBlock):
                 for y in y_s:
                     conns.append(
                         # TODO: might need to transform this back to norotation and nomirror
-                        ConnectionPoint(
-                            x, y, "stretch" + str(i), NodeIO.UNDEFINED, self
-                        )
+                        ConnectionPoint(x, y, "stretch" + str(i), NodeIO.UNDEFINED, self)
                     )
                     i += 1
             for y in [min(y_s), max(y_s)]:  # Right/Left line
                 for x in list(x_s)[1:-1]:
-                    conns.append(
-                        ConnectionPoint(
-                            x, y, "stretch" + str(i), NodeIO.UNDEFINED, self
-                        )
-                    )
+                    conns.append(ConnectionPoint(x, y, "stretch" + str(i), NodeIO.UNDEFINED, self))
                     i += 1
         for conn in conns:
             pos = conn.position_from_dict(dictionary, absolute=True)

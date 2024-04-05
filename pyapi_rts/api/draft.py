@@ -8,12 +8,12 @@ from pathlib import Path
 import pathlib
 
 import networkx as nx
+from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.lark.rlc_tline import RLCTLine
 
 from pyapi_rts.api.lark.tli_transformer import TliFile
 from pyapi_rts.api.component import Component
 from pyapi_rts.api.component_box import ComponentBox, add_xrack_connections
-from pyapi_rts.api.internals.dfxfilereader import DfxFileReader
 from pyapi_rts.api.subsystem import Subsystem
 
 
@@ -36,9 +36,7 @@ class RackType(Enum):
 
 
 class Draft:
-    """
-    RSCAD Draft, containing multiple subsystems
-    """
+    """RSCAD Draft, containing multiple subsystems."""
 
     def __init__(
         self,
@@ -53,7 +51,7 @@ class Draft:
         non_rt_computation_us: int = 150,
         compile_mode: CompileMode = CompileMode.AUTO,
         show_feedback_warnings: bool = False,
-        circuit_comments: list[str] = None,
+        circuit_comments: list[str] | None = None,
         finish_time: float = 0.2,
         rack_number: int = 1,
         canvas_width: int = 1500,
@@ -98,7 +96,7 @@ class Draft:
         draft.read_file(path)
         return draft
 
-    def add_subsystem(self, subsystem: Subsystem):
+    def add_subsystem(self, subsystem: Subsystem) -> None:
         """
         Adds a subsystem to the draft
 
@@ -117,24 +115,23 @@ class Draft:
         """
         return self._subsystems
 
-    def read_file(self, path: str):
-        """
-        Reads a .dfx file from the path and fills the object with the data
+    def read_file(self, path: str) -> None:
+        """Read a .dfx file from the path and fill the object with the data.
 
         :param path: Path to the .dfx file
         :type path: str
         """
         self._subsystems = []
-        reader = DfxFileReader(path)
+        with open(path, "r", encoding="cp1252") as draft_in:
+            reader = BlockReader(draft_in.readlines())
         self.version = reader.source[0].split("DRAFT ")[-1].strip()
         self._read_header(reader)
         self._read_subsystems(reader)
 
         self.path = path
 
-    def write_file(self, path: str = ""):
-        """
-        Writes the object to a .dfx file
+    def write_file(self, path: str = "") -> None:
+        """Write the object to a .dfx file
 
         :param path: Path to the .dfx file
         :type path: str
@@ -211,12 +208,11 @@ class Draft:
         lines.append("")
         return lines
 
-    def _read_header(self, reader: DfxFileReader) -> None:
-        """
-        Parses the header of the .dfx file
+    def _read_header(self, reader: BlockReader) -> None:
+        """Parse the header of the .dfx file
 
-        :param reader: DfxFileReader object
-        :type reader: DfxFileReader
+        :param reader: BlockReader object
+        :type reader: BlockReader
         """
         graphics = reader.current_block.lines
         self.canvas_width = int(graphics[0].split(": ")[-1].strip())
@@ -261,18 +257,17 @@ class Draft:
         reader.next_block()
         self._component_enumeration = [l.strip() for l in reader.current_block.lines]
 
-    def _read_date_author(self, line: str):
+    def _read_date_author(self, line: str) -> tuple[date, str]:
         created_str = ": ".join(line.split(": ")[1:])
         date_str, author = created_str.split(" (")
         result_date = datetime.strptime(date_str, "%b %d, %Y").date()
         return result_date, author[:-1]
 
-    def _read_subsystems(self, reader: DfxFileReader):
-        """
-        Parses the subsystems from the .dfx file
+    def _read_subsystems(self, reader: BlockReader) -> None:
+        """Parse the subsystems from the .dfx file
 
-        :param reader: DfxFileReader object
-        :type reader: DfxFileReader
+        :param reader: BlockReader object
+        :type reader: BlockReader
         """
         number = 1
         while True:
@@ -284,7 +279,7 @@ class Draft:
                 break
 
     def get_components(
-        self, recursive: bool = True, clone=True, with_groups=False
+        self, recursive: bool = True, clone: bool = True, with_groups: bool = False
     ) -> list[Component]:
         """
         Returns all components in the draft
@@ -301,7 +296,7 @@ class Draft:
         ]
 
     def get_components_by_type(
-        self, type_name: str, recursive: bool = True, clone=True, with_groups=False
+        self, type_name: str, recursive: bool = True, clone: bool = True, with_groups: bool = False
     ) -> list[Component]:
         """
         Returns all components of a given type in the draft
@@ -476,7 +471,7 @@ class Draft:
                 return tli_file
         return None  # File not found
 
-    def get_rlc_tline(self, name: str) -> RLCTLine:
+    def get_rlc_tline(self, name: str) -> RLCTLine | None:
         """
         Returns the TLine Constants file as a RLC Tline.
 
@@ -518,9 +513,7 @@ class Draft:
                             if _type in rack_type_mapping:
                                 # Other cases (GPC and PB5)
                                 if _type == "GPC":
-                                    if len(self.rack_types) > 0 and self.rack_types[
-                                        -1
-                                    ] in [
+                                    if len(self.rack_types) > 0 and self.rack_types[-1] in [
                                         RackType.GTWIF_GPC,
                                         RackType.GTWIF_UNUSED,
                                         RackType.GTWIF_PB,

@@ -6,9 +6,7 @@ from pyapi_rts.api.parameters.parameter import Parameter
 
 
 class StringParameter(Parameter[str]):
-    """
-    A parameter that contains a string
-    """
+    """A parameter that contains a string"""
 
     def __init__(self, value: str) -> None:
         if value is None:
@@ -18,10 +16,9 @@ class StringParameter(Parameter[str]):
         else:
             super().__init__(value)
 
-    @Parameter.value.setter
+    @Parameter.value.setter  # type: ignore
     def value(self, value: Any) -> None:
-        """
-        Sets the value of the parameter
+        """Set the value of the parameter
 
         :param value: The value to set
         :type value: str

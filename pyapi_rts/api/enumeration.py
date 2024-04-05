@@ -5,6 +5,7 @@ from enum import Enum
 import re
 import string
 
+from pyapi_rts.api.internals.block import Block
 from pyapi_rts.api.internals.dfxblock import DfxBlock
 
 
@@ -16,18 +17,12 @@ class EnumerationStyle(str, Enum):
 
 
 class Enumeration(DfxBlock):
-    """
-    Enumeration settings for a component.
+    """Enumeration settings for a component.
     There can be multiple enumerators in one file, but they
     work with internal UUIDs, not easy to reproduce.
     """
 
     _title_regex = re.compile(r"^ENUMERATION:\s?\n?$")
-
-    """
-    The global counter for the components enumerators by name
-    """
-    counter: dict = {}
 
     def __init__(self) -> None:
         #: Is the enumeration feature activated?
@@ -40,16 +35,14 @@ class Enumeration(DfxBlock):
         self.value: int = 0
         super().__init__()
 
-    def read_block(self, block: list[str], name: str):
-        """
-        Reads the enumeration block of the .dfx file
+    def read_block(self, block: Block) -> None:
+        """Read the enumeration block of the .dfx file
 
         :param block: Enumeration block of the .dfx file
         :type block: list[str]
         :param name: Type name of the component
         :type name: str
         """
-        super().read_block(block)
         self.is_active = block.lines[0].lower() == "true"
         self.value = int(block.lines[1])
         self.style = EnumerationStyle[block.lines[2]]
@@ -58,15 +51,10 @@ class Enumeration(DfxBlock):
         if self.value == 0:
             return
 
-        if name in Enumeration.counter:
-            Enumeration.counter[name] += 1
-        else:
-            Enumeration.counter[name] = self.value
-
     @property
     def value_str(self) -> str:
-        """
-        String representation with applied style of the enumeration value.
+        """String representation with applied style of the enumeration value.
+
         :return: Enumeration value with applied style
         :rtype: str
         """
@@ -84,7 +72,7 @@ class Enumeration(DfxBlock):
         )
         chars = [""] + chars  # 1 = a, 26 = z
 
-        remainders = []
+        remainders: list[int] = []
         quotient, remainder = divmod(self.value, 26)
         while quotient > 0 or remainder > 0:
             if remainder == 0:
@@ -99,8 +87,7 @@ class Enumeration(DfxBlock):
         return result
 
     def apply(self, name: str) -> str:
-        """
-        Applies the rules of this enumeration to a string
+        """Apply the rules of this enumeration to a string
 
         :param name: String to apply the rules to
         :type name: str
@@ -116,15 +103,14 @@ class Enumeration(DfxBlock):
         return name.replace("#", enum_str)
 
     def block(self) -> list[str]:
-        """
-        Returns the enumeration block of the .dfx file
+        """Return the enumeration block of the .dfx file
 
         :return: Enumeration block of the .dfx file
         :rtype: list[str]
         """
         lines = []
         lines.append("ENUMERATION:")
-        lines.append("\t{0}".format("true" if self.is_active else "false"))
+        lines.append(f"\t{'true' if self.is_active else 'false'}")
         lines.append(f"\t{self.value}")
         lines.append(f"\t{self.style}")
         lines.append(f"\t{self.enumeration_string}")

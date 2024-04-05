@@ -193,7 +193,7 @@ GRAPHICS_REGEXS_EXT = {
     "group": re.compile(r"\bGroup(Start|End)", re.IGNORECASE)
 }
 
-GRAPHICS_FUNCTIONS: dict[str, Callable[[tuple], tuple]] = {
+GRAPHICS_FUNCTIONS: dict[str, Callable[[tuple, bool, bool], tuple | BoundingBox]] = {
     "line": line_to_coord,
     "dashedline": line_to_coord,
     "text": text_to_coord,

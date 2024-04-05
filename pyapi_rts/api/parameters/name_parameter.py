@@ -14,15 +14,12 @@ class NameParameter(Parameter[str]):
             raise TypeError("value is not a string")
         super().__init__(value)
 
-    @Parameter.value.setter
-    def value(self, value: str) -> bool:
-        """
-        Sets the value of the parameter.
+    @Parameter.value.setter  # type: ignore
+    def value(self, value: str) -> None:
+        """Set the value of the parameter.
 
         :param value: The value of the parameter
         :type value: str
-        :return: Success of the operation
-        :rtype: bool
         """
         if not isinstance(value, str):
             raise TypeError

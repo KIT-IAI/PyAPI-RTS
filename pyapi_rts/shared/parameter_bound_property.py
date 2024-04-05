@@ -7,9 +7,7 @@ from typing import Any
 
 
 class ParameterBoundProperty:
-    """
-    A property that can be bound to a parameter or an explicit value.
-    """
+    """A property that can be bound to a parameter or an explicit value."""
 
     SINGLE_VALUE_BRACKETS_PATTERN = re.compile(r"\$\((\s*[A-z_\-\d\.]+)\s*\)")
     MULTIPLICATION_PATTERN = re.compile(
@@ -88,9 +86,8 @@ class ParameterBoundProperty:
 
         return 0
 
-    def get_value(self, dictionary: dict = None) -> Any | str:
-        """
-        Returns the value of the parameter bound property.
+    def get_value(self, dictionary: dict | None = None) -> Any | str:
+        """Return the value of the parameter bound property.
 
         :param dictionary: The dictionary of a component's parameters
         :type dictionary: dict, optional
@@ -112,9 +109,8 @@ class ParameterBoundProperty:
         """
         return self.__value
 
-    def set_value(self, value: Any | str):
-        """
-        Sets the value of the parameter bound property.
+    def set_value(self, value: Any | str) -> None:
+        """Set the value of the parameter bound property.
 
         :param value: The value of the property
         :type value: Any | str
