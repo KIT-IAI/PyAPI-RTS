@@ -1,0 +1,26 @@
+Line Summary:
+  {
+  Line Length = 28.3634033203125
+  Steady State Frequency = 60
+  }
+
+Line Constants Ground Data:
+  {
+  GroundResistivity = 100.0
+  }
+
+RLC Options:
+  {
+  Data Entry Format = 0
+  Positive Sequence Series Resistance = 0.03357142582535744
+  Positive Sequence Series Ind Reactance = 0.4700000286102295
+  Positive Sequence Series Cap Reactance = 0.22872202298200708
+  Zero Sequence Series Resistance = 0.10071427747607231
+  Zero Sequence Series Ind Reactance = 1.4100000858306885
+  Zero Sequence Series Cap Reactance = 0.0762406743273357
+  Number of Phases = 3
+  Transposed = 0
+  Mutual Resistance = 0.162
+  Mutual Reactance = 0.781
+  }
+
