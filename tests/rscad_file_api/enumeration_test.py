@@ -115,39 +115,6 @@ class EnumerationTest(unittest.TestCase):
         self.assertIn("BUSAZ", names)
         self.assertIn("BUSYZ", names)
 
-    def test_enumeration_signals(self):
-        """Test case for signal connections using enumeration."""
-        draft = Draft()
-        draft.read_file(PATH / "models/enumeration/signals.dfx")
-
-        components = draft.get_components()
-        self.assertEqual(len(components), 24)
-
-        names = [c.name for c in components]
-
-        self.assertIn("A1", names)
-        self.assertIn("Ab", names)
-        self.assertIn("AC", names)
-
-        subsys = draft.subsystems[0]
-        self.assertEqual(len(subsys.get_connected_to_label("A1")), 2)
-        self.assertEqual(
-            len(subsys.get_connected_to_label("A1", return_connecting=True)), 6
-        )
-        self.assertEqual(len(subsys.get_connected_to_label("B4")), 1)
-
-        self.assertEqual(len(subsys.get_connected_to_label("Ab")), 2)
-        self.assertEqual(
-            len(subsys.get_connected_to_label("Ab", return_connecting=True)), 6
-        )
-        self.assertEqual(len(subsys.get_connected_to_label("Be")), 1)
-
-        self.assertEqual(len(subsys.get_connected_to_label("AC")), 2)
-        self.assertEqual(
-            len(subsys.get_connected_to_label("AC", return_connecting=True)), 6
-        )
-        self.assertEqual(len(subsys.get_connected_to_label("B6")), 1)
-
 
 if __name__ == "__main__":
     unittest.main()

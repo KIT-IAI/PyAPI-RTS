@@ -49,12 +49,12 @@ class AggregationTest(unittest.TestCase):
         )
         self.assertEqual(len(shunts), 4)
 
-        graph = draft.subsystems[0].get_connection_graph()
+        graph, _ = draft.subsystems[0].generate_full_graph()
 
         dyl: rtdsudcDYLOAD = dyloads[0].duplicate()
         dyl.set_by_key("Qinit", sum_by_key(dyloads, "Qinit"))
         dyl.set_by_key("Pinit", sum_by_key(dyloads, "Pinit"))
-        draft.subsystems[0].modify_component(dyl)
+        draft.subsystems[0].update_component(dyl)
         for dyload in dyloads[1:]:
             for neighbor in graph.neighbors(dyload.uuid):
                 # Remove connected BUS and WIRE
@@ -63,7 +63,7 @@ class AggregationTest(unittest.TestCase):
 
         shunt: lfrtdssharcsldSHUNTCAP = shunts[0].duplicate()
         shunt.set_by_key("CuF", sum_by_key(shunts, "CuF"))
-        draft.subsystems[0].modify_component(shunt)
+        draft.subsystems[0].update_component(shunt)
         for shunt in shunts[1:]:
             draft.subsystems[0].remove_component(shunt.uuid, False)
             for neighbor in graph.neighbors(shunt.uuid):

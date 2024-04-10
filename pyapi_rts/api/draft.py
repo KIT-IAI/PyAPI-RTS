@@ -13,7 +13,7 @@ from pyapi_rts.api.lark.rlc_tline import RLCTLine
 
 from pyapi_rts.api.lark.tli_transformer import TliFile
 from pyapi_rts.api.component import Component
-from pyapi_rts.api.component_box import ComponentBox, add_xrack_connections
+from pyapi_rts.api.component_box import add_xrack_connections
 from pyapi_rts.api.subsystem import Subsystem
 
 
@@ -97,8 +97,7 @@ class Draft:
         return draft
 
     def add_subsystem(self, subsystem: Subsystem) -> None:
-        """
-        Adds a subsystem to the draft
+        """Add a subsystem to the draft
 
         :param subsystem: Subsystem to add
         :type subsystem: Subsystem
@@ -107,8 +106,7 @@ class Draft:
 
     @property
     def subsystems(self) -> list[Subsystem]:
-        """
-        Returns all subsystems in the draft
+        """Return all subsystems in the draft
 
         :return: list of subsystems
         :rtype: list[Subsystem]
@@ -281,8 +279,7 @@ class Draft:
     def get_components(
         self, recursive: bool = True, clone: bool = True, with_groups: bool = False
     ) -> list[Component]:
-        """
-        Returns all components in the draft
+        """Return all components in the draft
 
         :param recursive: Include components from nested boxes, defaults to True
         :type recursive: bool, optional
@@ -295,11 +292,11 @@ class Draft:
             for comp in sub.get_components(recursive, clone, with_groups)
         ]
 
+    # in use, but mark for deletion: can be solved with a list comprehension
     def get_components_by_type(
         self, type_name: str, recursive: bool = True, clone: bool = True, with_groups: bool = False
     ) -> list[Component]:
-        """
-        Returns all components of a given type in the draft
+        """Return all components of a given type in the draft
 
         :param type_name: Name of the component type
         :type type_name: str
@@ -316,8 +313,7 @@ class Draft:
         )
 
     def get_by_id(self, cid: str) -> Component | None:
-        """
-        Get a component from the draft by its id
+        """Get a component from the draft by its id
 
         :param cid: Component UUID to search for
         :type cid: str
@@ -331,11 +327,11 @@ class Draft:
                 return comp
         return None
 
+    # not used, might be deleted
     def search_by_name(
         self, name: str, recursive: bool = False, case_sensitive: bool = False
     ) -> dict[str, list[Component]]:
-        """
-        Search for components by name
+        """Search for components by name
 
         :param name: Name to search for
         :type name: str
@@ -358,56 +354,7 @@ class Draft:
             )
         )
 
-    def add_component(self, component: Component, box_id: str) -> bool:
-        """
-        Adds a component to the ComponentBox with the specified UUID/Index.
-
-        :param component: Component to add to the draft.
-        :type component: Component
-        :param subsystem_id: The UUID or Subsystem index of the Component Box to add the component to.
-        :type subsystem_id: str
-        :return: Boolean success
-        :rtype: bool
-        """
-
-        for subsystem in self.subsystems:
-            if subsystem.index == box_id:
-                return subsystem.add_component(component)
-        component_box = self.get_by_id(box_id)
-        if component_box is None or not isinstance(component_box, ComponentBox):
-            return False
-        return component_box.add_component(component)
-
-    def remove_component(self, cid: str) -> bool:
-        """
-        Removes a component from the draft if it exists.
-
-        :param cid: The UUID of the component to be removed.
-        :type cid: str
-        :return: Boolean success
-        :rtype: bool
-        """
-
-        for subsystem in self.subsystems:
-            if subsystem.remove_component(cid, True, True):
-                return True
-        return False
-
-    def modify_component(self, component: Component) -> bool:
-        """
-        Modifies a component in the draft if it exists.
-
-        :param component: The component to be modified.
-        :type component: Component
-        :return: Boolean success
-        :rtype: bool
-        """
-
-        for subsystem in self.subsystems:
-            if subsystem.modify_component(component, recursive=True):
-                return True
-        return False
-
+    # not used, but useful
     def get_draft_vars(self) -> dict[str, Component]:
         """Get a dictionary with all draft variables in the draft with names as key.
 
@@ -421,22 +368,10 @@ class Draft:
 
         return draft_vars
 
-    def get_connection_graph(self) -> nx.Graph:
-        """
-        Returns the combined connection graph from the subsystems.
-
-        :return: Combined connection graph
-        :rtype: Graph
-        """
-
-        graph = nx.Graph()
-        for subsystem in self.subsystems:
-            graph = nx.compose(graph, subsystem.get_connection_graph())
-        return graph
-
+    # in use, should be the only graph to work with
     def generate_full_graph(self) -> nx.Graph:
         graph = nx.Graph()
-        xrack = {}
+        xrack: dict[tuple[str, str], list[str]] = {}
 
         if len(self.subsystems) == 0:
             return graph
@@ -455,8 +390,7 @@ class Draft:
         return graph
 
     def get_tline_constants(self, name: str) -> TliFile | None:
-        """
-        Search and returns the TLI file with the specified name.
+        """Search and returns the TLI file with the specified name.
 
         :param name: Name of the TLine Constants file.
         :type name: str
@@ -472,8 +406,7 @@ class Draft:
         return None  # File not found
 
     def get_rlc_tline(self, name: str) -> RLCTLine | None:
-        """
-        Returns the TLine Constants file as a RLC Tline.
+        """Return the TLine Constants file as a RLC Tline.
 
         :param name: Name of the TLine file.
         :type name: str
@@ -486,8 +419,7 @@ class Draft:
         return RLCTLine(name, tli_file)
 
     def get_rack_type(self) -> int:
-        """
-        Returns the rack type.
+        """Return the rack type.
 
         :return: Rack type
         :rtype: int

@@ -5,7 +5,6 @@ from abc import abstractmethod
 from enum import Enum
 from typing import Any, Callable
 import copy
-import itertools
 import re
 import uuid
 
@@ -307,7 +306,7 @@ class Component(DfxBlock):
             return None
         if key.strip().lower() == "getracktype()":
             if self.parent is not None:
-                return self.parent.get_rack_type()
+                return self.parent.get_draft().get_rack_type()
             return None
         if "." in key:
             # Reference to values of node
@@ -328,31 +327,6 @@ class Component(DfxBlock):
 
     def connection_points_from_dict(self, dictionary: dict) -> dict[str, ConnectionPoint]:
         return {}
-
-    def get_connected_at_point(
-        self,
-        point_name: str,
-        return_connecting: bool = False,
-        component_type: str | None = None,
-    ) -> list["Component"]:
-        """
-        Returns a list of all components connected at the connection point with the given name.
-        Filters for components of a given type if component_type is specified.
-
-        :param point_name: Name of the connection point
-        :type point_name: str
-        :param return_connecting: Returns the connecting components if True, otherwise only the end components are returned, defaults to False
-        :type return_connecting: bool, optional
-        :param component_type: The type of components to return, defaults to None
-        :type component_type: str, optional
-        :return: list of connected components
-        :rtype: list[Component]
-        """
-        if point_name not in self.connection_points.keys() or self.parent is None:
-            return []
-        return self.parent.get_connected_at_component_point(
-            self.uuid, point_name, return_connecting, component_type, []
-        )
 
     def _read_parameters(self, dictionary: dict[str, str]) -> None:
         """Read the parameters of the component from a dictionary
@@ -509,54 +483,6 @@ class Component(DfxBlock):
         return not (bbox_self[2] < bbox_other[0] or bbox_self[0] > bbox_other[2]) and not (
             bbox_self[3] < bbox_other[1] or bbox_self[1] > bbox_other[3]
         )
-
-    def touches(self, comp: "Component") -> list[tuple[ConnectionPoint, ConnectionPoint]]:
-        """Return a list of connection points the two components touch at the same time
-
-        :param comp: The component to check for touching connection points
-        :type comp: Component
-        :return: A list of connection points the two components touch at the same time
-        :rtype: list[tuple[ConnectionPoint, ConnectionPoint]]
-        """
-        # FIXME: WARNING: THIS DOESN'T WORK!
-        result = []
-        cross = itertools.product(
-            list(self.connection_points.values()),
-            list(comp.connection_points.values()),
-        )
-        for left, right in cross:
-            if (
-                self.x1.get_value(self.as_dict()) + left.x.get_value()
-                == comp.x1.get_value(comp.as_dict()) + right.x.get_value()
-                and self.y1.get_value(self.as_dict()) + left.y.get_value()
-                == comp.y1.get_value(comp.as_dict()) + right.y.get_value()
-            ):
-                result.append((left, right))
-        return result
-
-    def graph_similar_to(self, comp: "Component") -> bool:
-        """Check if the two components are identical for the purposes of the graph reperesentation.
-
-        That is the case if:
-        1. They have the same id
-        2. They have the same coordinates, mirror and rotation
-        3. They have the same rectangle position and size
-
-        :param comp: The component to check for similarity.
-        :type comp: Component
-        :return: True if the two components are identical (for the graph).
-        :rtype: bool
-        """
-
-        if self.uuid != comp.uuid:
-            return False
-        if self.x != comp.x or self.y != comp.y:
-            return False
-        if self.rotation != comp.rotation or self.mirror != comp.mirror:
-            return False
-        if self.bounding_box != comp.bounding_box:
-            return False
-        return True
 
     @property
     def load_units(self) -> int:

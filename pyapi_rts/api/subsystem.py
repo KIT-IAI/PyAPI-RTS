@@ -57,16 +57,6 @@ class Subsystem(DfxBlock, ComponentBox):
         # self._class_loader: ClassLoader = ClassLoader()
         super().__init__(draft)
 
-    @property
-    def index(self) -> str:
-        """The index of the subsystem in the draft.
-
-        :return: The index of the subsystem in the draft as a string.
-        :rtype: str
-        """
-
-        return f"{self.number}"
-
     def read_block(self, block: Block) -> None:
         """Read a subsystem block from a DFX file
 

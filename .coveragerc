@@ -1,0 +1,12 @@
+[run]
+omit = 
+    */docs/*
+    */tests/*
+    */generated/*
+    .eggs/*
+    */hooks/*
+
+dynamic_context = test_function
+
+[html]
+show_contexts = True

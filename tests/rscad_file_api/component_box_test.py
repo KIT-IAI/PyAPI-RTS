@@ -7,7 +7,6 @@ import unittest
 import networkx as nx
 
 from pyapi_rts.api import ComponentBox, Component, Draft, Hierarchy
-from pyapi_rts.generated.BUS import BUS
 
 
 PATH = pathlib.Path(__file__).parent.resolve()
@@ -25,10 +24,6 @@ class ComponentBoxTest(unittest.TestCase):
         no_parent = ComponentBox()
         self.assertEqual(no_parent.box_parent, None)
         self.assertEqual(no_parent.get_components(), [])
-        self.assertEqual(no_parent.get_link_dict(), {})
-        self.assertTrue(
-            nx.utils.graphs_equal(no_parent.get_connection_graph(), nx.Graph())
-        )
         parent = ComponentBox(parent=no_parent)
         self.assertEqual(parent.box_parent, no_parent)
 
@@ -46,9 +41,7 @@ class ComponentBoxTest(unittest.TestCase):
         component_box2.add_component(component_box3)
         self.assertIsNone(component_box2.get_by_id(component.uuid, True))
         component_box3.add_component(component_box)
-        self.assertEqual(
-            component_box2.get_by_id(component.uuid, True).uuid, component.uuid
-        )
+        self.assertEqual(component_box2.get_by_id(component.uuid, True).uuid, component.uuid)
         self.assertIsNone(component_box2.get_by_id(component.uuid, False))
 
     def test_add_component(self):
@@ -60,8 +53,6 @@ class ComponentBoxTest(unittest.TestCase):
         component = Component()
         component_box.add_component(component)
         self.assertEqual(component_box.get_components()[0].uuid, component.uuid)
-        # Graph generated
-        _ = component_box.get_connection_graph()
         component2 = Component()
         component_box.add_component(component2)
         self.assertEqual(len(component_box.get_components()), 2)
@@ -85,13 +76,9 @@ class ComponentBoxTest(unittest.TestCase):
         self.assertFalse(component_box.remove_component("not-existing-uuid"))
         # Graph
         component_box.add_component(component)
-        self.assertFalse(
-            nx.utils.graphs_equal(component_box.get_connection_graph(), nx.Graph())
-        )
+        self.assertFalse(nx.utils.graphs_equal(component_box.generate_full_graph()[0], nx.Graph()))
         self.assertTrue(component_box.remove_component(component.uuid))
-        self.assertTrue(
-            nx.utils.graphs_equal(component_box.get_connection_graph(), nx.Graph())
-        )
+        self.assertTrue(nx.utils.graphs_equal(component_box.generate_full_graph()[0], nx.Graph()))
 
     def test_modify_component(self):
         """
@@ -104,24 +91,10 @@ class ComponentBoxTest(unittest.TestCase):
 
         component.COMPONENT_TYPE_NAME = "new-type"
         self.assertNotEqual(component_box.get_components(), [component])
-        component_box.modify_component(component)
+        component_box.update_component(component)
         self.assertEqual(component_box.get_components()[0].uuid, component.uuid)
 
         self.assertEqual(component.COMPONENT_TYPE_NAME, "new-type")
-
-    def test_set_parameter_at(self):
-        """
-        Tests the set_parameter_at method
-        """
-        component_box = ComponentBox()
-        component = BUS()
-        component_box.add_component(component)
-        self.assertEqual(component_box.get_components()[0].uuid, component.uuid)
-
-        component_box.set_parameter_of(component.uuid, "LW1", 0.5)
-        self.assertEqual(component.get_by_key("LW1"), 0.5)
-        with self.assertRaises(TypeError):
-            component_box.set_parameter_of(component.uuid, "LW1", "string")
 
     def test_get_connected_to(self):
         """
@@ -137,8 +110,7 @@ class ComponentBoxTest(unittest.TestCase):
 
         for component in draft.get_components():
             self.assertFalse(
-                component.uuid == connected_to_bus[1].uuid
-                and component.x == 16 + 32 * 10
+                component.uuid == connected_to_bus[1].uuid and component.x == 16 + 32 * 10
             )
 
     def test_get_connected_to_groups(self):
@@ -196,76 +168,6 @@ class ComponentBoxTest(unittest.TestCase):
         # also, it should include the dynamic load in the list
         self.assertIn("RLDload", [c.name for c in connected1])
 
-    def test_get_connected_to_label_wrong_label(self):
-        """Tests that an empty list is returned when the label does not exist."""
-        draft = Draft()
-        # no hierarchies, just a slider with a wirelabel and a PV array with that label as input
-        draft.read_file(PATH / "models/get_connected_at_point/wirelabel_connection.dfx")
-        self.assertEqual(len(draft.get_components()), 19)
-
-        LABEL = "InsolPVXYZ"
-        connected = draft.subsystems[0].get_connected_to_label(LABEL)
-        # label does not exist -> return empty list
-        self.assertEqual(len(connected), 0)
-
-    def test_get_connected_to_label(self):
-        """Test the case that a single component is connected to a wirelabel."""
-        draft = Draft()
-        # no hierarchies, just a slider with a wirelabel and a PV array with that label as input
-        draft.read_file(PATH / "models/get_connected_at_point/wirelabel_connection.dfx")
-        self.assertEqual(len(draft.get_components()), 19)
-
-        LABEL = "TempPV"
-        connected = draft.subsystems[0].get_connected_to_label(LABEL)
-        self.assertEqual(len(connected), 1)
-
-        with_connecting_components = draft.subsystems[0].get_connected_to_label(
-            LABEL, return_connecting=True
-        )
-        # this should additionally include 1 wire and 1 wirelabel
-        self.assertEqual(len(with_connecting_components), 3)
-
-    def test_get_connected_to_label_two_endpoints(self):
-        """Test the case that two components are connected via the same wirelabel name."""
-        draft = Draft()
-        # no hierarchies, just a slider with a wirelabel and a PV array with that label as input
-        draft.read_file(PATH / "models/get_connected_at_point/wirelabel_connection.dfx")
-        self.assertEqual(len(draft.get_components()), 19)
-
-        LABEL = "InsolPV"
-        connected = draft.subsystems[0].get_connected_to_label(
-            LABEL, return_connecting=False
-        )
-        self.assertEqual(len(connected), 2)
-
-        with_connecting_components = draft.subsystems[0].get_connected_to_label(
-            LABEL, return_connecting=True
-        )
-        # this should additionally include 2 wires and 2 wirelabels
-        self.assertEqual(len(with_connecting_components), 6)
-
-    def test_get_connected_to_label_hierarchy(self):
-        """Test the case that two components are connected via the same wirelabel name over a hierarchy."""
-        draft = Draft()
-        # just a slider with a wirelabel and a PV array _in a hierarchy box_ with that label as input
-        draft.read_file(
-            PATH / "models/get_connected_at_point/wirelabel_connection_hierarchy.dfx"
-        )
-        self.assertEqual(len(draft.get_components()), 20)
-
-        LABEL = "InsolPV"
-        connected = draft.subsystems[0].get_connected_to_label(
-            LABEL, return_connecting=False
-        )
-        self.assertEqual(len(connected), 2)
-
-        with_connecting_components = draft.subsystems[0].get_connected_to_label(
-            LABEL, return_connecting=True
-        )
-        # this should additionally include 2 wires and 2 wirelabels
-
-        self.assertEqual(len(with_connecting_components), 6)
-
     def test_wirelabel_hierarchy(self):
         """
         Test for the connetions between wirelabels through adjacent hierarchies without direct contact.
@@ -275,7 +177,6 @@ class ComponentBoxTest(unittest.TestCase):
         self.assertEqual(len(draft.get_components()), 5)
         self.assertEqual(len(draft.subsystems[0].get_components()), 2)
         wirelabel = draft.subsystems[0].search_by_name("A2")[0]
-        a = draft.subsystems[0].get_connection_graph()
         self.assertEqual(len(draft.subsystems[0].get_connected_to(wirelabel)), 2)
 
     def test_get_components(self):

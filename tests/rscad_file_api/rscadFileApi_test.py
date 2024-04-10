@@ -41,7 +41,10 @@ class ParserTestCase(unittest.TestCase):
         self.assertEqual(len(draft.subsystems[0].get_components(True)), 11)
         self.assertEqual(len(draft.get_components_by_type("BUS", False)), 2)
         tline = draft.get_components_by_type("lf_rtds_sharc_sld_TLINE")
-        connected = draft.subsystems[0].get_hierarchies()[0].get_connected_to(tline[0])
+
+        hierarchies = [c for c in draft.subsystems[0].get_components() if c.type == "HIERARCHY"]
+
+        connected = hierarchies[0].get_connected_to(tline[0])
         self.assertTrue(tline[1].uuid in map((lambda x: x.uuid), connected))
         self.assertEqual(len(connected), 10)
 

@@ -37,7 +37,7 @@ class DraftTest(unittest.TestCase):
         draft = Draft()
         subsystem = Subsystem(draft, 1)
         draft.add_subsystem(subsystem)
-        draft.add_component(Component(), subsystem.index)
+        subsystem.add_component(Component())
         self.assertEqual(draft.subsystems[0].number, 1)
         self.assertEqual(len(draft.subsystems), 1)
         self.assertEqual(len(draft.get_components()), 1)
@@ -50,59 +50,14 @@ class DraftTest(unittest.TestCase):
         subsystem = Subsystem(draft, 1)
 
         draft.add_subsystem(subsystem)
-        draft.add_component(Component(), subsystem.index)
+        subsystem.add_component(Component())
 
         subsystem2 = Subsystem(draft, 2)
         draft.add_subsystem(subsystem2)
-        draft.add_component(Component(), subsystem2.index)
+        subsystem2.add_component(Component())
         self.assertEqual(len(draft.subsystems), 2)
         self.assertEqual(len(draft.subsystems[0].get_components()), 1)
         self.assertEqual(len(draft.get_components()), 2)
-
-    def test_modify_component(self):
-        """
-        Tests the modification of a component in the draft
-        """
-        draft = Draft()
-        subsystem = Subsystem(draft, 1)
-        draft.add_subsystem(subsystem)
-        component = Component()
-        draft.add_component(component, subsystem.index)
-        self.assertEqual(len(draft.get_components()), 1)
-        self.assertEqual(draft.get_components()[0].x, 144)
-
-        component.x = 48
-        self.assertTrue(draft.modify_component(component))
-        self.assertFalse(draft.modify_component(Component()))
-        self.assertEqual(len(draft.get_components()), 1)
-        self.assertEqual(draft.get_components()[0].x, 48)
-
-    def test_remove_component(self):
-        """
-        Tests the removal of a component in the draft
-        """
-        draft = Draft()
-        subsystem = Subsystem(draft, 1)
-        draft.add_subsystem(subsystem)
-        component = Component()
-        draft.add_component(component, subsystem.index)
-        self.assertEqual(len(draft.get_components()), 1)
-        self.assertTrue(draft.remove_component(component.uuid))
-        self.assertFalse(draft.remove_component(component.uuid))
-        self.assertEqual(len(draft.get_components()), 0)
-
-        # Test removing a component from a hierarchy
-        draft = Draft()
-        subsystem = Subsystem(draft, 1)
-        draft.add_subsystem(subsystem)
-        hierarchy = Hierarchy()
-        draft.add_component(hierarchy, subsystem.index)
-        component = Component()
-        draft.add_component(component, hierarchy.uuid)
-        self.assertEqual(len(draft.get_components()), 2)
-        self.assertTrue(draft.remove_component(component.uuid))
-        self.assertFalse(draft.remove_component(component.uuid))
-        self.assertEqual(len(draft.get_components()), 1)
 
     def test_get_draft(self):
         """
@@ -127,20 +82,10 @@ class DraftTest(unittest.TestCase):
         subsystem = Subsystem(draft, 1)
         draft.add_subsystem(subsystem)
         component = Component()
-        draft.add_component(component, subsystem.index)
+        subsystem.add_component(component)
 
         self.assertEqual(draft.get_by_id(component.uuid), component)
         self.assertIsNone(draft.get_by_id("notanid"))
-
-    def test_get_connection_graph(self):
-        """
-        Tests the composition of all subsystem connection graphs
-        """
-        draft = Draft()
-        draft.read_file(PATH / "models/search_by_name.dfx")
-        graph = draft.get_connection_graph()
-        self.assertEqual(len(graph.nodes), 4)
-        self.assertEqual(len(graph.edges), 0)
 
     def test_get_tline_constants(self):
         """
@@ -165,29 +110,15 @@ class DraftTest(unittest.TestCase):
         draft.read_file(PATH / "models/search_by_name.dfx")
         self.assertEqual(len(draft.search_by_name("BUS1").items()), 2)
         self.assertEqual(len(draft.search_by_name("BUS1", True)["SS #1"]), 2)
+        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=True)["SS #2"]), 0)
+        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=False)["SS #1"]), 2)
+        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=False)), 2)
         self.assertEqual(
-            len(draft.search_by_name("bus1", True, case_sensitive=True)["SS #2"]), 0
-        )
-        self.assertEqual(
-            len(draft.search_by_name("bus1", True, case_sensitive=False)["SS #1"]), 2
-        )
-        self.assertEqual(
-            len(draft.search_by_name("bus1", True, case_sensitive=False)), 2
-        )
-        self.assertEqual(
-            len(
-                draft.search_by_name("bus1", recursive=False, case_sensitive=True)[
-                    "SS #2"
-                ]
-            ),
+            len(draft.search_by_name("bus1", recursive=False, case_sensitive=True)["SS #2"]),
             0,
         )
         self.assertEqual(
-            len(
-                draft.search_by_name("bus2", recursive=True, case_sensitive=False)[
-                    "SS #2"
-                ]
-            ),
+            len(draft.search_by_name("bus2", recursive=True, case_sensitive=False)["SS #2"]),
             1,
         )
 
