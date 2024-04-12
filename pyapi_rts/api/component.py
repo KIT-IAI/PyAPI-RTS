@@ -33,7 +33,7 @@ class Component(DfxBlock):
         stretchable: Stretchable = Stretchable.NO,
         linked: bool = False,
     ) -> None:
-        from pyapi_rts.api.component_box import ComponentBox
+        from pyapi_rts.api.container import Container
 
         super().__init__()
         self.__id: str = uuid.uuid4().__str__()
@@ -51,7 +51,7 @@ class Component(DfxBlock):
         self._is_hierarchy_connecting = False
         self._is_label = False
         #: The component that contains this component.
-        self.parent: ComponentBox | None = None
+        self.parent: Container | None = None
 
         #: Stretchable dimensions of the component
         self.stretchable: Stretchable = stretchable

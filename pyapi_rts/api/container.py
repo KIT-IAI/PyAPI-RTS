@@ -14,10 +14,10 @@ if TYPE_CHECKING:
     from .draft import Draft
 
 
-class ComponentBox:
+class Container:
     """Abstract class for an object containing a list of components"""
 
-    def __init__(self, parent: Optional[Union["ComponentBox", "Draft"]] = None) -> None:
+    def __init__(self, parent: Optional[Union["Container", "Draft"]] = None) -> None:
         self.box_parent = parent
         """The parent component box of this component box.
         Used to traverse up the hierarchies to the Draft object.
@@ -69,7 +69,7 @@ class ComponentBox:
         """
         from .draft import Draft
 
-        if isinstance(self.box_parent, ComponentBox):
+        if isinstance(self.box_parent, Container):
             return self.box_parent.get_draft()
         if isinstance(self.box_parent, Draft):
             # Parent of top-level component box is the draft object
@@ -79,7 +79,8 @@ class ComponentBox:
     def get_draft_vars(self, recursive: bool = True) -> dict[str, Component]:
         """Get a dictionary with the draft variables in the component box with names as key.
 
-        :param recursive: If true, also return the draft variables of contained component boxes, defaults to True
+        :param recursive: If true, also return the draft variables of contained component boxes,\
+            defaults to True
         :type recursive: bool, optional
         :return: Dictionary of draft variables.
         :rtype: dict[str, Component]
@@ -162,7 +163,7 @@ class ComponentBox:
         :param component: The component to add to this box
         :type component: Component
         """
-        if isinstance(component, ComponentBox):
+        if isinstance(component, Container):
             component.box_parent = self
         else:
             component.parent = self
@@ -180,7 +181,6 @@ class ComponentBox:
                 else:
                     self._pos_dict[key] = value
 
-    # in use
     def remove_component(self, cid: str, recursive: bool = False, with_groups: bool = True) -> bool:
         """Remove a component from the component box and update
         the connection graph and other data structures.
@@ -233,7 +233,7 @@ class ComponentBox:
         :rtype: bool
         """
 
-        comp = self.get_by_id(component.uuid)
+        comp = self.get_by_id(component.uuid, recursive=False, with_groups=True)
         if comp is None:
             return False
 
@@ -242,14 +242,12 @@ class ComponentBox:
 
         return True
 
-    # used internally, quite often, not sure about this though
-    def get_component_boxes(self, recursive: bool = False) -> list["ComponentBox"]:
+    def get_component_boxes(self, recursive: bool = False) -> list["Container"]:
         """Return a list of all component boxes in the component box."""
-        # TODO: WHY? we also have get_hierarchies
         return (
-            [cb for cb in self._components.values() if isinstance(cb, ComponentBox)]
+            [cb for cb in self._components.values() if isinstance(cb, Container)]
             if not recursive
-            else [cb for cb in self._components.values() if isinstance(cb, ComponentBox)]
+            else [cb for cb in self._components.values() if isinstance(cb, Container)]
             + [
                 c
                 for cb in self.get_component_boxes(False)
@@ -257,7 +255,7 @@ class ComponentBox:
             ]
         )
 
-    def generate_full_graph(self) -> tuple[Graph, dict[tuple[str, str], list[str]]]:
+    def get_graph(self) -> tuple[Graph, dict[tuple[str, str], list[str]]]:
         """Generate the full graph consisting of the union of all componentBoxes included in this one.
 
         :return: The graph and dictionary of cross-hierarchy connection points.
@@ -315,9 +313,6 @@ class ComponentBox:
         local_graph = self._generate_position_graph(self._pos_dict)
         nx.set_node_attributes(local_graph, depth, "depth")
 
-        # link_dict enthält noch die buslabels, die eigentlich grid-based sind
-        # wir brauchen hier eigentlich die labels, die non-grid-based
-        # link_dict = self.get_link_dict()
         label_connections, linked_connections, xrack_connections = self._get_nongrid_connections()
 
         for box in self.get_component_boxes():

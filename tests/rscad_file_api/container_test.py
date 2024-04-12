@@ -6,7 +6,7 @@ import unittest
 
 import networkx as nx
 
-from pyapi_rts.api import ComponentBox, Component, Draft, Hierarchy
+from pyapi_rts.api import Container, Component, Draft, Hierarchy
 
 
 PATH = pathlib.Path(__file__).parent.resolve()
@@ -21,10 +21,10 @@ class ComponentBoxTest(unittest.TestCase):
         """
         Tests the init method
         """
-        no_parent = ComponentBox()
+        no_parent = Container()
         self.assertEqual(no_parent.box_parent, None)
         self.assertEqual(no_parent.get_components(), [])
-        parent = ComponentBox(parent=no_parent)
+        parent = Container(parent=no_parent)
         self.assertEqual(parent.box_parent, no_parent)
 
     def test_get_by_id(self):
@@ -66,7 +66,7 @@ class ComponentBoxTest(unittest.TestCase):
         """
         Tests the remove_component method
         """
-        component_box = ComponentBox()
+        component_box = Container()
         component = Component()
         component_box.add_component(component)
         self.assertEqual(component_box.get_components()[0].uuid, component.uuid)
@@ -76,15 +76,15 @@ class ComponentBoxTest(unittest.TestCase):
         self.assertFalse(component_box.remove_component("not-existing-uuid"))
         # Graph
         component_box.add_component(component)
-        self.assertFalse(nx.utils.graphs_equal(component_box.generate_full_graph()[0], nx.Graph()))
+        self.assertFalse(nx.utils.graphs_equal(component_box.get_graph()[0], nx.Graph()))
         self.assertTrue(component_box.remove_component(component.uuid))
-        self.assertTrue(nx.utils.graphs_equal(component_box.generate_full_graph()[0], nx.Graph()))
+        self.assertTrue(nx.utils.graphs_equal(component_box.get_graph()[0], nx.Graph()))
 
     def test_modify_component(self):
         """
         Tests the modify_component method.
         """
-        component_box = ComponentBox()
+        component_box = Container()
         component = Component()
         component_box.add_component(component)
         self.assertEqual(component_box.get_components()[0].uuid, component.uuid)

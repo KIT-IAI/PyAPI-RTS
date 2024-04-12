@@ -7,7 +7,7 @@ in the .dfx format used by RSCAD FX.
 """
 
 from .draft import Draft
-from .component_box import ComponentBox
+from .container import Container
 from .component import Component
 from .enumeration import Enumeration
 from .hierarchy import Hierarchy
@@ -15,7 +15,7 @@ from .subsystem import Subsystem
 
 __all__ = [
     "Component",
-    "ComponentBox",
+    "Container",
     "Draft",
     "Enumeration",
     "Hierarchy",

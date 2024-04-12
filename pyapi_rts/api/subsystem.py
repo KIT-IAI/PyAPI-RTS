@@ -6,7 +6,7 @@ import re
 from typing import Any
 
 from pyapi_rts.api.component import Component
-from pyapi_rts.api.component_box import ComponentBox
+from pyapi_rts.api.container import Container
 from pyapi_rts.api.internals.block import Block
 from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.internals.dfxblock import DfxBlock
@@ -34,7 +34,7 @@ class SubsystemPaperType(Enum):
     ANSI_E = "ANSI_E"
 
 
-class Subsystem(DfxBlock, ComponentBox):
+class Subsystem(DfxBlock, Container):
     """RSCAD subsystem, a canvas with components on it."""
 
     _title_regex = re.compile(r"^SUBSYSTEM-START:\s?\n?$")

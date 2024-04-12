@@ -13,7 +13,7 @@ from pyapi_rts.api.lark.rlc_tline import RLCTLine
 
 from pyapi_rts.api.lark.tli_transformer import TliFile
 from pyapi_rts.api.component import Component
-from pyapi_rts.api.component_box import add_xrack_connections
+from pyapi_rts.api.container import add_xrack_connections
 from pyapi_rts.api.subsystem import Subsystem
 
 
@@ -377,7 +377,7 @@ class Draft:
             return graph
 
         for subsys in self.subsystems:
-            sgraph, sxrack = subsys.generate_full_graph()
+            sgraph, sxrack = subsys.get_graph()
             graph = nx.compose(graph, sgraph)
 
             for key, value in sxrack.items():

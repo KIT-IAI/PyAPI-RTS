@@ -4,9 +4,7 @@
 import pathlib
 import unittest
 
-import networkx as nx
-
-from pyapi_rts.api import ComponentBox, Component, Draft, Hierarchy
+from pyapi_rts.api import Component, Draft, Hierarchy
 from pyapi_rts.generated.rtdssharcsldBUSLABEL import rtdssharcsldBUSLABEL
 from pyapi_rts.generated.rtdsudcDYLOAD import rtdsudcDYLOAD
 

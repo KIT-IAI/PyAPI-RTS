@@ -8,17 +8,17 @@ from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.component import Component
 from pyapi_rts.generated.HIERARCHY import HIERARCHY
 
-from pyapi_rts.api.component_box import ComponentBox
+from pyapi_rts.api.container import Container
 
 
-class Hierarchy(HIERARCHY, ComponentBox):
+class Hierarchy(HIERARCHY, Container):
     """A component of type hierarchy, can contain other components."""
 
     _title_regex = re.compile(r"^HIERARCHY-START:\s?\n?$")
     # class_loader = ClassLoader()
 
     def __init__(self) -> None:
-        ComponentBox.__init__(self, None)
+        Container.__init__(self, None)
         HIERARCHY.__init__(self)
 
     def get_box_type(self) -> int:

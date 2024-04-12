@@ -7,10 +7,10 @@ from typing import Any
 from pyapi_rts.api.internals.block import Block
 from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.component import Component
-from pyapi_rts.api.component_box import ComponentBox
+from pyapi_rts.api.container import Container
 
 
-class Group(Component, ComponentBox):
+class Group(Component, Container):
     """Group of components."""
 
     _COMPONENT_TYPE_NAME = "GROUP"
@@ -33,6 +33,7 @@ class Group(Component, ComponentBox):
             return
 
         while True:
+            sub_hier: Group | Hierarchy | Component
             if Group.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Group()
                 sub_hier.read_block(reader.current_block)

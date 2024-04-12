@@ -49,7 +49,7 @@ class AggregationTest(unittest.TestCase):
         )
         self.assertEqual(len(shunts), 4)
 
-        graph, _ = draft.subsystems[0].generate_full_graph()
+        graph, _ = draft.subsystems[0].get_graph()
 
         dyl: rtdsudcDYLOAD = dyloads[0].duplicate()
         dyl.set_by_key("Qinit", sum_by_key(dyloads, "Qinit"))
