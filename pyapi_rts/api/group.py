@@ -13,11 +13,8 @@ from pyapi_rts.api.container import Container
 class Group(Component, Container):
     """Group of components."""
 
-    _COMPONENT_TYPE_NAME = "GROUP"
+    type = "GROUP"
     _title_regex = re.compile(r"^GROUP-START:\s?\n?$")
-
-    def __init__(self) -> None:
-        super().__init__(self._COMPONENT_TYPE_NAME)
 
     def read_block(self, block: Block) -> None:
         import pyapi_rts.generated.class_loader as ClassLoader

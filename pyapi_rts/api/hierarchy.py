@@ -15,11 +15,6 @@ class Hierarchy(HIERARCHY, Container):
     """A component of type hierarchy, can contain other components."""
 
     _title_regex = re.compile(r"^HIERARCHY-START:\s?\n?$")
-    # class_loader = ClassLoader()
-
-    def __init__(self) -> None:
-        Container.__init__(self, None)
-        HIERARCHY.__init__(self)
 
     def get_box_type(self) -> int:
         """Returns the type of the box.
@@ -30,8 +25,7 @@ class Hierarchy(HIERARCHY, Container):
         return self.get_by_key("Type").value
 
     def read_block(self, block: Block) -> None:
-        """
-        Reads a hierarchy block of a .dfx file
+        """Read a hierarchy block of a .dfx file
 
         :param block: Hierarchy block of a .dfx file
         :type block: Block
@@ -45,8 +39,8 @@ class Hierarchy(HIERARCHY, Container):
         if not next_exists:
             return
 
-        while True:
-
+        while reader.current_block is not None:
+            sub_hier: Hierarchy | Group | Component
             if Hierarchy.check_title(reader.current_block.title):  # Read subhierarchy recursively
                 sub_hier = Hierarchy()
                 sub_hier.read_block(reader.current_block)
@@ -56,9 +50,10 @@ class Hierarchy(HIERARCHY, Container):
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
             elif Component.check_title(reader.current_block.title):  # Read component
+                # Create new component from typeId
                 c = ClassLoader.get_by_key(
                     reader.current_block.title.split("COMPONENT_TYPE=")[1][:-1].rstrip()
-                )  # Create new component from typeId
+                )
                 c.read_block(reader.current_block)
                 self.add_component(c)
 

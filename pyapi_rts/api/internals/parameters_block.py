@@ -13,19 +13,18 @@ class ParametersBlock(DfxBlock):
     _title_regex = re.compile(r"^PARAMETERS-START:\s?\n?$")
 
     def __init__(self) -> None:
-        self._parameters: dict[str, str] = {}
+        self.parameters: dict[str, str] = {}
         super().__init__()
 
     def read_block(self, block: Block) -> None:
         for line in block.lines:
             split = line.split("\t:")
-            self._parameters[split[0]] = split[1]
+            self.parameters[split[0]] = split[1]
 
     def block(self) -> list[str]:
-        lines = []
-        lines.append("PARAMETERS-START:")
-        lines = lines + [
-            "{0}\t:{1}".format(key, value) for key, value in self._parameters.items()
-        ]
-        lines.append("PARAMETERS-END:")
+        lines = (
+            ["PARAMETERS-START:"]
+            + [f"{key}\t:{value}" for key, value in self.parameters.items()]
+            + ["PARAMETERS-END:"]
+        )
         return lines

@@ -17,10 +17,10 @@ FOREACH_TYPE:from {{TypePath}} import {{TypeParam}}
 class {{TypeName}}(Component):
     DOCSTR:
 
-    _COMPONENT_TYPE_NAME = "{{name}}"
+    type = "{{name}}"
 
     def __init__(self) -> None:
-        super().__init__(type_name=self._COMPONENT_TYPE_NAME)
+        super().__init__()
         FOREACH_PARAM:self.{{name}} : {{TypeParam}} = {{TypeParam}}.from_str({{args}})
         FOREACH_COLL:self.{{name}} : {{TypeParam}} = {{TypeParam}}()
         self._name_parameter_key: str = {{name_param_key}}
@@ -41,15 +41,6 @@ class {{TypeName}}(Component):
             FOREACH_COLL:self.{{name}},
         ]
 
-    def get_special_value(self, key: str) -> str:
-        try:
-            key_result = self.get_by_key(key)
-            if key_result is not None and key_result != "":
-                return key_result
-        except:
-            pass
-        return super().get_special_value(key)
-    
     def as_dict(self) -> dict[str, Parameter]:
         return {
             FOREACH_COMP:"{{name_esc}}": self.{{name_parameter}}(),

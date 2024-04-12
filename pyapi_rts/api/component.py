@@ -24,20 +24,15 @@ class Component(DfxBlock):
 
     _title_regex = re.compile(r"^COMPONENT_TYPE=(.+)\s?\n?$")
 
-    _COMPONENT_TYPE_NAME = ""
+    type = ""
+    """The type name of the RSCAD component."""
     GRID_SIZE = 32
 
-    def __init__(
-        self,
-        type_name: str | None = None,
-        stretchable: Stretchable = Stretchable.NO,
-        linked: bool = False,
-    ) -> None:
+    def __init__(self) -> None:
         from pyapi_rts.api.container import Container
 
         super().__init__()
         self.__id: str = uuid.uuid4().__str__()
-        self._type: str = "" if type_name is None else type_name
         self._coord_x: int = 144
         self._coord_y: int = 144
         self._rotation: int = 0
@@ -54,10 +49,10 @@ class Component(DfxBlock):
         self.parent: Container | None = None
 
         #: Stretchable dimensions of the component
-        self.stretchable: Stretchable = stretchable
+        self.stretchable: Stretchable = Stretchable.NO
 
         # The name links the component to others of its type.
-        self.linked: bool = linked
+        self.linked: bool = False
 
         self._parameters: dict[str, Parameter] = {}
         self._computations: dict[str, Callable] = {}
@@ -130,7 +125,6 @@ class Component(DfxBlock):
         if len(block.lines) == 0:
             return
         position = block.lines[0].split(" ")
-        self._type = block.title.split("COMPONENT_TYPE=")[-1].strip()
         self._coord_x = int(position[0])
         self._coord_y = int(position[1])
         self._rotation = int(position[2])
@@ -150,11 +144,10 @@ class Component(DfxBlock):
                     break
 
         # Put parameters in their corresponding Parameter objects in component
-        self._read_parameters(self._parameters_block._parameters)
+        self._read_parameters(self._parameters_block.parameters)
 
     def block(self) -> list[str]:
-        """
-        Returns the component as a .dfx block
+        """Return the component as a .dfx block
 
         :return: The component as a .dfx block
         :rtype: list[str]
@@ -170,16 +163,6 @@ class Component(DfxBlock):
         lines.append("\tPARAMETERS-END:")
         lines = lines + ["\t" + l for l in self.enumeration.block()]
         return lines
-
-    @property
-    def type(self) -> str:
-        """
-        The component type
-
-        :return: The component type
-        :rtype: str
-        """
-        return self._type
 
     @property
     def x(self) -> int:
@@ -295,6 +278,10 @@ class Component(DfxBlock):
         :return: The special value or empty string if not found.
         :rtype: Any
         """
+        result = self.get_by_key(key)
+        if result is not None and result != "":
+            return result
+
         if key.strip().lower() == "getboxparenttype()":
             from .hierarchy import Hierarchy
 
