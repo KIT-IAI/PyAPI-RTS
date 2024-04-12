@@ -9,6 +9,7 @@ import networkx as nx
 from networkx.classes.graph import Graph
 
 from pyapi_rts.api.component import Component
+from pyapi_rts.api.graph import EdgeType, add_xrack_connections
 
 if TYPE_CHECKING:
     from .draft import Draft
@@ -270,12 +271,12 @@ class Container:
 
         for value in label_connections.values():
             for i, j in itertools.combinations(value, 2):
-                local_graph.add_edge(i, j, type="LABEL_CONNECTED")
+                local_graph.add_edge(i, j, type=EdgeType.LABEL)
 
         for value in linked_connections.values():
             for i, j in itertools.combinations(value, 2):
                 if not local_graph.has_edge(i, j):
-                    local_graph.add_edge(i, j, type="LINK_CONNECTED")
+                    local_graph.add_edge(i, j, type=EdgeType.LINK)
 
         add_xrack_connections(xrack_connections, local_graph, mark_xrack=False)
 
@@ -299,7 +300,7 @@ class Container:
         components = self.get_components(recursive=False, clone=False, with_groups=True)
         for comp in components:
             graph.add_node(comp.uuid, type=comp.type)
-        graph.add_edges_from(edges)
+        graph.add_edges_from(edges, type=EdgeType.GRID)
 
         return graph
 
@@ -330,22 +331,22 @@ class Container:
                 box_comps = box.search_by_name(component.name)
                 for box_comp in box_comps:
                     if box_comp.type == component.type:
-                        local_graph.add_edge(uuid, box_comp.uuid, type="NAME_CONNECTED")
+                        local_graph.add_edge(uuid, box_comp.uuid, type=EdgeType.NAME)
 
             for key, value in box_label_connections.items():
-                if label_connections.get(key) is None:
+                if key not in label_connections:
                     label_connections[key] = value
                 else:
                     label_connections[key] += value
 
             for key, value in box_linked_connections.items():
-                if linked_connections.get(key) is None:
+                if key not in linked_connections:
                     linked_connections[key] = value
                 else:
                     linked_connections[key] += value
 
             for key, value in box_xrack_connections.items():
-                if xrack_connections.get(key) is None:
+                if key not in xrack_connections:
                     xrack_connections[key] = value
                 else:
                     xrack_connections[key] += value
@@ -507,27 +508,3 @@ class Container:
         if clone:
             return copy.deepcopy(components)
         return components
-
-
-def add_xrack_connections(xrack_connections: dict, graph: Graph, mark_xrack: bool) -> None:
-    for key, value in xrack_connections.items():
-        ctype = None
-        if key[1] in {"lf_rtds_sharc_sld_TLINE", "_rtds_CABLE1.def"}:
-            ctype = "TLINE_CONNECTED"
-        elif key[1] == "lf_rtds_sharc_sld_TL16CAL":
-            endpoints = xrack_connections.get((key[0], "lf_rtds_sharc_sld_TLINE"))
-            if endpoints:
-                for e in endpoints:
-                    if not graph.has_edge(value[0], e):
-                        graph.add_edge(value[0], e, type="TLINE_CALC", xrack=mark_xrack)
-        elif key[1] == "_rtds_CBLCAL.def":
-            endpoints = xrack_connections.get((key[0], "_rtds_CABLE1.def"))
-            if endpoints:
-                for e in endpoints:
-                    if not graph.has_edge(value[0], e):
-                        graph.add_edge(value[0], e, type="TLINE_CALC", xrack=mark_xrack)
-        elif "rtds_XRTRF" in key[1]:
-            ctype = "XRTRF_CONNECTED"
-        for i, j in itertools.combinations(value, 2):
-            if not graph.has_edge(i, j):
-                graph.add_edge(i, j, type=ctype, xrack=mark_xrack)

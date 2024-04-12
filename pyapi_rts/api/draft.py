@@ -13,7 +13,7 @@ from pyapi_rts.api.lark.rlc_tline import RLCTLine
 
 from pyapi_rts.api.lark.tli_transformer import TliFile
 from pyapi_rts.api.component import Component
-from pyapi_rts.api.container import add_xrack_connections
+from pyapi_rts.api.graph import add_xrack_connections
 from pyapi_rts.api.subsystem import Subsystem
 
 

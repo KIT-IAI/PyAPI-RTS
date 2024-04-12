@@ -4,6 +4,8 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
+from pyapi_rts.api.graph import EdgeType
+
 
 def visualize_graph(
     graph: nx.Graph,
@@ -74,21 +76,17 @@ def _color_node_type(ntype: str) -> str:
     return "#0a72d3"
 
 
-def _color_edge_type(etype: str) -> str:
-    if etype is None:
-        # grid-based
+def _color_edge_type(etype: EdgeType) -> str:
+    if etype == EdgeType.GRID:
         return "#000000"
-    if etype == "NAME_CONNECTED":
-        # grid-based hierarchy
+    if etype == EdgeType.NAME:
         return "#d80000"
-    if etype == "LABEL_CONNECTED":
+    if etype == EdgeType.LABEL:
         return "#eadb07"
-    if etype in {"TLINE_CONNECTED", "XRTRF_CONNECTED"}:
+    if etype in {EdgeType.TLINE, EdgeType.XRTRF}:
         return "#fc02f8"
-    if etype == "LINK_CONNECTED":
+    if etype == EdgeType.LINK:
         return "#8302fc"
-    if etype == "XRACK_CONNECTED":
-        return "#05f0fc"
-    if etype == "TLINE_CALC":
+    if etype == EdgeType.TLINE_CALC:
         return "#fc92fa"
     return "#000000"

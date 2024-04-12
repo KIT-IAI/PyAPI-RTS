@@ -28,7 +28,7 @@ class GetConnectedToTest(unittest.TestCase):
         draft.read_file(PATH / "models/labels_in_boxes.dfx")
         self.assertEqual(len(draft.subsystems), 1)
         self.assertEqual(len(draft.get_components()), 21)
-        a1 = draft.search_by_name("A1")["SS #1"][0]
+        a1 = draft.subsystems[0].search_by_name("A1")[0]
         # Get relevant components
         connected_to = draft.subsystems[0].get_connected_to(a1, clone=False)
         # Should be connected to one other wirelabel
