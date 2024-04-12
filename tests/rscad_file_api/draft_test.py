@@ -102,26 +102,6 @@ class DraftTest(unittest.TestCase):
         self.assertEqual(rlc_tline.length, 20.0)
         self.assertIsNone(draft.get_rlc_tline("doesnotexist"))
 
-    def test_search_by_name(self):
-        """
-        Tests the search for components by name in all subsystems
-        """
-        draft = Draft()
-        draft.read_file(PATH / "models/search_by_name.dfx")
-        self.assertEqual(len(draft.search_by_name("BUS1").items()), 2)
-        self.assertEqual(len(draft.search_by_name("BUS1", True)["SS #1"]), 2)
-        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=True)["SS #2"]), 0)
-        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=False)["SS #1"]), 2)
-        self.assertEqual(len(draft.search_by_name("bus1", True, case_sensitive=False)), 2)
-        self.assertEqual(
-            len(draft.search_by_name("bus1", recursive=False, case_sensitive=True)["SS #2"]),
-            0,
-        )
-        self.assertEqual(
-            len(draft.search_by_name("bus2", recursive=True, case_sensitive=False)["SS #2"]),
-            1,
-        )
-
 
 if __name__ == "__main__":
     unittest.main()

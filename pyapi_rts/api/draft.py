@@ -327,34 +327,6 @@ class Draft:
                 return comp
         return None
 
-    # not used, might be deleted
-    def search_by_name(
-        self, name: str, recursive: bool = False, case_sensitive: bool = False
-    ) -> dict[str, list[Component]]:
-        """Search for components by name
-
-        :param name: Name to search for
-        :type name: str
-        :param recursive: Recursive search, defaults to False
-        :type recursive: bool, optional
-        :param case_sensitive: Case sensitive search, defaults to False
-        :type case_sensitive: bool, optional
-        :return: A mapping from the subsystem name to the list of found components
-        :rtype: dict[str, list[Component]]
-        """
-        return dict(
-            map(
-                (
-                    lambda s: (
-                        s.tab_name,
-                        s.search_by_name(name, recursive, case_sensitive),
-                    )
-                ),
-                self.subsystems,
-            )
-        )
-
-    # not used, but useful
     def get_draft_vars(self) -> dict[str, Component]:
         """Get a dictionary with all draft variables in the draft with names as key.
 
@@ -368,8 +340,7 @@ class Draft:
 
         return draft_vars
 
-    # in use, should be the only graph to work with
-    def generate_full_graph(self) -> nx.Graph:
+    def get_graph(self) -> nx.Graph:
         graph = nx.Graph()
         xrack: dict[tuple[str, str], list[str]] = {}
 

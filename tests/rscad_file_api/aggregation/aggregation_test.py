@@ -71,7 +71,7 @@ class AggregationTest(unittest.TestCase):
                 draft.subsystems[0].remove_component(neighbor, False)
 
         # Clean up WIRELABELs
-        full_graph = draft.generate_full_graph()
+        full_graph = draft.get_graph()
         for wirelabel in draft.get_components_by_type("wirelabel", recursive=False):
             wl_uuid = wirelabel.uuid
             if len(list(full_graph.neighbors(wl_uuid))) == 1:

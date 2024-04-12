@@ -5,12 +5,7 @@ from enum import Enum
 
 
 class NodeType(Enum):
-    """
-    Enum for the different types of nodes
-
-    :param Enum: NAME_CONNECTED_LINKED, NAME_CONNECTED, OTHER
-    :type Enum: Enum
-    """
+    """Enum for the different types of nodes."""
 
     NAME_CONNECTED_LINKED = "NAME_CONNECTED:LINKED"
     NAME_CONNECTED = "NAME_CONNECTED"
@@ -18,12 +13,7 @@ class NodeType(Enum):
 
 
 class NodeIO(Enum):
-    """
-    Enum for the different types of nodes
-
-    :param Enum: INPUT, OUTPUT, IO, EXTERNAL, UNDEFINED, DEFAULT, GROUND, SHORT, FPGA_SOLVER, VSC, ELECTRICAL
-    :type Enum: Enum
-    """
+    """Enum for the different types of nodes."""
 
     UNDEFINED = "UNDEFINED"
     INPUT = "INPUT"

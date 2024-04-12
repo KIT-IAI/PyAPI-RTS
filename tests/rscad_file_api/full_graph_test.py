@@ -31,7 +31,7 @@ class DraftTest(unittest.TestCase):
         # subsys_graph, _ = subsys.generate_full_graph()
         # visualize_graph(subsys_graph)
 
-        full_graph = draft.generate_full_graph()
+        full_graph = draft.get_graph()
         # visualize_graph(full_graph)
 
         self.assertEqual(full_graph.number_of_nodes(), 81)

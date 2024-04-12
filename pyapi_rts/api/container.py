@@ -93,7 +93,6 @@ class Container:
 
         return draft_vars | self._draft_vars
 
-    # only used in draft.py -> mark for deletion
     def search_by_name(
         self, name: str, recursive: bool = False, case_sensitive: bool = False
     ) -> list[Component] | None:
@@ -483,7 +482,7 @@ class Container:
         :rtype: list[Component]
         """
         draft = self.get_draft()
-        graph: nx.Graph = draft.generate_full_graph()
+        graph: nx.Graph = draft.get_graph()
         components = []
 
         excluded_edge_types: set[str] = set()
