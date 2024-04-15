@@ -6,7 +6,6 @@ import itertools
 from typing import Optional, TYPE_CHECKING, Union
 
 import networkx as nx
-from networkx.classes.graph import Graph
 
 from pyapi_rts.api.component import Component
 from pyapi_rts.api.graph import EdgeType, add_xrack_connections
@@ -25,7 +24,7 @@ class Container:
         """
 
         self._components: dict[str, Component] = {}
-        self._pos_dict: dict[str, list[tuple[str, str]]] | None = None
+        self._pos_dict: dict[tuple[int, int], dict[str, list[str]]] | None = None
         self._draft_vars: dict[str, Component] = {}
 
     def get_components(
@@ -177,7 +176,7 @@ class Container:
             pos_dict = component.generate_pos_dict()
             for key, value in pos_dict.items():
                 if key in self._pos_dict:
-                    self._pos_dict[key] += value
+                    self._pos_dict[key] |= value
                 else:
                     self._pos_dict[key] = value
 
@@ -214,12 +213,11 @@ class Container:
 
         if self._pos_dict is not None:
             for key in list(self._pos_dict):
-                # Remove node from posDict
-                pos_dict_entry = next(filter((lambda a: a[1] == cid), self._pos_dict[key]), None)
-                if pos_dict_entry is not None:
-                    self._pos_dict[key].remove(pos_dict_entry)
+                # Remove node from pos_dict
+                if cid in self._pos_dict[key]:
+                    del self._pos_dict[key][cid]
                     if len(self._pos_dict[key]) == 0:
-                        self._pos_dict.pop(key)
+                        del self._pos_dict[key]
 
         return True
 
@@ -255,7 +253,7 @@ class Container:
             ]
         )
 
-    def get_graph(self) -> tuple[Graph, dict[tuple[str, str], list[str]]]:
+    def get_graph(self) -> tuple[nx.MultiGraph, dict[tuple[str, str], list[str]]]:
         """Generate the full graph consisting of the union of all componentBoxes included in this one.
 
         :return: The graph and dictionary of cross-hierarchy connection points.
@@ -275,38 +273,17 @@ class Container:
 
         for value in linked_connections.values():
             for i, j in itertools.combinations(value, 2):
-                if not local_graph.has_edge(i, j):
-                    local_graph.add_edge(i, j, type=EdgeType.LINK)
+                local_graph.add_edge(i, j, type=EdgeType.LINK)
 
         add_xrack_connections(xrack_connections, local_graph, mark_xrack=False)
 
         return local_graph, xrack_connections
 
-    def _generate_position_graph(self, position_dict: dict[str, list[tuple[str, str]]]) -> Graph:
-        """Generates the connection graph, the position dictionary and the link dictionary
-
-        :return: The connection graph, the position dictionary and the link dictionary
-        :rtype: tuple[Graph, dict[str, list[tuple[str, str]]]]
-        """
-        edges = []
-
-        # Check if any two nodes at the same position are connected and not from the same component
-        for values in position_dict.values():
-            for left, right in itertools.combinations(range(len(values)), 2):
-                if values[left][1] != values[right][1]:
-                    edges.append((values[left][1], values[right][1]))
-
-        graph = nx.Graph()
-        components = self.get_components(recursive=False, clone=False, with_groups=True)
-        for comp in components:
-            graph.add_node(comp.uuid, type=comp.type)
-        graph.add_edges_from(edges, type=EdgeType.GRID)
-
-        return graph
-
     def _generate_full_graph(
         self, depth: int = 0
-    ) -> tuple[Graph, dict[str, list[str]], dict[str, list[str]], dict[tuple[str, str], list[str]]]:
+    ) -> tuple[
+        nx.MultiGraph, dict[str, list[str]], dict[str, list[str]], dict[tuple[str, str], list[str]]
+    ]:
         if self._pos_dict is None:
             self._pos_dict = self._generate_position_dict()
 
@@ -358,22 +335,49 @@ class Container:
             xrack_connections,
         )
 
-    def _generate_position_dict(self) -> dict[str, list[tuple[str, str]]]:
+    def _generate_position_dict(self) -> dict[tuple[int, int], dict[str, list[str]]]:
         """Generates the position dictionary.
 
         :return: The position dictionary
-        :rtype: dict[str, list[tuple[str, str]]]
+        :rtype: dict[tuple[int, int], dict[str, list[str]]]
         """
-        position_dict: dict[str, list[tuple[str, str]]] = {}
+        position_dict: dict[tuple[int, int], dict[str, list[str]]] = {}
         components = self.get_components(recursive=False, clone=False, with_groups=True)
         for component in components:
             comp_pos_dict = component.generate_pos_dict()
-            for key, values in comp_pos_dict.items():
-                if key in position_dict:
-                    position_dict[key] += values
+            for pos, connections in comp_pos_dict.items():
+                if pos in position_dict:
+                    position_dict[pos] |= connections
                 else:
-                    position_dict[key] = values
+                    position_dict[pos] = connections
         return position_dict
+
+    def _generate_position_graph(
+        self, position_dict: dict[tuple[int, int], dict[str, list[str]]]
+    ) -> nx.MultiGraph:
+        """Generates the connection graph, the position dictionary and the link dictionary
+
+        :return: The connection graph, the position dictionary and the link dictionary
+        :rtype: MultiGraph
+        """
+        graph = nx.MultiGraph()
+        components = self.get_components(recursive=False, clone=False, with_groups=True)
+        for comp in components:
+            graph.add_node(comp.uuid, type=comp.type)
+
+        # Check if any two nodes at the same position are connected and not from the same component
+        for single_pos_dict in position_dict.values():
+            for left, right in itertools.combinations(single_pos_dict.keys(), 2):
+                edge_key = graph.add_edge(left, right)
+                graph.edges[left, right, edge_key].update(
+                    {
+                        "type": EdgeType.GRID,
+                        left: single_pos_dict[left],
+                        right: single_pos_dict[right],
+                    },
+                )
+
+        return graph
 
     def _get_nongrid_connections(
         self,
@@ -431,11 +435,11 @@ class Container:
                     xrack[label].append(c.uuid)
         return labels, linked, xrack
 
-    def _get_box_connections(self, graph: nx.Graph, box_uuid: str) -> list[str]:
+    def _get_box_connections(self, graph: nx.MultiGraph, box_uuid: str) -> list[str]:
         """Return a list of all BUSLABEL components connected to a certain component box.
 
         :param graph: The graph describing the position-based connections
-        :type graph: nx.Graph
+        :type graph: nx.MultiGraph
         :param box_uuid: The uuid of the component box to search from
         :type box_uuid: str
         :return: The list of connected BUSLABEL components
@@ -483,7 +487,7 @@ class Container:
         :rtype: list[Component]
         """
         draft = self.get_draft()
-        graph: nx.Graph = draft.get_graph()
+        graph: nx.MultiGraph = draft.get_graph()
         components = []
 
         excluded_edge_types: set[str] = set()
@@ -497,7 +501,7 @@ class Container:
             try:
                 child = next(children)
                 if child not in visited:
-                    etype = graph.edges[parent, child].get("type")
+                    etype = graph.edges[parent, child, 0].get("type")
                     if etype not in excluded_edge_types:
                         components.append(draft.get_by_id(child))
                     stack.append((child, iter(graph[child])))

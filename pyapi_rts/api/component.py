@@ -484,14 +484,14 @@ class Component(DfxBlock):
         # if the component does not specify a load value, return 10
         return 10
 
-    def generate_pos_dict(self) -> dict[str, list[tuple[str, str]]]:
+    def generate_pos_dict(self) -> dict[tuple[int, int], dict[str, list[str]]]:
         """Create a dictionary that maps positions to connection points.
 
-        Key: "{x-coord},{y-coord}" of connection point
+        Key: (x-coord, y-coord) of connection point
         Value: tuple of name of connection point and id of component
 
         :return: The created dictionary
-        :rtype: dict[str, list[tuple]]
+        :rtype: dict[tuple[int, int], list[tuple]]
         """
 
         position_dict = {}
@@ -546,11 +546,11 @@ class Component(DfxBlock):
                     i += 1
         for conn in conns:
             pos = conn.position_from_dict(dictionary, absolute=True)
-            pos_str = f"{pos[0]},{pos[1]}"
-            if pos_str not in position_dict:
-                position_dict[pos_str] = [(conn.name, self.uuid)]
+            pos_key = (pos[0], pos[1])
+            if pos_key not in position_dict:
+                position_dict[pos_key] = {self.uuid: [conn.name]}
             else:
-                position_dict[pos_str].append((conn.name, self.uuid))
+                position_dict[pos_key][self.uuid].append(conn.name)
 
         return position_dict
 

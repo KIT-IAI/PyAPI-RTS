@@ -253,7 +253,8 @@ class Draft:
 
         self.circuit_comments = comments
         reader.next_block()
-        self._component_enumeration = [l.strip() for l in reader.current_block.lines]
+        if reader.current_block is not None:
+            self._component_enumeration = [l.strip() for l in reader.current_block.lines]
 
     def _read_date_author(self, line: str) -> tuple[date, str]:
         created_str = ": ".join(line.split(": ")[1:])
@@ -268,7 +269,7 @@ class Draft:
         :type reader: BlockReader
         """
         number = 1
-        while True:
+        while reader.current_block is not None:
             if Subsystem.check_title(reader.current_block.title):
                 self._subsystems.append(Subsystem(self, number=number))
                 self._subsystems[-1].read_block(reader.current_block)
@@ -333,15 +334,15 @@ class Draft:
         :return: Dictionary of draft variables.
         :rtype: dict[str, Component]
         """
-        draft_vars = {}
+        draft_vars: dict[str, Component] = {}
 
         for subsys in self._subsystems:
             draft_vars |= subsys.get_draft_vars(recursive=True)
 
         return draft_vars
 
-    def get_graph(self) -> nx.Graph:
-        graph = nx.Graph()
+    def get_graph(self) -> nx.MultiGraph:
+        graph = nx.MultiGraph()
         xrack: dict[tuple[str, str], list[str]] = {}
 
         if len(self.subsystems) == 0:
