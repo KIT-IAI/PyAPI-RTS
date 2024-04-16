@@ -4,14 +4,6 @@ pyapi\_rts.api.parameters package
 Submodules
 ----------
 
-pyapi\_rts.api.parameters.boolean\_parameter module
----------------------------------------------------
-
-.. automodule:: pyapi_rts.api.parameters.boolean_parameter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pyapi\_rts.api.parameters.color\_parameter module
 -------------------------------------------------
 
@@ -24,6 +16,14 @@ pyapi\_rts.api.parameters.connection\_point module
 --------------------------------------------------
 
 .. automodule:: pyapi_rts.api.parameters.connection_point
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyapi\_rts.api.parameters.enum\_parameter module
+------------------------------------------------
+
+.. automodule:: pyapi_rts.api.parameters.enum_parameter
    :members:
    :undoc-members:
    :show-inheritance:

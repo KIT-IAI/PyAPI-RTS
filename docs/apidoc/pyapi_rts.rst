@@ -11,6 +11,17 @@ Subpackages
    pyapi_rts.class_extractor
    pyapi_rts.shared
 
+Submodules
+----------
+
+pyapi\_rts.tools module
+-----------------------
+
+.. automodule:: pyapi_rts.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

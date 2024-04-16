@@ -1,72 +1,57 @@
 .. _connection_graph:
 
-Connection Graph
-================
+Graph
+=====
 
-Introduction
-------------
+The **graph** represents the connections between components in the model.
+It is crucial for topology-based queries and operations on the model and can be generated for each individual *Container* component or for the whole *Draft*.
 
-The **Connection Graph** is generated for each *Component Box* in the model.
-It represents the connection between the components using the components as nodes.
+The **graph** represents components with their UUIDs and provides additional information regarding the connections in its edges.
 
-Using an additional **Link Dictionary**, the connection graphs themselves can be merged into a graph of the whole model or just identify the connections to other *Component Boxes*.
+Edge attributes
+---------------
 
-When are two components connected?
-----------------------------------
+``type: EdgeType``
+^^^^^^^^^^^^^^^^^^
 
-Whether two components are connected differs between the graph itself , the get_connected_to() method and the get_connected_at_point() method.
+- ``GRID``
+    - Default connection type. This is defined by connection points touching on the grid.
+    - Usually, a BUS or WIRE component is used to connect two components.
+    - These connections have additional attributes defining the connection points involved.
+- ``NAME``
+    - Connections defined by bus labels touching hierarchies.
+    - Characterized by node type `NAME_CONNECTED`.
+- ``LABEL``
+    - Connections defined by wire labels and signal names of components.
+- ``TLINE``
+    - Connections between endpoints of a transmission line or cable.
+- ``XRTRF``
+    - Connections between endpoints of a cross-rack transformer.
+- ``LINK``
+    - Connections defined by linked bus labels or nodes.
+    - Connect over one or multiple hierarchies without grid connection.
+    - Characterized by node type `NAME_CONNECTED_LINKED`.
+    - Used in rtds_sharc_node and rtds_sharc_sld_BUSLABEL
+- ``TLINE_CALC``
+    - Connections between the endpoints of a transmission line or cable and the corresponding calculation block.
 
-+---------------------------+----------------------------------------+-------------------------------+-----------------------------------------------+----------------+
-| **Type**                  | **Advantages**                         | **Disadvantages**             | **Rules**                                     | Hook available |
-+---------------------------+----------------------------------------+-------------------------------+-----------------------------------------------+----------------+
-|| Graph                    || - Internal                            || - Not across Component Boxes || At least connection point of the two         || Yes           |
-||                          || - Accurate to RSCAD draft mode        || - Only UUIDs are returned    || components overlap.                          ||               |
-||                          || - Lazily evaluated and cached         ||                              ||                                              ||               |
-+---------------------------+----------------------------------------+-------------------------------+-----------------------------------------------+----------------+
-|| get_connected_to()       || - Easy to use                         || - Inflexible                 || Connected on graph or by name                || No            |
-||                          || - Uses (cached) graph when available  ||                              ||                                              ||               |
-||                          || - Mostly accurate to RSCAD simulation ||                              ||                                              ||               |
-+---------------------------+----------------------------------------+-------------------------------+-----------------------------------------------+----------------+
-|| get_connected_at_point() || - Useful for following signal from    || - Doesn't use caching        || Connected between the connection points only || No            |
-||                          || specific connection point             ||                              || via 'connecting components', i.e. bus etc.   ||               |
-||                          || - Simple search for i.e. manager      ||                              ||                                              ||               |
-+---------------------------+----------------------------------------+-------------------------------+-----------------------------------------------+----------------+
+``xrack: bool``
+^^^^^^^^^^^^^^^
 
-Most of the time, only one of these options is suited for a specific use case.
+- line, cable and cross-rack transformer
+- signal import/export
 
-Generation and updates
-----------------------
+``<uuid>: list[str]`` (Connection points)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The connection graph is generated on first use to avoid long delays when the model is loaded.
-It is updated whenever a component is added, removed or modified in a way that changes the connection points.
+- List of connection points involved in the connection for the *Component* with the corresponding ``uuid``.
 
-Every time the graph is generated or updated, the **Position Dictionary** and **Link Dictionary** are also updated.
+Performance considerations
+--------------------------
 
-Cloned and referenced components
---------------------------------
-
-To improve performance, the :code:`get_components()` method in the `ComponentBox` class has a *clone* parameter.
-If this is set to True, the returned components are clones of the original components.
-If this is set to False, the returned components are references to the original components.
-
-Changing referenced components can cause the connection graph to be invalid.
-This can not be detected by pyapi_rts and should be avoided.
+The graph is generated on demand to avoid long delays when the model is loaded.
+The graph is in part based on the so-called **position dictionary** that maps coordinates in a *Container* to UUIDs of *Components* and the *ConnectionPoints* at these coordinates.
+This dictionary is updated whenever a component is added, removed or updated using the methods provided by the *Container*.
+The connections not based on the grid are generated on demand (every time) when the graph is requested.
  
 
-Types of connections
-====================
-
-- grid-based connections 
-    - e.g. via BUS or WIRE
-- grid-based connections over multiple hierarchies
-    - e.g. BUSLABEL connected to HIERARCHY via BUS
-    - characterized by node type `NAME_CONNECTED`
-- label based connections 
-    - i.e. wirelabel and signal names of components
-- linked node connections 
-    - connect over one or multiple hierarchies without grid connection
-    - characterized by node type `NAME_CONNECTED_LINKED`
-    - used in rtds_sharc_node and rtds_sharc_sld_BUSLABEL
-- cross-rack connections
-    - line, cable and cross-rack transformer
-    - signal import/export

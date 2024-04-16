@@ -7,7 +7,7 @@ Installation
 Installing Poetry
 ^^^^^^^^^^^^^^^^^
 
-pyapi_rts uses Poetry to manage python dependencies and versions.
+``pyapi_rts`` uses Poetry to manage python dependencies and versions.
 Installation instructions for your operating system can be found here: `Poetry <https://python-poetry.org/docs/>`__.
 
 After Poetry is installed, the necessary Python version and dependencies can be installed by running the :code:`poetry install` command.

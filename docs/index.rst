@@ -30,12 +30,6 @@ Index
    dfx_files
    component_builder_format
 
-.. toctree:: 
-   :maxdepth: 1
-   :caption: Extensions
-   
-   component_extensions
-   extension_hooks
 
 Indices and tables
 ==================

@@ -35,14 +35,14 @@ pyapi_rts
     Subsystem
         A canvas on which **components** and **component boxes** are placed.
 
-    Component Box
+    Container
         A set of components on a canvas and their connections to each other.
         The basis for **Subsystems**, **Hierarchies** and **Groups**.
         See :ref:`Connection Graph <connection_graph>` for more information.
 
     Hierarchy
-        A component that is a **Component Box** at the same time.
-        Through connections to the component, connections to components within the **Component Box** can be established.
+        A component that is a **Container** at the same time.
+        Through connections to the component, connections to components within the **Container** can be established.
         A hierarchy can contain other hierarchies, allowing for better readability of the model.
 
     Group

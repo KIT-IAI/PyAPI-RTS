@@ -3,8 +3,8 @@
 Examples
 ========
 
-Creation of empty model
------------------------
+Creation of an empty model
+--------------------------
 
 .. code-block:: python
     :caption: Create and save empty model
@@ -22,8 +22,8 @@ Creation of empty model
         draft.add_subsystem(subsystem)
         draft.write_file("test.dfx")
    
-Basic editing of model
-----------------------
+Basic editing of a model
+------------------------
 
 .. code-block:: python
    :caption: Simple example

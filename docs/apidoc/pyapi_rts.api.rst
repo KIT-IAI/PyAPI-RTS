@@ -21,10 +21,10 @@ pyapi\_rts.api.component module
    :undoc-members:
    :show-inheritance:
 
-pyapi\_rts.api.component\_box module
-------------------------------------
+pyapi\_rts.api.container module
+-------------------------------
 
-.. automodule:: pyapi_rts.api.component_box
+.. automodule:: pyapi_rts.api.container
    :members:
    :undoc-members:
    :show-inheritance:
@@ -41,6 +41,14 @@ pyapi\_rts.api.enumeration module
 ---------------------------------
 
 .. automodule:: pyapi_rts.api.enumeration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyapi\_rts.api.graph module
+---------------------------
+
+.. automodule:: pyapi_rts.api.graph
    :members:
    :undoc-members:
    :show-inheritance:

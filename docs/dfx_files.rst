@@ -1,9 +1,7 @@
 ====================
 .dfx File Format
 ====================
-------------
-Introduction
-------------
+
 The .dfx file format is a format used by RSCAD FX 1.0 and later versions to store an energy network.
 It is a plain-text based format that used indentations to define the structure of the file as a tree, with key-value pairs at the leaves.
 

@@ -12,14 +12,6 @@ pyapi\_rts.shared.bounding\_box module
    :undoc-members:
    :show-inheritance:
 
-pyapi\_rts.shared.component\_hook module
-----------------------------------------
-
-.. automodule:: pyapi_rts.shared.component_hook
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pyapi\_rts.shared.condition\_tree module
 ----------------------------------------
 

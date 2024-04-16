@@ -9,7 +9,6 @@ Subpackages
 
    pyapi_rts.class_extractor.extracted
    pyapi_rts.class_extractor.generators
-   pyapi_rts.class_extractor.hooks
    pyapi_rts.class_extractor.readers
 
 Submodules

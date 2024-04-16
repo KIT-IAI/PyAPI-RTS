@@ -3,8 +3,6 @@
 Component Builder File Format
 =================================
 
-Introduction
-------------
 The Component Builder file format is a format used by RSCAD FX 1.0 and later to define a component type.
 The format consists of a simple text file structures by indentations.
 While the basic structure resembles :doc:`dfx_files` **Type A Nodes**, the format is far more complex than the simple key-value pairs used in .dfx files.
