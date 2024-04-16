@@ -6,6 +6,7 @@ import pathlib
 import unittest
 
 from pyapi_rts.api import Draft, Component
+from pyapi_rts.api.graph import get_connected_to
 from pyapi_rts.generated.lfrtdssharcsldSHUNTCAP import lfrtdssharcsldSHUNTCAP
 from pyapi_rts.generated.rtdsudcDYLOAD import rtdsudcDYLOAD
 
@@ -30,23 +31,22 @@ class AggregationTest(unittest.TestCase):
         draft.read_file(PATH / "kit_aggregation_grouped.dfx")
         self.assertEqual(len(draft.subsystems), 1)
         self.assertEqual(len(draft.get_components()), 172)
+        graph = draft.get_graph()
         B123_4_400V = draft.subsystems[0].search_by_name("B123_4_400V")[0]
 
         # Get relevant components
-        connected_to = draft.subsystems[0].get_connected_to(B123_4_400V, clone=False)
-        dyloads = list(
-            filter(
-                (lambda c: isinstance(c, rtdsudcDYLOAD)),
-                connected_to,
-            )
-        )
+        connected_to = get_connected_to(graph, B123_4_400V.uuid)
+        dyloads = [
+            draft.get_by_id(c)
+            for c in connected_to
+            if isinstance(draft.get_by_id(c), rtdsudcDYLOAD)
+        ]
         self.assertEqual(len(dyloads), 5)
-        shunts = list(
-            filter(
-                (lambda c: isinstance(c, lfrtdssharcsldSHUNTCAP)),
-                connected_to,
-            )
-        )
+        shunts = [
+            draft.get_by_id(c)
+            for c in connected_to
+            if isinstance(draft.get_by_id(c), lfrtdssharcsldSHUNTCAP)
+        ]
         self.assertEqual(len(shunts), 4)
 
         graph, _ = draft.subsystems[0].get_graph()

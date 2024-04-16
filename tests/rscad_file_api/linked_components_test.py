@@ -5,6 +5,7 @@ import pathlib
 import unittest
 
 from pyapi_rts.api.draft import Draft
+from pyapi_rts.api.graph import get_connected_to
 
 PATH = pathlib.Path(__file__).parent.resolve()
 
@@ -24,12 +25,7 @@ class LinkedComponentsTest(unittest.TestCase):
         self.assertEqual(len(draft.subsystems), 1)
         tline1 = draft.get_components(False)[0]
         tline2 = draft.get_components(False)[1]
-        self.assertTrue(
-            tline2.uuid
-            in map(
-                (lambda x: x.uuid), draft.subsystems[0].get_connected_to(tline1)
-            )
-        )
+        self.assertTrue(tline2.uuid in get_connected_to(draft.get_graph(), tline1.uuid))
 
     def test_tline_box_linked(self):
         """
@@ -43,18 +39,11 @@ class LinkedComponentsTest(unittest.TestCase):
         tline2 = draft.get_components(False)[1]
         calc_box = draft.get_components(False)[2]
         self.assertTrue(
-            tline2.uuid
-            in map(
-                (lambda x: x.uuid),
-                draft.subsystems[0].get_connected_to(tline1),
-            )
+            tline2.uuid in get_connected_to(draft.get_graph(), tline1.uuid),
         )
         self.assertTrue(
             calc_box.uuid
-            in map(
-                (lambda x: x.uuid),
-                draft.subsystems[0].get_connected_to(tline2, include_all_connections=True),
-            )
+            in get_connected_to(draft.get_graph(), tline2.uuid, excluded_edge_types=set()),
         )
 
 

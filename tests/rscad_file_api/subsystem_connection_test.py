@@ -5,6 +5,7 @@ import pathlib
 import unittest
 
 from pyapi_rts.api import Draft
+from pyapi_rts.api.graph import get_connected_to
 
 PATH = pathlib.Path(__file__).parent.resolve()
 
@@ -27,10 +28,8 @@ class SubsystemConnectionTest(unittest.TestCase):
         self.assertEqual(len(draft.subsystems[1].get_components()), 3)
         tline_first_subsystem = draft.subsystems[0].search_by_name("LINESE1")[0]
         tline_second_subsystem = draft.subsystems[1].search_by_name("LINESE1")[0]
-        connected = draft.subsystems[0].get_connected_to(tline_first_subsystem)
-        self.assertTrue(
-            tline_second_subsystem.uuid in list(map((lambda c: c.uuid), connected))
-        )
+        connected = get_connected_to(draft.get_graph(), tline_first_subsystem.uuid)
+        self.assertTrue(tline_second_subsystem.uuid in connected)
 
 
 if __name__ == "__main__":

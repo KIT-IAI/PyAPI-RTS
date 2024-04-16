@@ -4,6 +4,7 @@
 import pathlib
 import unittest
 from pyapi_rts.api.draft import Draft
+from pyapi_rts.api.graph import get_connected_to
 
 PATH = pathlib.Path(__file__).parent.resolve()
 
@@ -28,8 +29,8 @@ class LinkedComponentsTest(unittest.TestCase):
         # essentially, BUS1 and BUS2 should be viewed as connected
         # it could be useful to add an option to get_connected_to to exclude connections via lines, transformers etc
         # another possibility would be to allow getting the other end of the line and checking if BUS2 is connected to that end
-        connected = sub.get_connected_to(bus1)
-        self.assertTrue(bus2.uuid in map((lambda x: x.uuid), connected))
+        connected = get_connected_to(draft.get_graph(), bus1.uuid)
+        self.assertTrue(bus2.uuid in connected)
 
         # tlines = draft.get_components_by_type('lf_rtds_sharc_sld_TLINE', False)
         # tline1 = tlines[0]

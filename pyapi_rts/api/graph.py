@@ -1,7 +1,7 @@
 from enum import Enum
 import itertools
 
-from networkx import Graph
+import networkx as nx
 
 
 class EdgeType(Enum):
@@ -23,7 +23,7 @@ class EdgeType(Enum):
 
 
 def add_xrack_connections(
-    xrack_connections: dict[tuple[str, str], list[str]], graph: Graph, mark_xrack: bool
+    xrack_connections: dict[tuple[str, str], list[str]], graph: nx.MultiGraph, mark_xrack: bool
 ) -> None:
     """Add the xrack connections to the graph. From a given dictionary.
 
@@ -51,3 +51,40 @@ def add_xrack_connections(
         for i, j in itertools.combinations(value, 2):
             if not graph.has_edge(i, j):
                 graph.add_edge(i, j, type=ctype, xrack=mark_xrack)
+
+
+def get_connected_to(
+    graph: nx.MultiGraph,
+    source: str,
+    excluded_edge_types: set[EdgeType] | None = None,
+) -> list[str]:
+    """Returns all components connected to a certain component, including those from hierarchies
+
+    :param component: UUID of initial component to search from
+    :type component: str
+    :param excluded_edge_types: Set of edge types to exclude from the search. Defaults to TLINE_CALC.
+    :type excluded_edge_types: set[EdgeType], optional
+    :return: List of UUIDs of all components connected to the given component
+    :rtype: list[str]
+    """
+    components: list[str] = []
+
+    if excluded_edge_types is None:
+        excluded_edge_types = {EdgeType.TLINE_CALC}
+
+    visited = {source}
+    stack = [(source, iter(graph[source]))]
+    while stack:
+        parent, children = stack[-1]
+        try:
+            child = next(children)
+            if child not in visited:
+                etype = graph.edges[parent, child, 0].get("type")
+                if etype not in excluded_edge_types:
+                    components.append(child)
+                stack.append((child, iter(graph[child])))
+                visited.add(child)
+        except StopIteration:
+            stack.pop()
+
+    return components
