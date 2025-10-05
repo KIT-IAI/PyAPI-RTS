@@ -13,6 +13,11 @@ import sys
 import time
 from typing import Any
 
+try:
+    from line_profiler import profile
+except ImportError:
+    # Create drop in replacement that does nothing if the profiler is not installed
+    profile = lambda x: x
 from progress.bar import Bar
 
 from pyapi_rts.class_extractor import EnumHashPool
@@ -208,6 +213,7 @@ def read_graphics_files(paths):
     )
 
 
+@profile
 def read_component_dir(
     dir_path: str,
     tag_dict: dict[str, list[str]],
@@ -286,8 +292,9 @@ def _not_blacklisted(include_obsolete: bool, parts: tuple[str,...]) -> bool:
     blacklisted = ("TLINE_ICONS",)
     return (include_obsolete or (not "OBSOLETE" in parts)) and not (any(b in parts for b in blacklisted))
 
-if __name__ == "__main__":
 
+@profile
+def main():
     WORKER_COUNT = 10
 
     # Load arguments
@@ -395,3 +402,7 @@ if __name__ == "__main__":
         + str(time.perf_counter() - time_start)
         + f" with {WORKER_COUNT} threads"
     )
+
+
+if __name__ == "__main__":
+    main()
