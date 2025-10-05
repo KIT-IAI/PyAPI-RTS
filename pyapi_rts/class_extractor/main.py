@@ -11,7 +11,7 @@ import pathlib
 import shutil
 import sys
 import time
-from typing import Any
+from typing import Any, Callable
 
 try:
     from line_profiler import profile
@@ -42,6 +42,13 @@ from pyapi_rts.shared.condition_tree import BBNode
 
 
 PATH = pathlib.Path(__file__).parent.resolve()
+
+
+def split_by_condition(items: list, condition: Callable[[Any], bool]) -> tuple[list, list]:
+    true_list, false_list = [], []
+    for item in items:
+        (true_list if condition(item) else false_list).append(item)
+    return true_list, false_list
 
 
 def reverse_dictionary(dictionary: dict[Any, list[Any]]) -> dict:
@@ -234,54 +241,27 @@ def read_component_dir(
     :return: list of components and their enum parameter types.
     :rtype: list[tuple[ExtComponent, list[ExtEnumParameter]]]
     """
-    read_list: tuple[ExtComponent, list[ExtEnumParameter]] = []
-    read_paths = []
 
-    # Load all subfolders
-    component_dir = list(
-        map(
-            (lambda e: pathlib.Path(e[0])),
-            os.walk(dir_path, topdown=False, onerror=None, followlinks=False),
-        )
+    file_path_list = sorted(
+        path
+        for path in pathlib.Path(dir_path).rglob("**/*")
+        if path.is_file()
+        and _not_blacklisted(include_obsolete, path.parts)
+        and path.suffix.lower() not in {'.jpg', '.png', '.jpeg', '.xml', '.v5backup', '.txt', '.csv'}
     )
-    component_dir.sort()
-    # component_dir = component_dir[1:]
-    # Load all files
-    next_index = 0
     hash_input = hashlib.new("sha256")
-    for subdir in filter(
-        lambda f: _not_blacklisted(include_obsolete, f.parts),
-        component_dir,
-    ):
-        paths = list(os.scandir(str(subdir)))
-        paths = list(
-            filter(
-                (lambda p: not p.path.endswith((".jpg", ".JPG")) and p.is_file()),
-                paths,
-            )
-        )
-        with Bar("Folder progress", max=len(paths)) as prog_bar:
-            for param in paths:
-                with open(param.path, "r", encoding="cp1252") as file_stream:
-                    lines_out = file_stream.readlines()
-                    hash_input.update(str.encode("\n".join(lines_out)))
-                read_paths.append(pathlib.Path(param.path))
-                prog_bar.next()
-        print(
-            "Read folder number "
-            + str(next_index)
-            + ": "
-            + (str(paths[0].path) if paths != [] else "None")
-        )
-        next_index += 1
+    for file_path in file_path_list:
+        hash_input.update(file_path.read_bytes())
+
+    graphic_file_paths, def_file_paths = split_by_condition(file_path_list, lambda x: x.suffix.lower() == '.g')
 
     print("Hash over read Component Builder files: ", hash_input.hexdigest())
 
-    read_graphics_files(path for path in read_paths if path.suffix == ".g")
+    read_graphics_files(graphic_file_paths)
 
     # Create threads
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
-        read_list = executor.map((lambda path: read_file(path, tag_dict)), read_paths)
+        read_list = executor.map((lambda path: read_file(path, tag_dict)), def_file_paths)
 
     read_list = list(read_list)
     read_list = list(filter((lambda x: x[0] is not None), read_list))
