@@ -16,6 +16,20 @@ from .enum_parameter import EnumParameter
 from .hex_parameter import HexParameter
 from .parameter import Parameter
 
+
+REAL = FloatParameter
+INTEGER = IntegerParameter
+CHAR = StringParameter
+CHARACTER = StringParameter
+NAME = NameParameter
+COLOR = ColorParameter
+STRING = StringParameter
+# FILE
+HEX = HexParameter
+# IMAGE
+# REAL_ARRAY
+# TOGGLE is treated differently as it resolves an enum
+
 __all__ = [
     "FloatParameter",
     "IntegerParameter",
@@ -26,5 +40,13 @@ __all__ = [
     "ParameterCollection",
     "Parameter",
     "EnumParameter",
-    "HexParameter"
+    "HexParameter",
+    "REAL",
+    "INTEGER",
+    "CHAR",
+    "CHARACTER",
+    "NAME",
+    "COLOR",
+    "HEX",
+    "STRING"
 ]
