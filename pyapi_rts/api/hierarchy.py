@@ -6,13 +6,20 @@ import re
 from pyapi_rts.api.internals.block import Block
 from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.component import Component
-from pyapi_rts.generated.HIERARCHY import HIERARCHY
 
 from pyapi_rts.api.container import Container
+from pyapi_rts.api.parameters import Parameter
 
 
-class Hierarchy(HIERARCHY, Container):
+# TODO this needs a restructuring as a mixin that becomes mixed into the generated class in the generator code
+# class Hierarchy(HIERARCHY, Container):
+class Hierarchy(Component, Container):
     """A component of type hierarchy, can contain other components."""
+
+    def as_dict(self) -> dict[str, Parameter]:
+        raise NotImplementedError(
+            'The hierarchy class has been detached from the real generated class - and might need further fixes'
+        )
 
     _title_regex = re.compile(r"^HIERARCHY-START:\s?\n?$")
 
