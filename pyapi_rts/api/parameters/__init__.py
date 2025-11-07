@@ -12,6 +12,8 @@ from .color_parameter import ColorParameter
 from .name_parameter import NameParameter
 from .connection_point import ConnectionPoint
 from .parameter_collection import ParameterCollection
+from .enum_parameter import EnumParameter
+from .hex_parameter import HexParameter
 from .parameter import Parameter
 
 __all__ = [
@@ -23,4 +25,6 @@ __all__ = [
     "ConnectionPoint",
     "ParameterCollection",
     "Parameter",
+    "EnumParameter",
+    "HexParameter"
 ]
