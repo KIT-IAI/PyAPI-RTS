@@ -17,7 +17,6 @@ class Group(Component, Container):
     _title_regex = re.compile(r"^GROUP-START:\s?\n?$")
 
     def read_block(self, block: Block) -> None:
-        import pyapi_rts.generated.class_loader as ClassLoader
         from pyapi_rts.api.hierarchy import Hierarchy
 
         if not self.check_title(block.title):
@@ -40,7 +39,7 @@ class Group(Component, Container):
                 sub_hier.read_block(reader.current_block)
                 self.add_component(sub_hier)
             elif Component.check_title(reader.current_block.title):  # Read component
-                new_component = ClassLoader.get_by_key(
+                new_component = Component.factory(
                     reader.current_block.title.split("COMPONENT_TYPE=")[1].rstrip()
                 )  # Create new component from typeId
                 new_component.read_block(reader.current_block)

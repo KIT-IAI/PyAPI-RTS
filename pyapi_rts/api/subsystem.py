@@ -12,7 +12,6 @@ from pyapi_rts.api.internals.blockreader import BlockReader
 from pyapi_rts.api.internals.dfxblock import DfxBlock
 from pyapi_rts.api.group import Group
 from pyapi_rts.api.hierarchy import Hierarchy
-import pyapi_rts.generated.class_loader as ClassLoader
 
 
 class SubsystemPrintLayout(Enum):
@@ -121,7 +120,7 @@ class Subsystem(DfxBlock, Container):
                 comp.read_block(reader.current_block)
                 self.add_component(comp)
             elif Component.check_title(reader.current_block.title):
-                comp = ClassLoader.get_by_key(
+                comp = Component.factory(
                     reader.current_block.title.split("COMPONENT_TYPE=")[1][:-1].rstrip()
                 )
                 comp.read_block(reader.current_block)

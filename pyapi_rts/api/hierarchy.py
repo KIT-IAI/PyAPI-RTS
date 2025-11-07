@@ -31,7 +31,6 @@ class Hierarchy(HIERARCHY, Container):
         :type block: Block
         """
         from pyapi_rts.api.group import Group
-        import pyapi_rts.generated.class_loader as ClassLoader
 
         reader = BlockReader(block.lines)
         super().read_block(reader.current_block)  # Read the hierarchy component
@@ -51,7 +50,7 @@ class Hierarchy(HIERARCHY, Container):
                 self.add_component(sub_hier)
             elif Component.check_title(reader.current_block.title):  # Read component
                 # Create new component from typeId
-                c = ClassLoader.get_by_key(
+                c = Component.factory(
                     reader.current_block.title.split("COMPONENT_TYPE=")[1][:-1].rstrip()
                 )
                 c.read_block(reader.current_block)

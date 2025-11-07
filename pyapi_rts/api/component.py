@@ -1,9 +1,9 @@
 # LGPL-3.0 License
 # Copyright (c) 2023 KIT-IAI-ESA
-
+import importlib
 from abc import abstractmethod
 from enum import Enum
-from typing import Any, Callable
+from typing import Any, Callable, Self
 import copy
 import re
 import uuid
@@ -27,6 +27,19 @@ class Component(DfxBlock):
     type = ""
     """The type name of the RSCAD component."""
     GRID_SIZE = 32
+
+    GENERATED_CLASS_MODULE_PATH = 'pyapi_rts.generated'
+
+    @classmethod
+    def factory(cls, component_key: str) -> Self:
+        try:
+            module = importlib.import_module(f'{cls.GENERATED_CLASS_MODULE_PATH}.{component_key}')
+            for key in dir(module):
+                obj = getattr(module, key)
+                if issubclass(obj, cls):
+                    return obj()
+        except:
+            raise Exception(f'import of {component_key} failed')
 
     def __init__(self) -> None:
         from pyapi_rts.api.container import Container
