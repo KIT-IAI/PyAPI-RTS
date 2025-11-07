@@ -1,12 +1,14 @@
-[tool.poetry]
+[project]
 name = "pyapi_rts"
-version = "0.1.0"
+version = "1.0.0a2"
 description = ""
+
+[tool.poetry]
 authors = ["Moritz Weber <moritz.weber@kit.edu>"]
 exclude = ["pyapi_rts/class_extractor"]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.10,<3.14"
 networkx = "^2.8"
 progress = "^1.6"
 lark = "^1.1.2"
