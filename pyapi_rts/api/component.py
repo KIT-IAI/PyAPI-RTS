@@ -71,6 +71,9 @@ class Component(DfxBlock):
         self._computations: dict[str, Callable] = {}
         self._collections: list[ParameterCollection] = []
 
+    def evaluate(self, expression: str) -> Any:
+        return None  # TODO this could hopefully not be necessary with RSCAD FX
+
     @property
     def uuid(self) -> str:
         """Return the component uuid
