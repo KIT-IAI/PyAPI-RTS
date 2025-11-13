@@ -571,8 +571,6 @@ class Component(DfxBlock):
         return position_dict
 
     def _calc_bounding_box(self, coordinates: list[tuple]) -> tuple:
-        x1 = min(coordinates, key=lambda x: x[0])[0]
-        y1 = min(coordinates, key=lambda x: x[1])[1]
-        x2 = max(coordinates, key=lambda x: x[2])[2]
-        y2 = max(coordinates, key=lambda x: x[3])[3]
-        return (x1, y1, x2, y2)
+        x_list = [x for c in coordinates for x in [c[0], c[2]]]
+        y_list = [y for c in coordinates for y in [c[1], c[3]]]
+        return min(x_list), min(y_list), max(x_list), max(y_list)
