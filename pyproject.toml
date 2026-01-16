@@ -1,6 +1,6 @@
 [project]
 name = "pyapi_rts"
-version = "1.0.0a2"
+version = "1.0.0a11"
 description = ""
 
 [tool.poetry]
@@ -9,7 +9,7 @@ exclude = ["pyapi_rts/class_extractor"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-networkx = "^2.8"
+networkx = "^3.5"
 progress = "^1.6"
 lark = "^1.1.2"
 ipykernel = "^6.15.1"
